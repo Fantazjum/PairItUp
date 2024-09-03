@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<svg viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+ <!-- Created with SVG-edit - https://github.com/SVG-Edit/svgedit-->
+ <!-- Created by Aleksy Slizewski --> <g class="layer">
+  <title>teddy bear</title>
+  <path d="m9,17l-6,3l3,4l5,-5l-2,-2z" fill="#a0522d" fill-opacity="null" id="svg_6" stroke="#000000" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="null" stroke-opacity="null" stroke-width="0.2"/>
+  <path d="m16,17l-2,2l5,5l3,-4l-6,-3z" fill="#a0522d" fill-opacity="null" id="svg_7" stroke="#000000" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="null" stroke-opacity="null" stroke-width="0.2"/>
+  <path d="m9,10c-1.95,-0.51 -4.37,0.7 -5.5,2c-1.13,1.3 -1.86,3.05 -1.5,5l3,-0.5c0.23,-0.97 0.32,-1.68 0.75,-2.5c0.43,-0.82 0.77,-1.54 2.25,-2l1,-2z" fill="#a0522d" fill-opacity="null" id="svg_4" stroke="#000000" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="null" stroke-opacity="null" stroke-width="0.2"/>
+  <path d="m16,10l1,2c1.1,0.33 1.85,1.24 2.25,2c0.4,0.76 0.6,1.54 0.75,2.5l3,0.5c0.33,-2.01 -0.34,-3.64 -1.5,-5c-1.16,-1.36 -3.6,-2.51 -5.5,-2z" fill="#a0522d" fill-opacity="null" id="svg_5" stroke="#000000" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="null" stroke-opacity="null" stroke-width="0.2"/>
+  <ellipse cx="12.5" cy="14" fill="#a0522d" id="svg_2" rx="5" ry="6" stroke="#000000" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="null" stroke-width="0.2"/>
+  <path d="m8.5,6c0,-0.55 0.11,-1.08 0.31,-1.56c0.2,-0.48 -0.92,-1.48 0.19,-2.44c1.11,-0.96 1.46,0.52 1.94,0.31c0.48,-0.2 1,-0.31 1.56,-0.31c0.55,0 1.08,0.11 1.56,0.31c0.48,0.2 0.79,-1.17 1.94,-0.31c1.16,0.86 -0.02,1.96 0.19,2.44c0.2,0.48 0.31,1 0.31,1.56c0,0.55 -1.79,4 -4,4c-2.21,0 -4,-3.45 -4,-4z" fill="#a0522d" id="svg_3" stroke="#000000" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="null" stroke-width="0.2"/>
+  <circle cx="4.5" cy="22" fill="#a0522d" fill-opacity="null" id="svg_8" r="2.5" stroke="#000000" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="null" stroke-opacity="null" stroke-width="0.2"/>
+  <circle cx="20.5" cy="22" fill="#a0522d" fill-opacity="null" id="svg_9" r="2.5" stroke="#000000" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="null" stroke-opacity="null" stroke-width="0.2"/>
+  <circle cx="4.5" cy="22" fill="#a0522d" fill-opacity="null" id="svg_10" r="2.5" stroke="#000000" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="null" stroke-opacity="null" stroke-width="0.2"/>
+  <circle cx="4.5" cy="22" fill="#daa520" id="svg_11" r="2" stroke="#000000" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="null" stroke-opacity="null" stroke-width="0.2"/>
+  <circle cx="20.5" cy="22" fill="#daa520" id="svg_12" r="2" stroke="#000000" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="null" stroke-opacity="null" stroke-width="0.2" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+  <circle cx="3.5" cy="16.75" fill="#a0522d" fill-opacity="null" id="svg_13" r="1.5" stroke="#000000" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="null" stroke-opacity="null" stroke-width="0.2" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+  <circle cx="21.5" cy="16.75" fill="#a0522d" fill-opacity="null" id="svg_14" r="1.5" stroke="#000000" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="null" stroke-opacity="null" stroke-width="0.2"/>
+  <circle cx="21.5" cy="16.75" fill="#daa520" id="svg_15" r="1" stroke="#000000" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="null" stroke-opacity="null" stroke-width="0.2" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+  <circle cx="3.5" cy="16.75" fill="#daa520" id="svg_16" r="1" stroke="#000000" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="null" stroke-opacity="null" stroke-width="0.2" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+  <circle cx="12.5" cy="15" fill="#daa520" id="svg_17" r="3.5" stroke="#000000" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="null" stroke-opacity="null" stroke-width="0.2" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+  <ellipse cx="11" cy="5" fill="#000000" id="svg_19" rx="0.5" ry="1" stroke="#000000" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="null" stroke-opacity="null" stroke-width="0.2"/>
+  <ellipse cx="14" cy="5" fill="#000000" id="svg_20" rx="0.5" ry="1" stroke="#000000" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="null" stroke-opacity="null" stroke-width="0.2"/>
+  <path d="m12.5,8c-0.15,-0.03 -0.6,-0.23 -0.75,-0.5l0,0c0.48,-0.35 1.02,-0.4 1.5,0l0,0c-0.2,0.32 -0.6,0.53 -0.75,0.5z" fill="#000000" id="svg_21" stroke="#000000" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="null" stroke-opacity="null" stroke-width="0.2"/>
+  <path d="m12.5,8c-0.09,1.57 -1.26,1.01 -1.25,0.5" fill="#000000" fill-opacity="0" id="svg_22" stroke="#000000" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="null" stroke-opacity="null" stroke-width="0.2"/>
+  <path d="m12.5,8c-0.09,1.57 1.24,1.01 1.25,0.5" fill="#000000" fill-opacity="0" id="svg_23" stroke="#000000" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="null" stroke-opacity="null" stroke-width="0.2"/>
+  <path d="m9.25,3.5c-0.69,-0.65 0.05,-1.44 0.75,-1l0,0l-0.75,1l0,0z" fill="#daa520" id="svg_24" stroke="#000000" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="null" stroke-opacity="null" stroke-width="0.2"/>
+  <path d="m15.75,3.5c0.65,-0.75 -0.21,-1.64 -0.75,-1l0,0l0.75,1l0,0z" fill="#daa520" id="svg_25" stroke="#000000" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="null" stroke-opacity="null" stroke-width="0.2"/>
+ </g>
+</svg>

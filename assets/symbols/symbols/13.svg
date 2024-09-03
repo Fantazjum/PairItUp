@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<svg viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+ <!-- Created with SVG-edit - https://github.com/SVG-Edit/svgedit-->
+ <defs>
+  <radialGradient cx="0.32" cy="0.63" fx="0" fy="1" id="svg_7" r="0.5" spreadMethod="reflect">
+   <stop id="jq_stop_9022" offset="0" stop-color="#ffa500" stop-opacity="1"/>
+   <stop id="jq_stop_203" offset="0.54" stop-color="#ff4500" stop-opacity="0.99"/>
+   <stop id="jq_stop_6003" offset="1" stop-color="#ff8c00" stop-opacity="1"/>
+  </radialGradient>
+  <radialGradient cx="0.5" cy="0.5" id="svg_14" r="0.73" spreadMethod="pad">
+   <stop id="jq_stop_9902" offset="0.45" stop-color="#8b0000" stop-opacity="0.99"/>
+   <stop id="jq_stop_6745" offset="1" stop-color="#ff4500" stop-opacity="1"/>
+  </radialGradient>
+ </defs>
+ <g class="layer">
+  <title>bowling ball</title>
+  <circle cx="12.5" cy="12.5" fill="url(#svg_7)" id="svg_1" r="9" stroke="#000000" stroke-width="0.2"/>
+  <circle cx="18.93" cy="13.1" fill="url(#svg_14)" id="svg_8" r="1.39" stroke="#000000" stroke-dasharray="null" stroke-linecap="null" stroke-linejoin="null" stroke-opacity="0" stroke-width="0.2" transform="matrix(1, 0, 0, 1, 0, 0) rotate(-28.3577, 18.9255, 13.0993)"/>
+  <circle cx="15.1" cy="13.33" fill="url(#svg_14)" id="svg_15" r="1.47" stroke="#000000" stroke-dasharray="null" stroke-linecap="null" stroke-linejoin="null" stroke-opacity="0" stroke-width="0.2" transform="matrix(1, 0, 0, 1, 0, 0) matrix(0.819644, -0.499717, 0.488391, 0.838652, -3.68977, 10.1422)"/>
+  <circle cx="17.72" cy="16.85" fill="url(#svg_14)" id="svg_17" r="1.64" stroke="#000000" stroke-dasharray="null" stroke-linecap="null" stroke-linejoin="null" stroke-opacity="0" stroke-width="0.2" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+  <ellipse cx="6.63" cy="6.63" fill="#000000" fill-opacity="0" id="svg_18" rx="0.05" ry="0" stroke="#000000" stroke-dasharray="null" stroke-linecap="null" stroke-linejoin="null" stroke-width="0.2"/>
+  <ellipse cx="15.55" cy="8.66" fill="#000000" fill-opacity="0" id="svg_19" rx="1.46" ry="1.61" stroke="#ffffff" stroke-dasharray="null" stroke-linecap="null" stroke-linejoin="null" stroke-width="0.5" transform="matrix(1, 0, 0, 1, 0, 0) rotate(-29.4764, 15.5475, 8.6621)"/>
+  <ellipse cx="14.28" cy="5.89" fill="#000000" fill-opacity="0" id="svg_29" rx="1.2" ry="1.28" stroke="#ffffff" stroke-dasharray="null" stroke-linecap="null" stroke-linejoin="null" stroke-width="0.5" transform="matrix(1, 0, 0, 1, 0, 0) rotate(-21.0454, 14.2942, 6.03677) matrix(0.95572, -0.240961, 0.262355, 0.877786, -0.899033, 4.31174)"/>
+  <ellipse cx="8.32" cy="11.05" fill="#000000" fill-opacity="0" id="svg_30" opacity="0.5" rx="0" ry="0" stroke="#ffffff" stroke-dasharray="null" stroke-linecap="null" stroke-linejoin="null" stroke-width="0.5"/>
+ </g>
+</svg>

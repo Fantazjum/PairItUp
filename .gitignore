@@ -1,0 +1,8 @@
+# Visual Studio Code related
+.classpath
+.project
+.settings/
+.vscode/*
+
+#python related
+data/venv

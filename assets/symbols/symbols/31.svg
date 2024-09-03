@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<svg viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+ <!-- Created with SVG-edit - https://github.com/SVG-Edit/svgedit-->
+ <!-- Created by Aleksy Slizewski --> <g class="layer">
+  <title>fish</title>
+  <path d="m18,7c2.76,0 6,2.24 6,5c0,2.76 -3.24,5 -6,5l0,0c-1.19,0.12 -1.95,-3.68 -2,-5c-0.05,-1.32 0.36,-5.06 2,-5l0,0z" fill="#00bfbf" id="svg_1" stroke="#000000" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.2"/>
+  <path d="m3,12c0,-0.97 -2.1,-5.35 -1,-6c1.1,-0.65 2.67,4.13 5,3c2.33,-1.13 2.2,-1.14 2.85,-1.43c0.65,-0.3 1.18,-0.46 -0.2,-1.57c-1.39,-1.11 0.33,-1.65 1.7,-1.05c1.37,0.6 1.71,1.07 2.07,1.37c0.36,0.3 0.42,0.92 1.23,0.81c0.82,-0.11 2.39,-0.13 3.35,-0.13l0,0c-1.19,-0.17 -2.15,2.54 -2,5c0.15,2.46 1.06,5.01 2,5l0,0c-1.93,0 -8.47,0.12 -11,-2c-2.53,-2.12 -3.9,2.65 -5,2c-1.1,-0.65 1,-4.03 1,-5z" fill="#007fff" id="svg_2" stroke="#000000" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="null" stroke-width="0.2"/>
+  <path d="m11.5,15.1c0.09,1.82 -0.81,3.75 -0.5,4c0.31,0.25 2.54,-1.11 3,-3" fill="#007fff" fill-opacity="null" id="svg_3" stroke="#000000" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="null" stroke-width="0.2"/>
+  <circle cx="20" cy="10" fill="#ffffff" id="svg_4" r="0.5" stroke="#000000" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.2" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+  <circle cx="20" cy="10" fill="#ffffff" id="svg_5" r="0.1" stroke="#000000" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.2"/>
+ </g>
+</svg>

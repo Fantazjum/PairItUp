@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<svg viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+ <!-- Created with SVG-edit - https://github.com/SVG-Edit/svgedit-->
+ <!-- Created by Aleksy Slizewski --> <g class="layer">
+  <title>bar stool</title>
+  <g id="svg_17">
+   <path d="m9.01,4.65l-1.43,14.65l1.43,0l0.5,-4l9.01,0l0.5,4l1.43,0l-1.43,-14.65l-1.43,0l0.72,8.99l-8.58,0l0.72,-8.99l-1.43,0z" fill="#8b4513" fill-opacity="null" id="svg_2" stroke="#000000" stroke-dasharray="null" stroke-linecap="square" stroke-linejoin="round" stroke-opacity="null" stroke-width="0.2" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+   <g id="svg_13">
+    <path d="m19.38,13.18l-2.86,2.66l0,1.33l2.86,-2.66l0,-1.33z" fill="#8b4513" fill-opacity="null" id="svg_4" stroke="#000000" stroke-dasharray="null" stroke-linecap="square" stroke-linejoin="round" stroke-opacity="0" stroke-width="0.2" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+    <path d="m18.66,13.9c-0.64,0.6 -1.28,1.2 -1.92,1.8" fill="none" fill-opacity="null" id="svg_6" stroke="#000000" stroke-dasharray="null" stroke-linejoin="round" stroke-opacity="null" stroke-width="0.2"/>
+    <path d="m18.56,13.99c0.41,-0.39 0.93,0.24 0.55,0.9" fill="none" fill-opacity="null" id="svg_12" stroke="#000000" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="null" stroke-width="0.2"/>
+    <line fill="none" fill-opacity="null" id="svg_7" stroke="#000000" stroke-dasharray="null" stroke-linecap="null" stroke-linejoin="round" stroke-opacity="null" stroke-width="0.2" transform="matrix(1, 0, 0, 1, 0, 0)" x1="19.16" x2="16.87" y1="14.84" y2="16.97"/>
+   </g>
+   <g id="svg_14">
+    <path d="m9.25,13.77l-2.86,2.66l0,1.33l2.86,-2.66l0,-1.33z" fill="#8b4513" fill-opacity="null" id="svg_5" stroke="#000000" stroke-dasharray="null" stroke-linecap="square" stroke-linejoin="round" stroke-opacity="0" stroke-width="0.2" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+    <line fill="none" fill-opacity="null" id="svg_9" stroke="#000000" stroke-dasharray="null" stroke-linecap="null" stroke-linejoin="round" stroke-opacity="null" stroke-width="0.2" x1="6.25" x2="8.75" y1="16.57" y2="14.04"/>
+    <line fill="none" fill-opacity="null" id="svg_10" stroke="#000000" stroke-dasharray="null" stroke-linecap="null" stroke-linejoin="round" stroke-opacity="null" stroke-width="0.2" x1="6.6" x2="8.75" y1="17.5" y2="15.42"/>
+    <path d="m8.7,14.09c0.45,-0.35 1.18,0.44 0.1,1.28" fill="#8b4513" fill-opacity="null" id="svg_15" stroke="#000000" stroke-dasharray="null" stroke-linecap="square" stroke-linejoin="round" stroke-width="0.2"/>
+   </g>
+   <path d="m6.29,7.32l-1.43,14.65l1.43,0l0.5,-4l9.01,0l0.5,4l1.43,0l-1.43,-14.65l-1.43,0l0.72,8.99l-8.58,0l0.72,-8.99l-1.43,0z" fill="#8b4513" fill-opacity="null" id="svg_3" stroke="#000000" stroke-dasharray="null" stroke-linecap="square" stroke-linejoin="round" stroke-opacity="null" stroke-width="0.2"/>
+   <ellipse cx="12.58" cy="5.92" fill="#8b4513" fill-opacity="null" id="svg_16" rx="8.58" ry="2.66" stroke="#000000" stroke-dasharray="null" stroke-linecap="square" stroke-linejoin="round" stroke-opacity="null" stroke-width="0.2"/>
+  </g>
+ </g>
+</svg>

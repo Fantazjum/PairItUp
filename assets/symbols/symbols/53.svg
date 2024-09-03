@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<svg viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+ <!-- Created with SVG-edit - https://github.com/SVG-Edit/svgedit-->
+ <!-- Created by Aleksy Slizewski --> <g class="layer">
+  <title>medal</title>
+  <path d="m21.75,3.85l0.5,0.5l-9.75,13.65l0,-1.5l9.25,-12.65z" fill="#ffffff" id="svg_28" stroke="#000000" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="bevel" stroke-opacity="0" stroke-width="null"/>
+  <rect fill="#ff0000" height="0.93" id="svg_20" stroke="#000000" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="bevel" stroke-opacity="0" stroke-width="null" width="15" x="5" y="5"/>
+  <rect fill="#ffffff" height="0.93" id="svg_19" stroke="#000000" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="bevel" stroke-opacity="0" stroke-width="null" width="16" x="4.5" y="4"/>
+  <rect fill="#0000bf" height="0.93" id="svg_14" stroke="#000000" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="bevel" stroke-opacity="0" transform="matrix(1, 0, 0, 1, 0, 0)" width="17.2" x="3.9" y="3.1"/>
+  <path d="m12.5,19l-10.5,-14l2,-2l17,0l2,2l-10.5,14z" fill="#000000" fill-opacity="0" id="svg_9" stroke="#000000" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="bevel" stroke-opacity="null" stroke-width="0.2"/>
+  <path d="m3.95,3.15l-0.7,0.7l9.25,12.65l0,-1.35l-8.55,-12z" fill="#0000bf" fill-opacity="null" id="svg_17" stroke="#000000" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="bevel" stroke-opacity="0" stroke-width="null" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+  <path d="m21.05,3.15l0.7,0.7l-9.25,12.65l0,-1.35l8.55,-12z" fill="#0000bf" fill-opacity="null" id="svg_18" stroke="#000000" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="bevel" stroke-opacity="0" stroke-width="null"/>
+  <path d="m12.5,15l-6.5,-9l13,0l-6.5,9z" fill="#000000" fill-opacity="0" id="svg_11" stroke="#000000" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="bevel" stroke-opacity="null" stroke-width="0.2"/>
+  <path d="m22.9,5l-10.4,13.9l0,-1.15l9.75,-13.4l0.65,0.65z" fill="#ff0000" fill-opacity="null" id="svg_24" stroke="#000000" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="bevel" stroke-opacity="0" stroke-width="null"/>
+  <path d="m2.1,5l10.4,13.9l0,-1.15l-9.85,-13.35l-0.55,0.6z" fill="#ff0000" fill-opacity="null" id="svg_25" stroke="#000000" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="bevel" stroke-opacity="0" stroke-width="null"/>
+  <path d="m3.25,3.85l-0.5,0.5l9.75,13.65l0,-1.5l-9.25,-12.65z" fill="#ffffff" id="svg_26" stroke="#000000" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="bevel" stroke-opacity="0" stroke-width="null"/>
+  <path d="m3.25,3.85l-0.6,0.6l9.85,13.4l0,-1.35l-9.25,-12.65z" fill="#ffffff" id="svg_27" stroke="#000000" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="bevel" stroke-opacity="0" stroke-width="null"/>
+  <circle cx="12.5" cy="19.5" fill="#ffd700" id="svg_1" r="4.5" stroke="#000000" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="null" stroke-opacity="null" stroke-width="0.2"/>
+ </g>
+</svg>

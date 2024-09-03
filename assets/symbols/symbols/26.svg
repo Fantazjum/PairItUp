@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<svg viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+ <!-- Created with SVG-edit - https://github.com/SVG-Edit/svgedit-->
+ <!-- Created by Aleksy Slizewski --> <g class="layer">
+  <title>dice</title>
+  <g id="svg_47">
+   <title>dice</title>
+   <rect fill="#000000" fill-opacity="0" height="6.04" id="svg_3" stroke="#000000" stroke-dasharray="null" stroke-linecap="null" stroke-linejoin="null" stroke-opacity="null" stroke-width="0.2" width="5.83" x="13.66" y="11.99"/>
+   <line fill="none" fill-opacity="0" id="svg_4" stroke="#000000" stroke-dasharray="null" stroke-linecap="null" stroke-linejoin="null" stroke-opacity="null" stroke-width="0.2" x1="11.33" x2="13.66" y1="9.58" y2="12.04"/>
+   <line fill="none" fill-opacity="0" id="svg_5" stroke="#000000" stroke-dasharray="null" stroke-linecap="null" stroke-linejoin="null" stroke-opacity="null" stroke-width="0.2" x1="17.16" x2="19.49" y1="9.58" y2="12.04"/>
+   <line fill="none" fill-opacity="0" id="svg_6" stroke="#000000" stroke-dasharray="null" stroke-linecap="null" stroke-linejoin="null" stroke-opacity="null" stroke-width="0.2" x1="11.33" x2="17.16" y1="9.58" y2="9.64"/>
+   <line fill="none" fill-opacity="0" id="svg_7" stroke="#000000" stroke-dasharray="null" stroke-linecap="null" stroke-linejoin="null" stroke-opacity="null" stroke-width="0.2" x1="11.33" x2="11.28" y1="9.52" y2="9.7"/>
+   <line fill="none" fill-opacity="0" id="svg_9" stroke="#000000" stroke-dasharray="null" stroke-linecap="null" stroke-linejoin="null" stroke-opacity="null" stroke-width="0.2" x1="11.33" x2="11.33" y1="9.58" y2="15.61"/>
+   <line fill="none" fill-opacity="0" id="svg_10" stroke="#000000" stroke-dasharray="null" stroke-linecap="null" stroke-linejoin="null" stroke-opacity="null" stroke-width="0.2" x1="13.66" x2="11.33" y1="18.03" y2="15.61"/>
+   <line fill="none" fill-opacity="0" id="svg_11" stroke="#000000" stroke-dasharray="null" stroke-linecap="null" stroke-linejoin="null" stroke-opacity="null" stroke-width="0.2" x1="11.33" x2="7.83" y1="13.2" y2="13.2"/>
+   <line fill="none" fill-opacity="0" id="svg_12" stroke="#000000" stroke-dasharray="null" stroke-linecap="null" stroke-linejoin="null" stroke-opacity="null" stroke-width="0.2" x1="7.83" x2="7.83" y1="13.2" y2="7.16"/>
+   <line fill="none" fill-opacity="0" id="svg_13" stroke="#000000" stroke-dasharray="null" stroke-linecap="null" stroke-linejoin="null" stroke-opacity="null" stroke-width="0.2" x1="7.83" x2="13.66" y1="7.16" y2="7.16"/>
+   <line fill="none" fill-opacity="0" id="svg_14" stroke="#000000" stroke-dasharray="null" stroke-linecap="null" stroke-linejoin="null" stroke-opacity="null" stroke-width="0.2" x1="13.66" x2="13.66" y1="7.16" y2="9.58"/>
+   <line fill="none" fill-opacity="0" id="svg_15" stroke="#000000" stroke-dasharray="null" stroke-linecap="null" stroke-linejoin="null" stroke-opacity="null" stroke-width="0.2" x1="5.5" x2="7.83" y1="4.75" y2="7.16"/>
+   <line fill="none" fill-opacity="0" id="svg_17" stroke="#000000" stroke-dasharray="null" stroke-linecap="null" stroke-linejoin="null" stroke-opacity="null" stroke-width="0.2" x1="11.33" x2="13.66" y1="4.75" y2="7.16"/>
+   <line fill="none" fill-opacity="0" id="svg_18" stroke="#000000" stroke-dasharray="null" stroke-linecap="null" stroke-linejoin="null" stroke-opacity="null" stroke-width="0.2" x1="5.5" x2="11.33" y1="4.75" y2="4.75"/>
+   <line fill="none" fill-opacity="0" id="svg_19" opacity="0.5" stroke="#000000" stroke-dasharray="null" stroke-linecap="null" stroke-linejoin="null" stroke-opacity="null" stroke-width="0.2" x1="11.51" x2="11.56" y1="5.09" y2="4.91"/>
+   <line fill="none" fill-opacity="0" id="svg_22" stroke="#000000" stroke-dasharray="null" stroke-linecap="null" stroke-linejoin="null" stroke-opacity="null" stroke-width="0.2" x1="5.5" x2="5.5" y1="4.75" y2="10.78"/>
+   <line fill="none" fill-opacity="0" id="svg_23" stroke="#000000" stroke-dasharray="null" stroke-linecap="null" stroke-linejoin="null" stroke-opacity="null" stroke-width="0.2" x1="7.83" x2="5.5" y1="13.2" y2="10.78"/>
+   <circle cx="16.57" cy="15.01" fill="#ff0000" id="svg_24" r="0.59" stroke="#000000" stroke-dasharray="null" stroke-linecap="null" stroke-linejoin="null" stroke-opacity="0.1" stroke-width="0.2"/>
+   <circle cx="9.29" cy="8.37" fill="#0000ff" fill-opacity="null" id="svg_27" r="0.58" stroke="#000000" stroke-dasharray="null" stroke-linecap="null" stroke-linejoin="null" stroke-opacity="0.1" stroke-width="0.2"/>
+   <circle cx="9.29" cy="10.18" fill="#0000ff" fill-opacity="null" id="svg_28" r="0.58" stroke="#000000" stroke-dasharray="null" stroke-linecap="null" stroke-linejoin="null" stroke-opacity="0.1" stroke-width="0.2"/>
+   <circle cx="9.29" cy="11.99" fill="#0000ff" fill-opacity="null" id="svg_29" r="0.58" stroke="#000000" stroke-dasharray="null" stroke-linecap="null" stroke-linejoin="null" stroke-opacity="0.1" stroke-width="0.2"/>
+   <circle cx="12.2" cy="8.37" fill="#0000ff" fill-opacity="null" id="svg_30" r="0.58" stroke="#000000" stroke-dasharray="null" stroke-linecap="null" stroke-linejoin="null" stroke-opacity="0.1" stroke-width="0.2"/>
+   <ellipse cx="6.14" cy="6.8" fill="#0000ff" fill-opacity="null" id="svg_31" rx="0.35" ry="0.65" stroke="#000000" stroke-dasharray="null" stroke-linecap="null" stroke-linejoin="null" stroke-opacity="0.1" stroke-width="0.2"/>
+   <ellipse cx="7.19" cy="11.09" fill="#0000ff" fill-opacity="null" id="svg_32" rx="0.35" ry="0.65" stroke="#000000" stroke-dasharray="null" stroke-linecap="null" stroke-linejoin="null" stroke-opacity="0.1" stroke-width="0.2"/>
+   <ellipse cx="11.97" cy="11.69" fill="#0000ff" fill-opacity="null" id="svg_33" rx="0.35" ry="0.65" stroke="#000000" stroke-dasharray="null" stroke-linecap="null" stroke-linejoin="null" stroke-opacity="0.1" stroke-width="0.2"/>
+   <ellipse cx="11.97" cy="15.07" fill="#0000ff" fill-opacity="null" id="svg_34" rx="0.35" ry="0.65" stroke="#000000" stroke-dasharray="null" stroke-linecap="null" stroke-linejoin="null" stroke-opacity="0.1" stroke-width="0.2"/>
+   <ellipse cx="13.02" cy="12.9" fill="#0000ff" fill-opacity="null" id="svg_35" rx="0.35" ry="0.65" stroke="#000000" stroke-dasharray="null" stroke-linecap="null" stroke-linejoin="null" stroke-opacity="0.1" stroke-width="0.2"/>
+   <ellipse cx="11.97" cy="11.69" fill="#0000ff" fill-opacity="null" id="svg_36" rx="0.35" ry="0.65" stroke="#000000" stroke-dasharray="null" stroke-linecap="null" stroke-linejoin="null" stroke-opacity="0.1" stroke-width="0.2"/>
+   <ellipse cx="13.02" cy="16.22" fill="#0000ff" fill-opacity="null" id="svg_37" rx="0.35" ry="0.65" stroke="#000000" stroke-dasharray="null" stroke-linecap="null" stroke-linejoin="null" stroke-opacity="0.1" stroke-width="0.2"/>
+   <ellipse cx="12.49" cy="13.98" fill="#ff0000" id="svg_38" rx="0.29" ry="0.54" stroke="#000000" stroke-dasharray="null" stroke-linecap="null" stroke-linejoin="null" stroke-opacity="0.1" stroke-width="0.2"/>
+   <ellipse cx="7.25" cy="5.35" fill="#0000ff" id="svg_39" rx="0.52" ry="0.36" stroke="#000000" stroke-dasharray="null" stroke-linecap="null" stroke-linejoin="null" stroke-opacity="0.1" stroke-width="0.2"/>
+   <ellipse cx="10.45" cy="5.35" fill="#0000ff" id="svg_40" rx="0.52" ry="0.36" stroke="#000000" stroke-dasharray="null" stroke-linecap="null" stroke-linejoin="null" stroke-opacity="0.1" stroke-width="0.2"/>
+   <ellipse cx="8.24" cy="6.38" fill="#0000ff" id="svg_41" rx="0.52" ry="0.36" stroke="#000000" stroke-dasharray="null" stroke-linecap="null" stroke-linejoin="null" stroke-opacity="0.1" stroke-width="0.2"/>
+   <ellipse cx="7.25" cy="5.35" fill="#0000ff" id="svg_42" rx="0.52" ry="0.36" stroke="#000000" stroke-dasharray="null" stroke-linecap="null" stroke-linejoin="null" stroke-opacity="0.1" stroke-width="0.2"/>
+   <ellipse cx="11.62" cy="6.38" fill="#0000ff" id="svg_43" rx="0.52" ry="0.36" stroke="#000000" stroke-dasharray="null" stroke-linecap="null" stroke-linejoin="null" stroke-opacity="0.1" stroke-width="0.2"/>
+   <ellipse cx="16.63" cy="10.18" fill="#0000ff" id="svg_44" rx="0.52" ry="0.36" stroke="#000000" stroke-dasharray="null" stroke-linecap="null" stroke-linejoin="null" stroke-opacity="0.1" stroke-width="0.2"/>
+   <ellipse cx="14.24" cy="11.33" fill="#0000ff" id="svg_45" rx="0.52" ry="0.36" stroke="#000000" stroke-dasharray="null" stroke-linecap="null" stroke-linejoin="null" stroke-opacity="0.1" stroke-width="0.2"/>
+   <ellipse cx="15.47" cy="10.78" fill="#ff0000" id="svg_46" rx="0.52" ry="0.36" stroke="#000000" stroke-dasharray="null" stroke-linecap="null" stroke-linejoin="null" stroke-opacity="0.1" stroke-width="0.2"/>
+  </g>
+ </g>
+</svg>
