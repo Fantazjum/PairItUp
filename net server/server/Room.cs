@@ -1,4 +1,4 @@
-﻿using System.Security.Cryptography;
+using System.Security.Cryptography;
 using Server.DTO;
 using Server.GameObjects;
 
@@ -74,7 +74,9 @@ namespace Server
                 }
             }
 
-            if (player.Equals(_host) && (_players.Count + _spectators.Count > 0)) {
+            var activePlayers = _players.Where((player) => player.Connected).ToList().Count;
+
+            if (player.Equals(_host) && (activePlayers + _spectators.Count > 0)) {
                 if (_players.Count > 0) {
                     var newHost = _players.Find(player => player.Connected);
                     if (newHost != null || _spectators.Count > 0) {
@@ -92,7 +94,7 @@ namespace Server
                 MoveSpectators();
             }
 
-            return _players.Count + _spectators.Count > 0;
+            return activePlayers + _spectators.Count > 0;
         }
 
         /// <summary>
@@ -101,7 +103,8 @@ namespace Server
         /// <param name="playerId"></param>
         /// <returns>True if game started, false if it did not.</returns>
         public bool StartGame(string playerId) {
-            if (_players.Count < 2 || _host.id != playerId) {
+            if ((_players.Count < 2 && GameRules.gameType == GameType.HotPotato)
+                || _host.id != playerId) {
                 return false;
             }
 
@@ -126,6 +129,27 @@ namespace Server
 
             return player != null;
         }
+    
+        /// <summary>
+        /// Updates game rules.
+        /// </summary>
+        /// <param name="rules"></param>
+        /// <returns>True if rules updated, false if not.</returns>
+        public bool UpdateRules(GameRules rules) {
+            if (_inProgress) {
+                return false;
+            }
+            if (GameRules.maxPlayers != rules.maxPlayers) {
+                if (GameRules.maxPlayers < rules.maxPlayers) {
+                    MoveSpectators();
+                } else {
+                    MovePlayers(rules.maxPlayers);
+                }
+            }
+            GameRules = rules;
+
+            return true;
+        }
 
         /// <summary>
         /// Ends game, allowing for reading the game summary.
@@ -138,7 +162,12 @@ namespace Server
         /// <summary>
         /// Ends the game, resetting all players.
         /// </summary>
-        public void EndGame() {
+        /// <returns>True if game ended, false if user is not a host.</returns>
+        public bool EndGame(string playerId) {
+            if (playerId != _host.id) {
+                return false;
+            }
+
             _progress = null;
             _players.RemoveAll(player => !player.Connected);
             foreach (var player in _players) {
@@ -146,6 +175,21 @@ namespace Server
             }
 
             MoveSpectators();
+            return true;
+        }
+
+        /// <summary>
+        /// Moves players to spectators based on a new max number of players.
+        /// </summary>
+        /// <param name="newSize">New maximum number of players</param>
+        public void MovePlayers(int newSize) {
+            if (_players.Count <= newSize) {
+                return;
+            }
+
+            var newSpectators = _players.Skip(newSize).ToList();
+            _players.RemoveRange(newSize, newSpectators.Count);
+            _spectators.AddRange(newSpectators);
         }
 
         /// <summary>
@@ -162,7 +206,7 @@ namespace Server
                 _players.AddRange(_spectators);
                 _spectators.Clear();
             } else {
-                var subsection = _spectators.GetRange(0, selectCount);
+                var subsection = _spectators[..selectCount];
                 _spectators.RemoveRange(0, selectCount);
                 _players.AddRange(subsection);
             }
@@ -175,8 +219,8 @@ namespace Server
         /// <param name="player"></param>
         public void Join(Player player) {
             if (_inProgress) {
-                var existing = _players.Find(player.Equals);
-                if (existing != null) {
+                if (_players.Exists(player.Equals)) {
+                    var existing = _players.Find(player.Equals)!;
                     existing.Connected = true;
                 } else {
                     _spectators.Add(player);
@@ -205,7 +249,9 @@ namespace Server
 
             _spectators.Remove(spectator);
 
-            return _players.Count + _spectators.Count > 0;
+            var count = _players.Where((player) => player.Connected).ToList().Count;
+
+            return _spectators.Count + count > 0;
         }
 
         /// <summary>

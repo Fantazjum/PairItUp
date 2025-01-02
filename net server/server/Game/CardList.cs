@@ -1,7 +1,7 @@
-﻿using Server.GameObjects;
+using Server.GameObjects;
 
 namespace Server.game {
-    public class CardList(int symbols, List<Card> cards) {
+    public class CardList(int symbols, List<List<SymbolData>> cards) {
         /// <summary>
         /// Number of symbols on the cards in collection.
         /// </summary>
@@ -9,6 +9,12 @@ namespace Server.game {
         /// <summary>
         /// Collection of the cards.
         /// </summary>
-        public List<Card> cards = cards;
+        public List<List<SymbolData>> cards = cards;
+
+        public List<Card> ExtractCards() {
+            return cards.Select(dataList => {
+              return new Card(dataList);
+            }).ToList();
+        }
     }
 }

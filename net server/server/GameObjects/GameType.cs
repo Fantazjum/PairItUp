@@ -1,4 +1,6 @@
-﻿namespace Server.GameObjects
+using System.Runtime.Serialization;
+
+namespace Server.GameObjects
 {
     public enum GameType
     {

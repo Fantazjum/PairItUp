@@ -1,4 +1,4 @@
-﻿using Server.GameObjects;
+using Server.GameObjects;
 
 namespace Server {
     public sealed class Server {
@@ -29,13 +29,12 @@ namespace Server {
         /// <param name="player"></param>
         /// <param name="roomId"></param>
         public void JoinRoom(Player player, string roomId, string connectionId) {
-            var room = _rooms.Find(room => room.Id == roomId);
-
-            if (room != null) {
+            if (_rooms.Exists(room => room.Id == roomId)) {
+                var room = _rooms.Find(room => room.Id == roomId)!;
                 room.Join(player);
                 _connections.Add(connectionId, roomId + '/' + player.id);
             } else {
-                room = new Room(player, roomId, null);
+                var room = new Room(player, roomId, null);
                 _connections.Add(connectionId, roomId + '/' + player.id);
                 _rooms.Add(room);
             }
@@ -50,12 +49,16 @@ namespace Server {
         /// <returns>Room id or null if creating room failed</returns>
         public string? CreateRoom(GameRules gameRules, Player host, string connectionId, string? roomId = null) {
             if (roomId != null) {
-                if (_rooms.Find(room => room.Id == roomId) != null) {
+                if (_rooms.Exists(room => room.Id == roomId)) {
                     return null;
                 }
             }
             var room = new Room(host, roomId, gameRules);
-            _connections.Add(connectionId, roomId + '/' + host.id);
+            if (_connections.ContainsKey(connectionId)) {
+                _connections[connectionId] = room.Id + '/' + host.id;
+            } else { 
+                _connections.Add(connectionId, room.Id + '/' + host.id);
+            }
 
             _rooms.Add(room);
 
@@ -69,12 +72,29 @@ namespace Server {
         /// <param name="roomId"></param>
         /// <returns>False if no player or room was found, true otherwise.</returns>
         public bool UpdatePlayerData(Player player, string roomId) {
-            var room = _rooms.Find(room => room.Id == roomId);
-            if (room == null) {
+            if (!_rooms.Exists(room => room.Id == roomId)) {
                 return false;
             }
 
+            var room = _rooms.Find(room => room.Id == roomId)!;
+
             return room.UpdatePlayerData(player);
+        }
+
+        /// <summary>
+        /// Updates game rules.
+        /// </summary>
+        /// <param name="player"></param>
+        /// <param name="roomId"></param>
+        /// <returns>False if no player or room was found, true otherwise.</returns>
+        public bool UpdateGameRules(GameRules rules, string roomId) {
+            if (!_rooms.Exists(room => room.Id == roomId)) {
+                return false;
+            }
+
+            var room = _rooms.Find(room => room.Id == roomId)!;
+
+            return room.UpdateRules(rules);
         }
 
         /// <summary>
@@ -83,17 +103,20 @@ namespace Server {
         /// <param name="connectionId"></param>
         /// <returns>Id of the room player disconnected from.</returns>
         public string? Disconnect(string connectionId) {
-            var connectionData = _connections[connectionId];
-            if (connectionData == null) {
+            if (!_connections.TryGetValue(connectionId, out var connectionData)) {
                 return null;
             }
 
             _connections.Remove(connectionId);
 
-            var data = connectionData.Split('/', 2);
+            var data = connectionData!.Split('/', 2);
             var roomId = data[0];
 
-            var room = _rooms.Find(room => room.Id != roomId)!;
+            var room = _rooms.Find(room => room.Id == roomId)!;
+            if (room == null) {
+                return roomId;
+            }
+
             var player = new Player(data[1]);
             if(!room.Leave(player)) {
                 _rooms.Remove(room);
@@ -107,17 +130,21 @@ namespace Server {
         /// <param name="result"></param>
         /// <param name="roomId"></param>
         /// <param name="connectionId"></param>
-        /// <returns>True if symbol exists on a card, false if there is none or either player or the room is somehow not found. Null is returned if another player was first to find the symbol.</returns>
+        /// <returns>True if symbol exists on a card,
+        /// false if there is none or either player or the room is somehow not found.
+        /// Null is returned if another player was first to find the symbol.</returns>
         public bool? CheckResults(int result, string roomId, string connectionId) {
-            // we ensure player is in play, checking the value of dictionary should be fast enough so as to not affect order
+            // we ensure player is in play,
+            // checking the value of dictionary should be fast enough so as to not affect order
             if (!_connections.TryGetValue(connectionId, out var connectionData)) {
                 return false;
             }
 
-            var room = _rooms.Find(room => room.Id == roomId);
-            if (room == null) {
+            if (!_rooms.Exists(room => room.Id == roomId)) {
                 return false;
             }
+
+            var room = _rooms.Find(room => room.Id == roomId)!;
 
             var success = room.CheckResults(result, connectionId);
             if (success == true) {
@@ -134,12 +161,11 @@ namespace Server {
         /// <param name="roomId"></param>
         /// <returns>True if room updates, false if room was not found.</returns>
         public bool ContinueRound(string roomId) {
-            var room = _rooms.Find(room => room.Id == roomId);
-
-            if (room == null) {
+            if (!_rooms.Exists(room => room.Id == roomId)) {
                 return false;
             }
 
+            var room = _rooms.Find(room => room.Id == roomId)!;
             room.ContinueRound();
 
             return true;
@@ -157,17 +183,42 @@ namespace Server {
 
             var playerData = connectionData.Split('/', 2);
             var roomId = playerData[0];
-            var room = _rooms.Find(room => room.Id == roomId);
-
-            if (room == null) {
-                return null;
+            if (!_rooms.Exists(room => room.Id == roomId)) {
+              return null;
             }
+
+            var room = _rooms.Find(room => room.Id == roomId)!;
 
             if(room.StartGame(playerData[1])) {
                 return roomId;
             }
 
+            return "";
+        }
+
+        /// <summary>
+        /// Tries to end the game in the room
+        /// </summary>
+        /// <param name="connectionId"></param>
+        /// <returns>Id of the room if successful, null if player couldn't end the game.</returns>
+        public string? EndGame(string connectionId) {
+          if (!_connections.TryGetValue(connectionId, out var connectionData)) {
             return null;
+          }
+
+          var playerData = connectionData.Split('/', 2);
+          var roomId = playerData[0];
+          if (!_rooms.Exists(room => room.Id == roomId)) {
+            return null;
+          }
+
+          var room = _rooms.Find(room => room.Id == roomId)!;
+
+          if (room.EndGame(playerData[1])) {
+            return roomId;
+          }
+
+          return "";
         }
 
         /// <summary>
@@ -176,7 +227,11 @@ namespace Server {
         /// <param name="roomId"></param>
         /// <returns>Returns Room object with specified id or null if not found.</returns>
         public Room? GetRoom(string roomId) {
-            return _rooms.Find(room => room.Id == roomId);
+                if (!_rooms.Exists(room => room.Id == roomId)) {
+                    return null;
+                }
+
+                return _rooms.Find(room => room.Id == roomId);
+            }
         }
-    }
 }

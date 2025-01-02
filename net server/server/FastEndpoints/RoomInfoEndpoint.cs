@@ -1,24 +1,20 @@
-﻿using FastEndpoints;
+using FastEndpoints;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Server.DTO;
 
 namespace Server.FastEndpoints {
-    [AllowAnonymous]
-    [HttpGet("/api/room/{RoomId}")]
-    public class RoomInfoEndpoint : Endpoint<RoomInfoRequest, Results<Ok<RoomDTO>, NotFound>> {
-
-        public override async Task<Results<Ok<RoomDTO>,NotFound>> HandleAsync(RoomInfoRequest req, CancellationToken ct) {
-            var roomInfo = Server.Instance.GetRoom(req.RoomId)?.ToDTO();
-            
-            // simulate async task for endpoint type
-            await Task.CompletedTask;
+  [HttpGet("/api/room/{RoomId}")]
+  [AllowAnonymous()]
+  public class RoomInfoEndpoint : EndpointWithoutRequest<Results<Ok<RoomDTO>, NotFound>> {
+        public override async Task HandleAsync(CancellationToken ct) {
+            var roomInfo = Server.Instance.GetRoom(Route<string>("RoomId")!)?.ToDTO();
 
             if (roomInfo != null) {
-                return TypedResults.Ok(roomInfo!);
+                await SendResultAsync(TypedResults.Ok(roomInfo!));
+            } else { 
+                await SendResultAsync(TypedResults.NotFound());
             }
-
-            return TypedResults.NotFound();
         }
     }
 }

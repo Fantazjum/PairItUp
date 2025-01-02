@@ -1,4 +1,4 @@
-﻿using MoreLinq.Extensions;
+using MoreLinq.Extensions;
 using Newtonsoft.Json;
 using Server.game;
 
@@ -35,9 +35,14 @@ namespace Server.GameObjects {
         /// <param name="rules"></param>
         /// <returns></returns>
         private static List<Card> InitCards(GameRules rules) {
-            var cardsMinSymbolCount = (int)Math.Floor((1 + Math.Sqrt(4 * rules.cardCount / 3)) / 2);
+            var cardsMinSymbolCount = 5;
+            // this sets the hard upper limit of number of cards and symbols
+            while (cardsMinSymbolCount * (cardsMinSymbolCount - 1) + 1 < rules.cardCount) {
+                cardsMinSymbolCount++;
+            }
+
             var symbolsCount = Math.Max(rules.maxPlayers, cardsMinSymbolCount);
-            var cards = LoadCards(symbolsCount)?.cards ?? [];
+            var cards = LoadCards(symbolsCount) ?? [];
 
             return ShuffleExtension.Shuffle(cards).Slice(0, rules.cardCount).ToList();
         }
@@ -47,7 +52,7 @@ namespace Server.GameObjects {
         /// </summary>
         /// <param name="symbols"></param>
         /// <returns></returns>
-        private static CardList? LoadCards(int symbols) {
+        private static List<Card>? LoadCards(int symbols) {
             Directory.SetCurrentDirectory(AppDomain.CurrentDomain.BaseDirectory);
             var root = Directory.GetCurrentDirectory();
             var path = root + "/Game/GameTypes.json";
@@ -57,7 +62,7 @@ namespace Server.GameObjects {
 
             var cards = JsonConvert.DeserializeObject<List<CardList>>(json);
 
-            return cards?.Find(cardList => cardList.symbols == symbols);
+            return cards?.Find(cardList => cardList.symbols == symbols)?.ExtractCards();
         }
 
         /// <summary>

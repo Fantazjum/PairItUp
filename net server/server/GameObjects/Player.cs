@@ -1,4 +1,4 @@
-﻿using Server.DTO;
+using Server.DTO;
 
 namespace Server.GameObjects
 {
@@ -30,7 +30,7 @@ namespace Server.GameObjects
         /// <param name="other"></param>
         /// <returns></returns>
         public bool Equals(Player other) {
-            return this.id == other.id;
+            return id == other.id;
         }
 
         /// <summary>
@@ -65,7 +65,6 @@ namespace Server.GameObjects
         /// <param name="other"></param>
         public void SetPlayerData(Player other) {
             if (!Equals(other)) {
-
                 return;
             }
 

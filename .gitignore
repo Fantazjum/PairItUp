@@ -3,6 +3,8 @@
 .project
 .settings/
 .vscode/*
+.angular/*
+node_modules/*
 
 #python related
 data/venv
