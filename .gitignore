@@ -8,3 +8,4 @@ node_modules/*
 
 #python related
 data/venv
+data/__pycache__

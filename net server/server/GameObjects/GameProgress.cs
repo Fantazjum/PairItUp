@@ -39,6 +39,10 @@ namespace Server.GameObjects {
             // this sets the hard upper limit of number of cards and symbols
             while (cardsMinSymbolCount * (cardsMinSymbolCount - 1) + 1 < rules.cardCount) {
                 cardsMinSymbolCount++;
+                // the game with the given number of symbols does not exist
+                if (cardsMinSymbolCount == 7) {
+                    cardsMinSymbolCount++;
+                }
             }
 
             var symbolsCount = Math.Max(rules.maxPlayers, cardsMinSymbolCount);
@@ -62,7 +66,7 @@ namespace Server.GameObjects {
 
             var cards = JsonConvert.DeserializeObject<List<CardList>>(json);
 
-            return cards?.Find(cardList => cardList.symbols == symbols)?.ExtractCards();
+            return cards?.Find(cardList => cardList.symbols == symbols)?.cards;
         }
 
         /// <summary>

@@ -9,6 +9,10 @@ const numberOfCards = 55;
 let numberOfSymbols = 5;
 while (numberOfSymbols * (numberOfSymbols - 1) + 1 < numberOfCards) {
     numberOfSymbols++;
+    if (numberOfSymbols == 7) {
+        // the game with the given number of symbols does not exist
+        numberOfSymbols++;
+    }
 }
 // total number of cards/symbols based on number of symbols on card: k^2 - k + 1
 const upperLimits = {

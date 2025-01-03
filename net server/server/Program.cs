@@ -1,7 +1,6 @@
 using FastEndpoints;
 using Server.WebSocket;
 
-
 var builder = WebApplication.CreateBuilder();
 builder.Services.AddCors(options => {
   string[] corsUrls = ["0.0.0.0:7171", "0.0.0.0:4200"];
@@ -16,7 +15,13 @@ builder.Services.AddCors(options => {
       });
 });
 builder.Services
-  .AddSignalR(options => { options.EnableDetailedErrors = true; })
+  #if DEBUG
+    .AddSignalR(options => {
+      options.EnableDetailedErrors = true;
+    })
+  #else
+    .AddSignalR()
+  #endif
   .AddJsonProtocol(options => { options.PayloadSerializerOptions.PropertyNamingPolicy = null; });
 builder.Services.AddFastEndpoints();
 
