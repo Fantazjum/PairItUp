@@ -1,0 +1,16 @@
+<div class="board">
+    <ul>
+        @for(person of people(); track $index) {
+        <li [class.disconnected]="!person.connected" [class.user]="person.player"
+            [class.selectable]="(!blockSelection()) && person.icon !== 'eye'" (click)="onPersonClick(person)">
+            @if(person.icon) {
+            <i [class]="'pi pi-' + person.icon"></i>
+            } @else {
+            <i></i>
+            }
+            <span class="username">{{person.username}}</span>
+            <span class="score">{{person.score}}</span>
+        </li>
+        }
+    </ul>
+</div>

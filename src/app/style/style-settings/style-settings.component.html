@@ -1,0 +1,46 @@
+<div class="style-selector">
+    <label>{{ 'style.theme' | translate }}</label>
+    <div class="theme-selector">
+        <div>
+            <label>{{ 'style.themeLight' | translate }}</label>
+        </div>
+        <app-radio-image [value]="Theme.LIGHT1" [(selected)]="currentTheme" class="image-button" group="theme">
+            <img [src]="'/assets/images/preview-light1-' + fileSuffix" [alt]="('style.themeLight' | translate) + 1">
+        </app-radio-image>
+        <app-radio-image [value]="Theme.LIGHT2" [(selected)]="currentTheme" class="image-button" group="theme">
+            <img [src]="'/assets/images/preview-light2-' + fileSuffix" [alt]="('style.themeLight' | translate) + 2">
+        </app-radio-image>
+        <app-radio-image [value]="Theme.LIGHT3" [(selected)]="currentTheme" class="image-button" group="theme">
+            <img [src]="'/assets/images/preview-light3-' + fileSuffix" [alt]="('style.themeLight' | translate) + 3">
+        </app-radio-image>
+        <div class="color-boxes">
+            <label>{{ 'style.themeColors' | translate }}</label>
+            <div class="boxes">
+                <div class="color-box background"></div>
+                <div class="color-box primary-background"></div>
+                <div class="color-box secondary-background"></div>
+                <div class="color-box primary-action"></div>
+                <div class="color-box on-primary-action-hover"></div>
+                <div class="color-box on-background"></div>
+                <div class="color-box on-primary-background"></div>
+                <div class="color-box on-primary-action"></div>
+                <div class="color-box on-secondary-background-hover"></div>
+                <div class="color-box focus"></div>
+            </div>
+        </div>
+        <div>
+            <label>{{ 'style.themeDark' | translate }}</label>
+        </div>
+        <app-radio-image [value]="Theme.DARK1" [(selected)]="currentTheme" class="image-button" group="theme">
+            <img [src]="'/assets/images/preview-dark1-' + fileSuffix" [alt]="('style.themeDark' | translate) + 1">
+        </app-radio-image>
+        <app-radio-image [value]="Theme.DARK2" [(selected)]="currentTheme" class="image-button" group="theme">
+            <img [src]="'/assets/images/preview-dark2-' + fileSuffix" [alt]="('style.themeDark' | translate) + 2">
+        </app-radio-image>
+        <app-radio-image [value]="Theme.DARK3" [(selected)]="currentTheme" class="image-button" group="theme">
+            <img [src]="'/assets/images/preview-dark3-' + fileSuffix" [alt]="('style.themeDark' | translate) + 3">
+        </app-radio-image>
+    </div>
+    <app-background-selector />
+    <app-music-selector />
+</div>

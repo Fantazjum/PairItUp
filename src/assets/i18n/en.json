@@ -1,0 +1,71 @@
+{
+    "errors": {
+        "invalidFileTypeMessageSummary": "{0}: Invalid file type",
+        "invalidFileTypeMessageDetail": "allowed file types: {0}.",
+        "invalidFileLimitMessageDetail": "limit is {0} at most.",
+        "invalidFileLimitMessageSummary": "Maximum number of files exceeded",
+        "missingRoomCode": "Input a room code to join a game"
+    },
+    "game": {
+        "customRoomCode": "Custom room code",
+        "end": "Game Over",
+        "endGame": "End the game",
+        "join": "Join",
+        "name": "Pair It Up",
+        "newGame": "New Game",
+        "messages": {
+            "incorrect": "Incorrect symbol chosen!",
+            "invalidData": "Invalid game data",
+            "invalidUserData": "Inavlid user data",
+            "notFound": "Room not found",
+            "notHost": "You are not the game host",
+            "notStarted": "Game was not started",
+            "roomCodeInUse": "Room code in use",
+            "stop": "Stop!",
+            "waitTime": "Next guess can be attempted in ",
+            "waitTimeContinued": ""
+        },
+        "roomCode": "Room code",
+        "tie": "Tie",
+        "useLink": "Use a link or input a room code to join a game",
+        "waitingForHost": "Waiting for the host to start the game",
+        "winner": "Winner:",
+        "winners": "Winners:"
+    },
+    "info": {
+        "about": "About",
+        "aboutGame": "Pair It Up game is about finding pairs between cards in play. Each card has a common symbol with any other card. Number of symbols on a card is adjusted to the number of players and number of cards in the game. Currently, two game modes are available to play:",
+        "classic": "Classic",
+        "classicGame": "Be the first person to find a pair between your card and the card in play. After selecting a common symbol, the card goes to the person who chose the pair and replaces the previous card. The winner is the person with the most points.",
+        "hotPotato": "Hot Potato",
+        "hotPotatoFont": "Hot Potato",
+        "hotPotatoGame": "Harder of the game modes. Be the first to find a pair betwenn the card in play and a card of another player. After selecting a common symbol of another player's card, the card in play replaces his previous card. The winner is the person with the least points."
+    },
+    "settings": {
+        "cardCount": "Card Count:",
+        "cardSymbols": "Symbols on the Cards:",
+        "gameSettings": "Game Settings",
+        "gameType": "Game Type:",
+        "nickname": "Nickname:",
+        "playerCount": "Player Count:",
+        "playerSettings": "Player Settings",
+        "settings": "Settings"
+    },
+    "style": {
+        "backgroundAnimated": "Animated Background",
+        "music": "Music",
+        "styleCustomization": "Design",
+        "theme": "Theme",
+        "themeColors": "Colors",
+        "themeDark": "Dark",
+        "themeLight": "Light",
+        "upload": "Upload"
+    },
+    "units": {
+        "seconds": {
+            "one": "a second",
+            "some": "seconds",
+            "other": "seconds"
+        }
+    }
+}

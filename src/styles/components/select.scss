@@ -1,0 +1,95 @@
+p-select,
+p-select.text-select {
+    background: #FFFB;
+    border-radius: 1rem;
+    border-color: var(--onPrimaryBackground, #333E4D);
+
+    .p-select-label,
+    .p-select-dropdown {
+        font-family: 'NK57', 'Times New Roman';
+        padding: 0.5rem 0.75rem;
+        color: #4B5563;
+    }
+
+    .p-select-list-container {
+        border-radius: 6px;
+        background: #FFF;
+        border-color: var(--onPrimaryBackground, #333E4D);
+
+        ul.p-select-list {
+            padding: 0;
+
+            .p-select-option {
+                border-radius: 0;
+            }
+
+            :first-child .p-select-option {
+                border-top-left-radius: 6px;
+                border-top-right-radius: 6px;
+            }
+
+            :last-child .p-select-option {
+                border-bottom-left-radius: 6px;
+                border-bottom-right-radius: 6px;
+            }
+        }
+    }
+
+    p-selectitem .p-select-option:not(:disabled) {
+
+        &,
+        &.p-focus,
+        &.p-focus:not(.p-select-option-selected) {
+            font-family: 'NK57', 'Times New Roman';
+            font-weight: bold;
+            color: #4B5563;
+            background: #FFFB;
+
+            &:hover {
+                background: #BDEB;
+            }
+
+            &.p-select-option-selected {
+                background: #BCFB;
+            }
+        }
+    }
+
+    .p-select-radius {
+        border-radius: 1rem;
+    }
+
+    &:not(:has(:disabled)) {
+
+        &,
+        &.p-focus {
+            border-color: var(--onPrimaryBackground, #333E4D);
+
+            &:hover {
+                box-shadow: 0 0 3px 4px var(--focus, #3B82F6);
+            }
+
+            &:focus,
+            &.p-focus {
+                box-shadow: 0 0 2px 3px var(--focus, #3B82F6);
+            }
+        }
+    }
+
+    @supports not selector(:has(a)) {
+
+        &,
+        &.p-focus {
+            border-color: var(--onPrimaryBackground, #333E4D);
+
+            &:hover {
+                box-shadow: 0 0 3px 4px var(--focus, #3B82F6);
+            }
+
+            &:focus,
+            &.p-focus {
+                box-shadow: 0 0 2px 3px var(--focus, #3B82F6);
+            }
+        }
+    }
+}

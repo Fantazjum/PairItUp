@@ -1,0 +1,4 @@
+<ngt-group #bubble [scale]="0.5" [position]="position()">
+    <ngt-mesh [geometry]="bubbleGeometry()" [material]="materialPair().material" />
+    <ngt-line [geometry]="shineGeometry()" [material]="materialPair().materialVariant" />
+</ngt-group>

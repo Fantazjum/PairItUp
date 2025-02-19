@@ -1,0 +1,33 @@
+<!--Use invisible images for preloading-->
+<img src="/assets/icons/google-icon-info.svg" />
+<img src="/assets/icons/google-icon-exit.svg" />
+<div class="header">
+    <h1>{{ 'game.name' | translate }}</h1>
+    <div class="icons">
+        @if(inGame) {
+        <p-button class="icon-button" (onClick)="showInfoDialog()">
+            <svg>
+                <use xlink:href="/assets/icons/google-icon-info.svg#info" />
+            </svg>
+        </p-button>
+        }
+        <app-language-selector />
+        <p-button class="icon-button" (onClick)="showStyleDialog()">
+            <svg>
+                <use xlink:href="/assets/icons/google-icon-style.svg#style" />
+            </svg>
+        </p-button>
+        <p-button class="icon-button" (onClick)="showSettingsDialog()">
+            <svg>
+                <use xlink:href="/assets/icons/google-icon-settings.svg#cog" />
+            </svg>
+        </p-button>
+        @if(inGame) {
+        <p-button class="icon-button" (click)="leaveGame()">
+            <svg>
+                <use xlink:href="/assets/icons/google-icon-exit.svg#exit" />
+            </svg>
+        </p-button>
+        }
+    </div>
+</div>

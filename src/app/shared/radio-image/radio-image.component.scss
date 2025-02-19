@@ -1,0 +1,54 @@
+[type=radio] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+[type=radio]:disabled+.content {
+    cursor: auto;
+    position: relative;
+    box-shadow: 0 0 3px #233142;
+
+    &::before {
+        content: '';
+        position: absolute;
+        background: #00000055;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+
+    &:focus,
+    &:hover:not(:has(p-button:hover)) {
+        box-shadow: 0 0 3px #233142;
+    }
+}
+
+[type=radio]+.content {
+    cursor: pointer;
+    display: flex;
+    box-shadow: 0 0 3px var(--onPrimaryBackground, #333E4D);
+    transition: box-shadow 0.25s ease-in-out;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1rem;
+    background: transparent;
+    padding: 0;
+    overflow: hidden;
+
+    &:focus {
+        box-shadow: 0 0 1px 2px var(--focus, #3B82F6);
+    }
+
+    &:hover:not(:has(p-button:hover)) {
+        box-shadow: 0 0 1px 4px var(--focus, #3B82F6);
+    }
+}
+
+/* CHECKED STYLES */
+//[type=radio]:checked+.content // currently bugged, custom class
+[type=radio].selected+.content {
+    outline: 3px solid var(--primaryAction, #458EC4);
+}

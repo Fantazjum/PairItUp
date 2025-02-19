@@ -1,7 +1,9 @@
-﻿using Server.GameObjects;
+using Server.GameObjects;
 
-namespace Server.game {
-    public class CardList(int symbols, List<Card> cards) {
+namespace Server.Game
+{
+    public class CardList(int symbols, List<Card> cards)
+    {
         /// <summary>
         /// Number of symbols on the cards in collection.
         /// </summary>

@@ -1,0 +1,70 @@
+:host ::ng-deep {
+    p-select {
+        border: none;
+        background: transparent;
+        border-radius: 50%;
+        box-shadow: 0 0 1px 1px var(--onBackground, #333226);
+
+        &:hover {
+            box-shadow: 0 0 3px 4px var(--focus, #3B82F6);
+        }
+
+        &:focus {
+            box-shadow: 0 0 2px 3px var(--focus, #3B82F6);
+        }
+
+        .p-select {
+            &-dropdown {
+                display: none;
+            }
+
+            &-label {
+                border-radius: 50%;
+                width: 2.4rem;
+                height: 2.4rem;
+                padding: 0;
+
+                >img {
+                    width: 3.33rem;
+                    height: 2.5rem;
+                    margin: 0 0 0 -0.416rem;
+                }
+
+                &:focus,
+                &.p-focus {
+                    outline: none;
+                    box-shadow: 0 0 1px 4px var(--focus, #3B82F6),
+                        0 1px 2px 0 var(--onBackground, #333226);
+                }
+            }
+        }
+
+        .p-select-overlay {
+            width: 9rem;
+            border: none;
+            overflow: hidden;
+            border-radius: 0.5rem;
+            box-shadow: 0 0 3px .5px var(--onBackground, #333226);
+        }
+
+        .p-select-list {
+            padding: 0;
+        }
+
+        li.p-select-option {
+            padding-left: 0.8rem;
+        }
+
+        .select-item {
+            display: flex;
+            gap: 0.75rem;
+            font-family: 'NK57', 'Times New Roman';
+            color: #4B5563;
+
+            >img {
+                width: 2rem;
+                height: 1.5rem;
+            }
+        }
+    }
+}

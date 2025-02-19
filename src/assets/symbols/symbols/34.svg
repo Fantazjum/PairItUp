@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<svg id="symbol" viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+ <!-- Created with SVG-edit - https://github.com/SVG-Edit/svgedit-->
+ <!-- Created by Aleksy Slizewski -->
+ <g class="layer">
+  <title>frog</title>
+  <ellipse cx="2.31" cy="4.64" fill="#000000" fill-opacity="null" id="svg_7" rx="0" ry="0.1" stroke="#000000" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="null" stroke-opacity="null" stroke-width="0.2"/>
+  <g id="svg_20">
+   <path d="m19,21.07l-3,0c0.96,0.3 1.63,0.75 2,1.5l1,-1.5z" fill="#0f990f" fill-opacity="null" id="svg_32" stroke="#000000" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="null" stroke-opacity="null" stroke-width="0.2"/>
+   <path d="m6,21.07l1,1.5c0.37,-0.8 1.04,-1.15 2,-1.5l-3,0z" fill="#0f990f" fill-opacity="null" id="svg_31" stroke="#000000" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="null" stroke-opacity="null" stroke-width="0.2"/>
+   <path d="m20,21.07l-2,1.5c1.33,-0.4 2.82,-0.45 4,0l-2,-1.5z" fill="#0f990f" id="svg_28" stroke="#000000" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="null" stroke-opacity="null" stroke-width="0.2"/>
+   <path d="m4.84,21.07l-1.84,1.5c1.23,-0.55 2.72,-0.45 4,0l-2.16,-1.5z" fill="#0f990f" id="svg_27" stroke="#000000" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="null" stroke-opacity="null" stroke-width="0.2"/>
+   <ellipse cx="12.5" cy="13.09" fill="#007f00" id="svg_15" rx="8" ry="6" stroke="#000000" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="null" stroke-opacity="null" stroke-width="0.2"/>
+   <path d="m5.5,8.09c0.35,-2.17 -0.46,-3.11 0,-5c0.46,-1.89 1.44,-2.23 3,-2.02c1.56,0.21 0.13,2.07 4,2.02c3.87,-0.05 2.44,-1.77 4,-2.02c1.56,-0.25 2.67,0.2 3,2.02c0.33,1.82 -0.45,2.88 0,5c0.45,2.12 -3.13,6 -7,6c-3.87,0 -7.35,-3.83 -7,-6z" fill="#007f00" fill-opacity="null" id="svg_1" stroke="#000000" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="null" stroke-opacity="null" stroke-width="0.2"/>
+   <ellipse cx="7.84" cy="4.12" fill="#bf5f00" id="svg_3" rx="1.5" ry="2" stroke="#000000" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="null" stroke-opacity="null" stroke-width="0.2" transform="matrix(0.984452, -0.175653, 0.175653, 0.984452, -0.937308, 1.41068)"/>
+   <ellipse cx="17.01" cy="4.15" fill="#bf5f00" id="svg_4" rx="1.5" ry="2" stroke="#000000" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="null" stroke-opacity="null" stroke-width="0.2" transform="matrix(0.966635, 0.256157, -0.256157, 0.966635, 2.12083, -4.28256)"/>
+   <ellipse cx="7.25" cy="4.11" fill="#000000" id="svg_5" rx="1" ry="1.5" stroke="#000000" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="null" stroke-opacity="null" stroke-width="0.2" transform="matrix(0.991599, -0.129354, 0.129354, 0.991599, -0.717312, 0.955885)"/>
+   <ellipse cx="18" cy="4.09" fill="#000000" fill-opacity="null" id="svg_8" rx="1" ry="1.5" stroke="#000000" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="null" stroke-opacity="null" stroke-width="0.2" transform="rotate(9.21706, 18, 4.09)"/>
+   <path d="m5.75,9.57c-0.74,-1.71 1.37,2.02 6.75,2.02c5.38,0 7.49,-3.88 6.75,-2.02c-0.74,1.86 -2.96,4.55 -6.75,4.5c-3.79,-0.05 -6.01,-2.79 -6.75,-4.5z" fill="#5fbf00" id="svg_9" stroke="#000000" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="null" stroke-opacity="null" stroke-width="0.2"/>
+   <path d="m7,9.92c-0.3,-0.5 1.63,-0.83 5.5,-0.83c3.87,0 5.85,0.38 5.5,0.83c-0.35,0.45 -4.02,1.67 -5.5,1.67c-1.48,0 -5.2,-1.17 -5.5,-1.67z" fill="#000000" id="svg_10" stroke="#000000" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="null" stroke-opacity="null" stroke-width="0.2"/>
+   <ellipse cx="11.5" cy="8.09" fill="#000000" fill-opacity="null" id="svg_11" rx="0.25" ry="0.25" stroke="#000000" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="null" stroke-opacity="null" stroke-width="0.2"/>
+   <ellipse cx="13.5" cy="8.09" fill="#000000" fill-opacity="null" id="svg_12" rx="0.25" ry="0.25" stroke="#000000" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="null" stroke-opacity="null" stroke-width="0.2"/>
+   <ellipse cx="12.5" cy="11.02" fill="#e51616" id="svg_14" rx="3" ry="0.5" stroke="#000000" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="null" stroke-opacity="null" stroke-width="0.2"/>
+   <path d="m6.5,17.09c-1.14,-1.1 3.24,-2 6,-2c2.76,0 6.84,1.09 6,2c-0.84,0.91 -3.24,2 -6,2c-2.76,0 -4.86,-0.9 -6,-2z" fill="#5fbf00" fill-opacity="null" id="svg_16" stroke="#000000" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="null" stroke-opacity="null" stroke-width="0.2"/>
+   <path d="m19,15.09c0.67,0.67 2.43,1.25 2,2c-0.43,0.75 -1.07,2.1 -2,3l-3,1l3,0l-1,1.5l2,-1.09l2,1.09l-1,-2c0.96,-1.08 1.63,-2.22 2,-3.5c0.37,-1.28 -2,-2.67 -3,-4" fill="#007f00" fill-opacity="null" id="svg_18" stroke="#000000" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="null" stroke-opacity="null" stroke-width="0.2"/>
+   <path d="m6,15.09c-0.67,0.82 -1.57,1.25 -2,2c-0.43,0.75 1.04,2 2,3l3,1l-3,0l1,1.5l-2,-1.09l-2,1.09l1,-2c-0.82,-1.08 -2.37,-2.22 -2,-3.5c0.37,-1.28 1.47,-2.77 3,-4" fill="#007f00" fill-opacity="null" id="svg_19" stroke="#000000" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="null" stroke-opacity="null" stroke-width="0.2"/>
+   <circle cx="9" cy="21.07" fill="#007f00" fill-opacity="null" id="svg_21" r="0.33" stroke="#000000" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="null" stroke-opacity="null" stroke-width="0.2"/>
+   <circle cx="16" cy="21.07" fill="#007f00" fill-opacity="null" id="svg_22" r="0.33" stroke="#000000" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="null" stroke-opacity="null" stroke-width="0.2"/>
+   <circle cx="18" cy="22.57" fill="#007f00" fill-opacity="null" id="svg_23" r="0.33" stroke="#000000" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="null" stroke-opacity="null" stroke-width="0.2"/>
+   <circle cx="7" cy="22.57" fill="#007f00" fill-opacity="null" id="svg_24" r="0.33" stroke="#000000" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="null" stroke-opacity="null" stroke-width="0.2"/>
+   <circle cx="3" cy="22.57" fill="#007f00" fill-opacity="null" id="svg_25" r="0.33" stroke="#000000" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="null" stroke-opacity="null" stroke-width="0.2"/>
+   <circle cx="22" cy="22.57" fill="#007f00" fill-opacity="null" id="svg_26" r="0.33" stroke="#000000" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="null" stroke-opacity="null" stroke-width="0.2"/>
+  </g>
+ </g>
+</svg>

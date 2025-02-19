@@ -1,0 +1,33 @@
+<h2>{{ 'settings.playerSettings' | translate }}</h2>
+<div class="settings-inline">
+    <label>{{ 'settings.nickname' | translate }}</label>
+    <input type="text" pInputText [formControl]="username">
+</div>
+<form [formGroup]="gameRulesGroup">
+    <h2>{{ 'settings.gameSettings' | translate }}</h2>
+    <div class="settings-inline">
+        <label>{{ 'settings.gameType' | translate }}</label>
+        <p-select class="text-select" [options]="gameTypes" formControlName="gameType" />
+    </div>
+    <div class="settings-inline">
+        <label>{{ 'settings.playerCount' | translate }}</label>
+        <p-inputNumber formControlName="maxPlayers" [min]="2" [max]="8" [showButtons]="true" />
+    </div>
+    <div class="settings-inline">
+        <label>{{ 'settings.cardCount' | translate }}</label>
+        <p-inputNumber formControlName="cardCount" [min]="21" [max]="91" [showButtons]="true" />
+    </div>
+    <div class="settings-group">
+        <label>{{ 'settings.cardSymbols' | translate }}</label>
+        <div class="columns">
+            <app-radio-image group="symbol" reflect-id="pictures" [value]="SymbolType.PICTURES"
+                [(selected)]="symbolType" [disabled]="this.lock">
+                <img src="/assets/images/symbols-preview.png" alt="Symbols">
+            </app-radio-image>
+            <app-radio-image group="symbol" reflect-id="numbers" [value]="SymbolType.NUMBERS" [(selected)]="symbolType"
+                [disabled]="this.lock">
+                <img src="/assets/images/numbers-preview.png" alt="Numbers">
+            </app-radio-image>
+        </div>
+    </div>
+</form>

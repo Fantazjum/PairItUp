@@ -1,0 +1,207 @@
+$game-window-height: calc(90vh - 4rem);
+
+h1 {
+    font-family: 'NK57', 'Times New Roman';
+    margin: 0.1rem 0 0.15rem;
+    font-weight: 900;
+    font-size: 1.5rem;
+}
+
+.game-window {
+    display: grid;
+    max-height: 550px;
+    height: $game-window-height;
+    grid-template-columns: 1fr 3rem 1fr 8rem;
+    position: relative;
+
+    &.summary {
+        grid-template-columns: 1fr 8rem;
+    }
+}
+
+.set-up-window {
+    gap: 1rem;
+    display: flex;
+    max-height: 550px;
+    height: $game-window-height;
+    padding: 0 6rem min(min(200px, 30vh), calc(90vh - 9rem));
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    color: var(--onPrimaryBackground, #333E4D);
+
+    >:first-child {
+        flex-basis: 100%;
+        align-self: flex-end;
+        margin-right: -6rem;
+        position: relative;
+        width: 8rem;
+    }
+}
+
+
+:host ::ng-deep {
+    .play-button {
+        border-radius: 50%;
+
+        >button.p-button {
+            padding: 0.5rem;
+        }
+
+        svg {
+            height: 1.5rem;
+            width: 1.5rem;
+            stroke: var(--onPrimaryAction, #332C22);
+            fill: none;
+        }
+    }
+}
+
+.blocker {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    border-radius: 6px;
+    position: absolute;
+    background: #0005;
+    margin: -0.5rem -1.75rem;
+}
+
+.loader {
+    max-height: 550px;
+    height: $game-window-height;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+
+    i {
+        font-size: 30vmin;
+        color: var(--onPrimaryBackground, #333E4D);
+    }
+}
+
+.arrows {
+    display: grid;
+    position: absolute;
+    grid-template-columns: 1fr 2fr 1fr;
+    width: calc(45vw - 4.95rem);
+    bottom: 2rem;
+    left: -1.5rem;
+
+    >* {
+        align-self: center;
+    }
+
+    :first-child {
+        justify-self: end;
+    }
+
+    >span {
+        font-family: 'NK57', 'Times New Roman';
+        color: var(--onPrimaryBackground, #333E4D);
+        justify-self: center;
+        font-size: 1.5rem;
+        text-wrap: nowrap;
+        text-overflow: ellipsis;
+    }
+
+    :last-child {
+        justify-self: start;
+    }
+
+    span {
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    i {
+        color: var(--onBackground, #333226);
+        font-size: 4rem;
+        padding: 3px;
+
+        &.pi-chevron-right {
+            padding-left: 5px;
+            padding-right: 1px;
+        }
+
+        &.pi-chevron-left {
+            padding-left: 1px;
+            padding-right: 5px;
+        }
+    }
+}
+
+.selectable-box {
+    position: relative;
+}
+
+@media screen and (max-width: 424px) {
+    .game-window {
+        grid-template-columns: unset;
+        grid-template-rows: 1fr 3rem 3rem 1fr;
+
+        .v-separator {
+            align-self: center;
+        }
+
+        &.summary {
+            grid-template-columns: unset;
+
+            app-score-board {
+                grid-row: 4;
+            }
+        }
+    }
+
+    // new tab - same credentials
+    .set-up-window {
+        display: grid;
+        margin-right: 0;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        margin-bottom: -5rem;
+        grid-template-columns: unset;
+        grid-template-rows: 1fr 4rem 3rem 1fr 0;
+        place-items: center;
+
+        >:first-child {
+            place-self: start;
+            align-self: unset;
+            position: relative;
+            width: 100%;
+            grid-row: -1;
+            margin-right: 3rem;
+            margin-bottom: -6rem;
+        }
+
+        >:nth-child(2) {
+            grid-row: 2;
+        }
+
+        >:nth-child(3) {
+            grid-row: 3;
+        }
+    }
+
+    .game-window:has(.arrows) {
+        grid-template-rows: 1fr 4rem 3rem 1fr;
+
+        .v-separator {
+            align-self: end;
+        }
+    }
+
+    @supports not selector(:has(a)) {
+        .game-window {
+            grid-template-columns: unset;
+            grid-template-rows: 1fr 4rem 3rem 1fr;
+        }
+    }
+
+    .arrows {
+        position: static;
+        width: 100%;
+    }
+}

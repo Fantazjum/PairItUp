@@ -1,0 +1,14 @@
+<div class="modal-info" [class.visible]="visible" [class.penalty]="penalty">
+    <h1>{{title}}</h1>
+    @if(!animated) {
+    <span [class]="title ? '' : 'large'">{{content}}</span>
+    } @else {
+    <div class="message-box">
+        <span>{{content}}</span>
+        <span class="animated">
+            <span>{{secondPartAfterAnimation}}</span>
+            <span>{{secondPart}}</span>
+        </span>
+    </div>
+    }
+</div>

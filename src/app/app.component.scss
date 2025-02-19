@@ -1,0 +1,51 @@
+.body {
+    min-height: 100vh;
+    padding: 0;
+}
+
+.game-window {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    padding: 0.75rem calc(5vw + 0.75rem);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+
+    >* {
+        width: 100%;
+        max-width: 1200px;
+    }
+}
+
+.messages {
+    transform: translateX(-50%);
+    flex-direction: column;
+    position: fixed;
+    display: flex;
+    gap: 0.25rem;
+    z-index: 1;
+    left: 50%;
+    top: 5%;
+}
+
+:host ::ng-deep {
+    p-card .p-card .p-card-body {
+        padding: 0.5rem 1.75rem;
+
+        .p-card-content {
+            padding: 0;
+        }
+    }
+}
+
+.body {
+    padding-bottom: 1rem;
+}
+
+@media screen and (max-width: 424px) {
+    .body {
+        padding-bottom: 1.5rem;
+    }
+}

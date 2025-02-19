@@ -1,4 +1,5 @@
-﻿using Server.DTO;
+using Server.DTO;
+using Server.Extensions;
 
 namespace Server.GameObjects
 {
@@ -8,6 +9,10 @@ namespace Server.GameObjects
         /// Identifier of the player.
         /// </summary>
         public readonly string id = id;
+        /// <summary>
+        /// Sources of websockets connected
+        /// </summary>
+        public int Sources = 1;
         private int _score = 0;
         /// <summary>
         /// Current score of the player. Can't be set outside of resetting or awarding points.
@@ -22,22 +27,24 @@ namespace Server.GameObjects
         /// Information whether the player is connected to the game. Allows player to reconnect.
         /// Doesn't matter for spectators.
         /// </summary>
-        public bool Connected { get; set; }
+        public bool Connected { get; set; } = true;
 
         /// <summary>
         /// Checks if players are supposed to refer to the same player by comparing their ids.
         /// </summary>
         /// <param name="other"></param>
         /// <returns></returns>
-        public bool Equals(Player other) {
-            return this.id == other.id;
+        public bool Equals(Player other)
+        {
+            return id == other.id;
         }
 
         /// <summary>
         /// Prepare player for game by giving them a card to start with.
         /// </summary>
         /// <param name="initCard"></param>
-        public void InitGame(Card initCard) {
+        public void InitGame(Card initCard)
+        {
             CurrentCard = initCard;
         }
 
@@ -45,8 +52,9 @@ namespace Server.GameObjects
         /// Awards a point to the player whose card matches the symbol on main card in play.
         /// Requires passing the main card to replace the one currently held by the player.
         /// </summary>
-        /// <param name="newCard"></param>
-        public void AwardPoint(Card newCard) {
+        /// <param name="newCard">New card to replace the old one</param>
+        public void AwardPoint(Card newCard)
+        {
             CurrentCard = newCard;
             _score++;
         }
@@ -54,7 +62,8 @@ namespace Server.GameObjects
         /// <summary>
         /// Resets player score and card. Call after showing the summary of the game.
         /// </summary>
-        public void Reset() {
+        public void Reset()
+        {
             _score = 0;
             CurrentCard = null;
         }
@@ -63,9 +72,9 @@ namespace Server.GameObjects
         /// Sets updated data of the player.
         /// </summary>
         /// <param name="other"></param>
-        public void SetPlayerData(Player other) {
+        public void SetPlayerData(Player other)
+        {
             if (!Equals(other)) {
-
                 return;
             }
 
@@ -76,8 +85,9 @@ namespace Server.GameObjects
         /// Converts player object to PlayerDTO.
         /// </summary>
         /// <returns>Player Data Transfer Object</returns>
-        public PlayerDTO ToDTO() {
-            return new PlayerDTO(id, username, _score, CurrentCard);
+        public PlayerDTO ToDTO()
+        {
+            return new PlayerDTO(id, username, _score, Connected, CurrentCard);
         }
 
         /// <summary>
@@ -85,9 +95,10 @@ namespace Server.GameObjects
         /// </summary>
         /// <param name="playerDTO"></param>
         /// <returns>Player object with updated data.</returns>
-        public static Player FromDTO(PlayerDTO playerDTO) {
+        public static Player FromDTO(PlayerDTO playerDTO)
+        {
             var player = new Player(playerDTO.id) {
-                username = playerDTO.username
+                username = playerDTO.username.Limit(20),
             };
 
             return player;

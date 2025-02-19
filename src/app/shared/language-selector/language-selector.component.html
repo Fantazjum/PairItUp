@@ -1,0 +1,11 @@
+<p-select [options]="languages" [(ngModel)]="currentLanguage" (onChange)="changeLanguage()">
+    <ng-template pTemplate="selectedItem">
+        <img [src]="currentLanguage | languageIcons" />
+    </ng-template>
+    <ng-template let-language pTemplate="item">
+        <div class="select-item">
+            <img [src]="language | languageIcons" class="flag" />
+            <div>{{ languageNames[language] }}</div>
+        </div>
+    </ng-template>
+</p-select>

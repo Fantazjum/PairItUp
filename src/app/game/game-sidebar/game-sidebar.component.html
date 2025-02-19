@@ -1,0 +1,12 @@
+<div class="sidebar" [style]="{gridTemplateRows: 'auto repeat(' + pair().length + ', 1fr)'}">
+    <app-score-board (onPlayerClick)="onPlayerClick.emit($event)" [blockSelection]="playerSelection().length < 2" />
+    @for(player of pair(); track $index) {
+    <div class="box" [class.selected]="selectedPlayer()?.id === player.id">
+        <app-card [mini]="true" [disabled]="disabled()" [card]="player.currentCard"
+            (answer)="onSymbolSelection.emit({ symbolId: $event, playerId: player.id})" />
+        <span [class.selectable]="player != selectedPlayer()" (click)="onPlayerClick.emit(player)">
+            {{player.username}}
+        </span>
+    </div>
+    }
+</div>

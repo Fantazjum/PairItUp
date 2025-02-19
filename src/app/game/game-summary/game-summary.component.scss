@@ -1,0 +1,148 @@
+.summary {
+    font-family: 'NK57', 'Times New Roman';
+    color: var(--onPrimaryBackground, #333E4D);
+    margin-left: 8rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+
+    >.animation-box {
+        height: 3rem;
+        line-height: 2rem;
+        position: relative;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 0.5rem;
+
+        &:has(+.host) {
+            margin-bottom: 2.5rem;
+        }
+
+        .tie-display {
+            gap: 4px;
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+
+            :first-child {
+                margin-top: 0;
+            }
+        }
+    }
+
+    :first-child {
+        margin-top: 2.5rem;
+    }
+
+    .host {
+        margin-top: auto;
+        margin-bottom: max(2.5rem, 10%);
+    }
+}
+
+h1 {
+    margin: 0;
+}
+
+h2 {
+    margin: 0;
+}
+
+.slide-in {
+    position: absolute;
+    -webkit-animation: slide-in 0.5s ease-in-out both;
+    -moz-animation: slide-in 0.5s ease-in-out both;
+    animation: slide-in 0.5s ease-in-out both;
+
+    &-1 {
+        animation-delay: 1s;
+    }
+
+    &-2 {
+        animation-delay: 1.5s;
+    }
+
+    &-3 {
+        animation-delay: 2s;
+    }
+
+    &-4 {
+        animation-delay: 2.5s;
+    }
+
+    &-5 {
+        animation-delay: 3s;
+    }
+
+    &-6 {
+        animation-delay: 3.5s;
+    }
+}
+
+
+@-webkit-keyframes slide-in {
+    0% {
+        bottom: -2rem;
+        opacity: 0;
+    }
+
+    20% {
+        bottom: -1.5rem;
+        opacity: 0.1;
+    }
+
+    100% {
+        bottom: 0;
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes slide-in {
+    0% {
+        bottom: -2rem;
+        opacity: 0;
+    }
+
+    20% {
+        bottom: -1.5rem;
+        opacity: 0.1;
+    }
+
+    100% {
+        bottom: 0;
+        opacity: 1;
+    }
+}
+
+@keyframes slide-in {
+    0% {
+        bottom: -2rem;
+        opacity: 0;
+    }
+
+    20% {
+        bottom: -1.5rem;
+        opacity: 0.1;
+    }
+
+    100% {
+        bottom: 0;
+        opacity: 1;
+    }
+}
+
+@media screen and (max-width: 424px) {
+    .summary {
+        align-content: center;
+        margin-left: 0;
+        width: 100%;
+
+        >.animation-box {
+            width: 100%;
+        }
+    }
+}

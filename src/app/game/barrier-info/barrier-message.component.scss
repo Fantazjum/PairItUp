@@ -1,0 +1,130 @@
+:host {
+    position: absolute;
+}
+
+@supports not (background: color-mix(in srgb, red 60%, black)) {
+    .modal-info {
+        background: #191919;
+        color: #AAA;
+    }
+}
+
+.modal-info {
+    &.penalty {
+        background-color: #000C;
+        color: #AAA;
+    }
+
+    z-index: 5;
+    background: color-mix(in srgb, var(--background, #CCCDD9) 40%, black);
+    color: color-mix(in srgb, var(--onBackground, #333226) 40%, white);
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    transition: opacity 0.2s linear,
+    visibility 0.2s linear,
+    background-color 0.2s linear;
+    visibility: hidden;
+
+    >* {
+        max-width: 95vw;
+    }
+
+    &.visible {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    h1 {
+        font-family: 'Taurus Mono', 'Arial';
+        font-size: 2.5rem;
+    }
+
+    span {
+        font-family: 'NK57', 'Times New Roman';
+        font-size: 1rem;
+
+        &.large {
+            font-size: 2.5rem;
+        }
+    }
+
+    .animated {
+        display: flex;
+        position: relative;
+        flex-direction: column;
+        -webkit-animation: roll-over 1s ease-in-out;
+        -moz-animation: roll-over 1s ease-in-out;
+        animation: roll-over 1s ease-in-out;
+    }
+
+    .message-box {
+        height: 1.5rem;
+        overflow: hidden;
+        line-height: 1.5rem;
+        display: flex;
+        justify-content: space-between;
+        min-width: max(10rem, 10vw);
+        max-width: min(90vw, 300px);
+        width: 100%;
+
+        span {
+            font-size: 1.5rem;
+        }
+
+        :first-child {
+            text-overflow: ellipsis;
+        }
+    }
+}
+
+@-webkit-keyframes roll-over {
+    0% {
+        top: -1.5rem;
+    }
+
+    20% {
+        top: -1.5rem;
+    }
+
+    100% {
+        top: 0;
+    }
+}
+
+@-moz-keyframes roll-over {
+    0% {
+        top: -1.5rem;
+    }
+
+    20% {
+        top: -1.5rem;
+    }
+
+    100% {
+        top: 0;
+    }
+}
+
+@keyframes roll-over {
+    0% {
+        top: -1.5rem;
+    }
+
+    20% {
+        top: -1.5rem;
+    }
+
+    100% {
+        top: 0;
+    }
+}

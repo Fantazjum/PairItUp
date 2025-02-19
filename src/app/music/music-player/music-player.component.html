@@ -1,0 +1,42 @@
+<svg style="display: none;">
+    <use xlink:href="/assets/icons/google-icon-sound.svg#speaker" />
+</svg>
+<svg style="display: none;">
+    <use xlink:href="/assets/icons/google-icon-silent.svg#silence" />
+</svg>
+@if (music) {
+<div class="controls">
+    <div class="player">
+        <p-button class="track-button" (onClick)="toggleMusicPlaying()">
+            @if (music.paused) {
+            <svg viewBox="0 0 3 3">
+                <path d="M0.8,0.5 L0.8,2.5 L2.5,1.5z" stroke-width="0.35" />
+            </svg>
+            } @else {
+            <svg viewBox="0 0 10 10">
+                <rect width="2.5" height="8" x="1.45" y="1" stroke-width="0.75" />
+                <rect width="2.5" height="8" x="5.55" y="1" stroke-width="0.75" />
+            </svg>
+            }
+        </p-button>
+    </div>
+    <div class="volume">
+        <div class="volume-control">
+            <div class="slider">
+                <p-slider [(ngModel)]="volume" orientation="vertical" [min]="0" [max]="1" [step]="0.01" />
+            </div>
+            <div class="speaker">
+                <p-button class="track-button no-border" (onClick)="toggleSound()">
+                    <svg>
+                        @if(volume) {
+                        <use xlink:href="/assets/icons/google-icon-sound.svg#speaker" />
+                        } @else {
+                        <use xlink:href="/assets/icons/google-icon-silent.svg#silence" />
+                        }
+                    </svg>
+                </p-button>
+            </div>
+        </div>
+    </div>
+</div>
+}

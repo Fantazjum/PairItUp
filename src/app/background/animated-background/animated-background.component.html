@@ -1,0 +1,12 @@
+<ng-template #bubbles>
+    <ngt-canvas [sceneGraph]="AnimatedBubbles" [size]="size" />
+</ng-template>
+<ng-template #confetti>
+    <ngt-canvas [sceneGraph]="AnimatedConfetti" [size]="size" />
+</ng-template>
+@if (currentBackground === BackgroundOption.NONE) {
+} @else if(currentBackground === BackgroundOption.PICTURE) {
+<div class="background" [style]="{backgroundImage: 'url(' + backgroundPicture + ')'}"></div>
+} @else {
+<ng-container [ngTemplateOutlet]="isConfetti ? confetti : bubbles" />
+}

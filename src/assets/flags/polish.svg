@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" id="flag-pl" viewBox="0 0 40 30">
+  <g fill-rule="evenodd">
+    <path fill="#fff" d="M40 30H0V0h40z"/>
+    <path fill="#dc143c" d="M40 30H0V15h40z"/>
+  </g>
+</svg>

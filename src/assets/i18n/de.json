@@ -1,0 +1,71 @@
+{
+    "errors": {
+        "invalidFileTypeMessageSummary": "{0}: Falsche Reihetype",
+        "invalidFileTypeMessageDetail": "zulässigee Reihetype: {0}.",
+        "invalidFileLimitMessageDetail": "Das Limit ist {0}.",
+        "invalidFileLimitMessageSummary": "Die Reihezahl Limit wird überschritten",
+        "missingRoomCode": "Gib die Raumcode ein, in ein Raum zu eintreten"
+    },
+    "game": {
+        "customRoomCode": "Speziell Raumcode",
+        "end": "Spielende",
+        "endGame": "Mach das Spiel aus",
+        "join": "Eintrete",
+        "name": "Pair It Up",
+        "newGame": "Neues Spiele",
+        "messages": {
+            "incorrect": "Inkorrekt Symbol wird gewählt!",
+            "invalidData": "Inkorrekt Spieldaten",
+            "invalidUserData": "Inkorrekt Benutzerdaten",
+            "notFound": "Der Raum ist nicht gefunden",
+            "notHost": "Du bist kein Spielleiter",
+            "notStarted": "Das Spiel hat nicht angefangen",
+            "roomCodeInUse": "Raumcode ist benutzt",
+            "stop": "Stopp!",
+            "waitTime": "Wart ",
+            "waitTimeContinued": " bevor die nächste Versuch"
+        },
+        "roomCode": "Raumcode",
+        "tie": "Unentschieden",
+        "useLink": "Benutz den Link oder gib die Raumcode ein, in ein Raum zu eintreten",
+        "waitingForHost": "Warten auf dem Spielleiter, das Spiel zu starten",
+        "winner": "Gewinner:",
+        "winners": "Gewinnern:"
+    },
+    "info": {
+        "about": "Über Spiele",
+        "aboutGame": "Pair It Up Spiele besteht aus ein Paar Symbole zwischen die Karten im Spiel. Jede Karte hat ein Symbol in gemein mit eine zweite Karte. Zahl der Symbole auf der Karte anpasst an Zahl der Karten und der Spielern. Zwei Speilmodus sind derzeit verfügbar:",
+        "classic": "Klassich",
+        "classicGame": "Wird die erste Spieler, der ein gemeinsam Symbol zwischen eigene Karte und die Karte im Spiel findet. Nach der Wahl des Symbols, die Karte im Spiel geht an den Spieler, der das Paar aufmerksam macht und die Karte ersetzt seine vorherige Karte. Der Gewinner ist der Spieler mit die größte Anzahl von Punkten.",
+        "hotPotato": "Heiße Kartoffel",
+        "hotPotatoFont": "Heiße Kartoffel",
+        "hotPotatoGame": "Schwieriger Spielmodus. Wird die erste Spieler, der ein gemeinsam Symbol zwischen anderes Spielers Karte und die Karte im Spiel findet. Nach der Wahl der Karte eines anderen Spielers, die Karte im Spiel geht an den gewählten Spieler und ersetzt seine vorherige Karte. Der Gewinner ist der Spieler mit Mindestanzahl an Punkten."
+    },
+    "settings": {
+        "cardCount": "Kartenzahl:",
+        "cardSymbols": "Symbole auf der Karten:",
+        "gameSettings": "Spieleinstellungen",
+        "gameType": "Spielmodus:",
+        "nickname": "Spitzname:",
+        "playerCount": "Spielerzahl:",
+        "playerSettings": "Spielereinstellungen",
+        "settings": "Einstellung"
+    },
+    "style": {
+        "backgroundAnimated": "Animierter Hintergrund",
+        "music": "Musik",
+        "styleCustomization": "Gestaltung",
+        "theme": "Thema",
+        "themeColors": "Farben",
+        "themeDark": "Licht",
+        "themeLight": "Dunkel",
+        "upload": "Hochladen"
+    },
+    "units": {
+        "seconds": {
+            "one": "eine Sekunde",
+            "some": "Sekunden",
+            "other": "Sekunden"
+        }
+    }
+}

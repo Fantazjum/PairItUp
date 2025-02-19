@@ -1,0 +1,57 @@
+<label>{{ 'style.backgroundAnimated' | translate }}</label>
+<div class="background-selector">
+    <div class="button-track">
+        <app-radio-image [value]="BackgroundOptions.NONE" [(selected)]="currentBackground" group="background"
+            reflect-id="clear">
+            <svg class="image-button">
+                <use xlink:href="/assets/icons/google-icon-block.svg#block" />
+            </svg>
+        </app-radio-image>
+    </div>
+    <div class="button-track">
+        <app-radio-image [value]="BackgroundOptions.ANIMATED_1" [(selected)]="currentBackground" group="background"
+            reflect-id="confetti">
+            <img class="image-button" [src]="'/assets/images/confetti' + previewSuffix" />
+        </app-radio-image>
+    </div>
+    <div class="button-track">
+        <app-radio-image [value]="BackgroundOptions.ANIMATED_2" [(selected)]="currentBackground" group="background"
+            reflect-id="bubbles">
+            <img class="image-button" [src]="'/assets/images/bubbles' + previewSuffix" />
+        </app-radio-image>
+    </div>
+    @if (backgroundPicture) {
+    <div class="button-track">
+        <app-radio-image [value]="BackgroundOptions.PICTURE" [(selected)]="currentBackground" group="background"
+            reflect-id="picture">
+            <div class="image-button cancellable">
+                <img [src]="backgroundPicture">
+                <p-button class="icon-button cancel" (onClick)="discardPicture($event)">
+                    <svg>
+                        <use xlink:href="/assets/icons/google-icon-block.svg#block" />
+                    </svg>
+                </p-button>
+            </div>
+        </app-radio-image>
+    </div>
+    } @else {
+    <div class="button-track">
+        <p-fileUpload [auto]="true" accept="image/*" maxFileSize="209715200" [customUpload]="true"
+            (uploadHandler)="saveFile($event)" [fileLimit]="1"
+            [invalidFileLimitMessageDetail]="'errors.invalidFileLimitMessageDetail' | translate"
+            [invalidFileLimitMessageSummary]="'errors.invalidFileLimitMessageSummary' | translate"
+            [invalidFileSizeMessageDetail]="'errors.invalidFileSizeMessageDetail' |translate"
+            [invalidFileSizeMessageSummary]="'errors.invalidFileSizeMessageSummary' | translate"
+            [invalidFileTypeMessageDetail]="'errors.invalidFileTypeMessageDetail' | translate"
+            [invalidFileTypeMessageSummary]="'errors.invalidFileTypeMessageSummary' | translate">
+            <ng-template pTemplate="header" let-chooseCallback="chooseCallback">
+                <p-button class="upload-button no-pad" (onClick)="choose($event, chooseCallback)">
+                    <svg>
+                        <use xlink:href="/assets/icons/plus-sign.svg#plus" />
+                    </svg>
+                </p-button>
+            </ng-template>
+        </p-fileUpload>
+    </div>
+    }
+</div>

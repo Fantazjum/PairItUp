@@ -1,0 +1,79 @@
+:host {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-family: 'Taurus Mono', 'Arial' !important;
+    font-weight: bold;
+    font-size: 2.5em;
+    padding: 1em 0;
+}
+
+.music-selector {
+    gap: 0.75rem;
+    display: grid;
+    align-items: baseline;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.button-track {
+    display: flex;
+    justify-content: center;
+}
+
+:host ::ng-deep {
+    .button-track label {
+        svg.track-button {
+            aspect-ratio: 1;
+            height: 100%;
+            width: 100%;
+            fill: var(--onPrimaryBackground, #4B5563);
+        }
+
+        .cancellable {
+            &.track-button {
+                position: relative;
+                display: flex;
+                height: 100%;
+                width: 100%;
+
+                >svg {
+                    aspect-ratio: 1;
+                    height: 100%;
+                    width: 100%;
+                    fill: var(--onPrimaryBackground, #4B5563);
+                }
+            }
+
+            button>svg {
+                width: 2.5rem;
+                height: 2.5rem;
+                fill: var(--onPrimaryBackground, #4B5563);
+            }
+        }
+    }
+
+    .cancel {
+        position: absolute;
+        width: 2.5rem;
+        right: 0.125rem;
+        bottom: 0.125rem;
+    }
+
+    p-fileupload {
+        height: 100%;
+        width: 100%;
+
+        .upload-button {
+            height: 100%;
+            width: 100%;
+
+            button>svg {
+                aspect-ratio: 1;
+                height: 100%;
+                width: 100%;
+            }
+        }
+    }
+}

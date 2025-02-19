@@ -1,0 +1,71 @@
+{
+    "errors": {
+        "invalidFileTypeMessageSummary": "{0}: Nieprawidłowy rodzaj pliku",
+        "invalidFileTypeMessageDetail": "dozwolone rodzaje plików: {0}.",
+        "invalidFileLimitMessageDetail": "limit to {0}.",
+        "invalidFileLimitMessageSummary": "Przekroczono maksymalną liczbę plików",
+        "missingRoomCode": "Wprowadź kod pokoju aby dołączyć do gry"
+    },
+    "game": {
+        "customRoomCode": "Spersonalizowany kod pokoju",
+        "end": "Koniec gry",
+        "endGame": "Zakończ grę",
+        "join": "Dołącz",
+        "name": "Pair It Up",
+        "newGame": "Nowa Gra",
+        "messages": {
+            "incorrect": "Wybrano nieprawidłowy symbol!",
+            "invalidData": "Błąd danych użytych do gry",
+            "invalidUserData": "Błąd danych użytkownika",
+            "notFound": "Nie znaleziono pokoju",
+            "notHost": "Nie jesteś hostem gry",
+            "notStarted": "Gra nie została rozpoczęta",
+            "roomCodeInUse": "Kod pokoju w użyciu",
+            "stop": "Stop!",
+            "waitTime": "Następną próbę zgadnięcia będzie można podjąć za ",
+            "waitTimeContinued": ""
+        },
+        "roomCode": "Kod pokoju",
+        "tie": "Remis",
+        "useLink": "Użyj linku lub wprowadź kod pokoju, by dołączyć do gry",
+        "waitingForHost": "Oczekiwanie na rozpoczęcie gry przez hosta",
+        "winner": "Zwycięzca:",
+        "winners": "Zwycięzcy:"
+    },
+    "info": {
+        "about": "O grze",
+        "aboutGame": "Gra Pair It Up polega na znajdowaniu par pomiędzy kartami w grze. Każda karta ma jeden symbol wspólny z każdą inną. Liczba symboli na karcie jest dostosowana do liczby graczy oraz liczby kart w grze. Obecnie dostępne są dwa tryby gry:",
+        "classic": "Klasyczny",
+        "classicGame": "Bądź pierwszą osobą, która znajdzie parę między swoją kartą, a kartą w grze. Po wybraniu symbolu, karta w grze idzie do gracza, który wskazał parę i zastępuje jego poprzednią kartę. Zwycięzcą jest osoba z największą liczbą punktów.",
+        "hotPotato": "Gorący ziemniak",
+        "hotPotatoFont": "Goracy ziemniak",
+        "hotPotatoGame": "Trudniejszy z trybów. Jako pierwszy wskaż wspólny symbol pomiędzy kartą w grze, a kartą innego gracza. Po wybraniu symbolu na karcie innego gracza, karta w grze idzie do niego i zastępuje jego poprzedną. Zwycięzcą jest osoba z najmniejszą liczbą punktów."
+    },
+    "settings": {
+        "cardCount": "Liczba kart:",
+        "cardSymbols": "Symbole na kartach:",
+        "gameSettings": "Ustawienia gry",
+        "gameType": "Tryb Gry:",
+        "nickname": "Pseudonim:",
+        "playerCount": "Liczba graczy:",
+        "playerSettings": "Ustawienia gracza",
+        "settings": "Ustawienia"
+    },
+    "style": {
+        "backgroundAnimated": "Animowane Tło",
+        "music": "Muzyka",
+        "styleCustomization": "Stylizacja",
+        "theme": "Motyw",
+        "themeColors": "Kolory",
+        "themeDark": "Ciemny",
+        "themeLight": "Jasny",
+        "upload": "Prześlij"
+    },
+    "units": {
+        "seconds": {
+            "one": "sekundę",
+            "some": "sekundy",
+            "other": "sekund"
+        }
+    }
+}

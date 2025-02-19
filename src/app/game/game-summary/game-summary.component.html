@@ -1,0 +1,36 @@
+<div class="summary">
+    <div class="animation-box">
+        <h1 class="slide-in slide-in-1">{{ 'game.end' | translate }}</h1>
+    </div>
+    @if(winners.length > 1) {
+    <div class="animation-box">
+        <h2 class="slide-in slide-in-2">{{ 'game.tie' | translate }}</h2>
+    </div>
+    <div class="animation-box">
+        <h2 class="slide-in slide-in-3">{{ 'game.winners' | translate }}</h2>
+    </div>
+    <div class="animation-box">
+        <div class="tie-display slide-in slide-in-4">
+            @for (winner of winners; track $index) {
+            <h1>{{ winner.username }}</h1>
+            }
+        </div>
+    </div>
+    } @else {
+    <div class="animation-box">
+        <h2 class="slide-in slide-in-2">{{ 'game.winner' | translate }}</h2>
+    </div>
+    <div class="animation-box">
+        <h1 class="slide-in slide-in-3">{{ winners[0].username }}</h1>
+    </div>
+    }
+    @if(isHost) {
+    <div class="animation-box host">
+        <div class="slide-in slide-in-6">
+            <p-button (onClick)="endGame()">
+                {{ 'game.endGame' | translate }}
+            </p-button>
+        </div>
+    </div>
+    }
+</div>

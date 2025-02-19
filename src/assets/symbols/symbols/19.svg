@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<svg id="symbol" viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+ <!-- Created with SVG-edit - https://github.com/SVG-Edit/svgedit-->
+ <!-- Created by Aleksy Slizewski -->
+ <g class="layer">
+  <title>clubs</title>
+  <path d="m2,15c0,-2.76 2.24,-5 5,-5c2.76,0 7,2.24 7,5c0,2.76 -4.24,5 -7,5c-2.76,0 -5,-2.24 -5,-5z" fill="#000000" fill-opacity="null" id="svg_1" stroke="#000000" stroke-dasharray="null" stroke-linecap="null" stroke-linejoin="null" stroke-opacity="null" stroke-width="0.2"/>
+  <path d="m11,15c0,-2.76 4.24,-5 7,-5c2.76,0 5,2.24 5,5c0,2.76 -2.24,5 -5,5c-2.76,0 -7,-2.24 -7,-5z" fill="#000000" fill-opacity="null" id="svg_2" stroke="#000000" stroke-dasharray="null" stroke-linecap="null" stroke-linejoin="null" stroke-opacity="null" stroke-width="0.2"/>
+  <path d="m7.5,7c0,-2.76 2.24,-5 5,-5c2.76,0 5,2.24 5,5c0,2.76 -2.24,7 -5,7c-2.76,0 -5,-4.24 -5,-7z" fill="#000000" fill-opacity="null" id="svg_3" stroke="#000000" stroke-dasharray="null" stroke-linecap="null" stroke-linejoin="null" stroke-opacity="null" stroke-width="0.2"/>
+  <path d="m12.58,17l-0.25,0c0.08,2.7 -0.03,5.76 -2.42,6.44l5.2,0c-2.41,-0.69 -2.45,-3.71 -2.53,-6.44z" fill="#000000" fill-opacity="null" id="svg_4" stroke="#000000" stroke-dasharray="null" stroke-linecap="null" stroke-linejoin="null" stroke-opacity="null" stroke-width="0.15"/>
+ </g>
+</svg>

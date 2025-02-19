@@ -1,0 +1,59 @@
+<app-game-preloads />
+@if(roomData) {
+@if(roomData.inProgress || roomData.inSummary) {
+<div [class]="roomData.inProgress ? 'game-window' : 'game-window summary'">
+    @if(roomData.inProgress) {
+    <div class="selectable-box">
+        <app-card [card]="selectedPlayer()?.currentCard" (answer)="resolvePlayerCard($event)"
+            [disabled]="isSpectator || disableCards()" />
+        @if(selectable) {
+        <div class="arrows">
+            <p-button class="icon-button arrow-button" (onClick)="changePlayerCard(-1)"
+                [disabled]="playerSelection().length < 2">
+                <i class="pi pi-chevron-left"></i>
+            </p-button>
+            <span>{{selectedPlayer()?.username ?? ''}}</span>
+            <p-button class="icon-button arrow-button" (onClick)="changePlayerCard(1)"
+                [disabled]="playerSelection().length < 2">
+                <i class="pi pi-chevron-right"></i>
+            </p-button>
+        </div>
+        }
+    </div>
+    <div class="v-separator"></div>
+    <app-card [card]="roomData.currentCard!" (answer)="resolveGameCard($event)"
+        [disabled]="isSpectator || disableCards()" />
+    @if(!connected){
+    <div class="blocker"></div>
+    }
+    } @else if(roomData.inSummary) {
+    <app-game-summary />
+    }
+    @if(selectable) {
+    <app-game-sidebar [playerSelection]="playerSelection()" [selectedPlayer]="selectedPlayer()"
+        (onSymbolSelection)="resolvePlayerCard($event.symbolId, $event.playerId)"
+        [disabled]="isSpectator || disableCards()" (onPlayerClick)="setSelectedPlayer($event)" />
+    } @else {
+    <app-score-board [blockSelection]="isSpectator" />
+    }
+    <app-barrier-message />
+</div>
+} @else {
+<div class="set-up-window">
+    <app-score-board [blockSelection]="true" />
+    <h1>{{ 'game.waitingForHost' | translate }}</h1>
+    @if(isHost) {
+    <p-button class="play-button" (onClick)="startGame()">
+        <svg viewBox="0 0 3 3">
+            <path d="M0.8,0.5 L0.8,2.5 L2.5,1.5z" stroke-width="0.35" />
+        </svg>
+    </p-button>
+    }
+    <app-barrier-message />
+</div>
+}
+} @else {
+<div class="loader">
+    <i class="pi pi-spin pi-spinner"></i>
+</div>
+}

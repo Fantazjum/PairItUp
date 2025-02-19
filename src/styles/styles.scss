@@ -1,0 +1,57 @@
+/* You can add global styles to this file, and also import other style files */
+@use "sass:meta";
+@use 'components/components.scss';
+@import 'primeicons/primeicons.css';
+@include meta.load-css('fonts.scss');
+
+:root {
+    font-family: 'NK57', 'Times New Roman';
+    --font-family: 'NK57', 'Times New Roman';
+}
+
+body {
+    overflow: auto !important;
+}
+
+html,
+body {
+    min-height: 100vh;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background, #CCCDD9);
+    scrollbar-color: var(--onBackground, #333226) transparent;
+    scrollbar-width: thin;
+
+    ::-webkit-scrollbar {
+        width: 9px;
+        height: 9px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: var(--onBackground, #333226);
+    }
+
+    ::-webkit-scrollbar-track {
+        background: transparent;
+    }
+}
+
+.v-separator {
+    width: 4px;
+    background-color: var(--onPrimaryBackground, #333E4D);
+    border-radius: 14%;
+    margin: 1.25rem calc(1.5rem - 2px);
+}
+
+@media screen and (max-width: 424px) {
+    .v-separator {
+        height: 4px;
+        margin: calc(1.5rem - 2px) 0;
+        width: 100%;
+    }
+
+    :root {
+        font-size: 12px;
+    }
+}

@@ -1,0 +1,27 @@
+<div class="game-init-card">
+    <div>
+        <h2>{{ 'info.about' | translate }}</h2>
+        <p>{{ 'info.aboutGame' | translate }}</p>
+        <h2>{{ 'info.classic' | translate }}</h2>
+        <p>{{ 'info.classicGame' | translate }}</p>
+        <h2>{{ 'info.hotPotato' | translate }}</h2>
+        <p>{{ 'info.hotPotatoGame' | translate }}</p>
+    </div>
+    <div class="v-separator"></div>
+    <div [class]="'game-input ' + themeName">
+        <div class="input-box">
+            <label for="code">{{ 'game.useLink' | translate }}:</label>
+            <div class="input">
+                <input id="code" [class]=" errorMessage ? 'ng-invalid ng-dirty' : ''" pInputText type="text"
+                    [(ngModel)]="roomCode" (input)="resetError()" (keyup.enter)="joinGame()" />
+                <p-button (click)="joinGame()">{{ 'game.join' | translate }}</p-button>
+            </div>
+            @if(errorMessage) {
+            <span class="error">
+                {{ errorMessage }}
+            </span>
+            }
+            <p-button class="new-game" (click)="initGame()">{{ 'game.newGame' | translate }}</p-button>
+        </div>
+    </div>
+</div>

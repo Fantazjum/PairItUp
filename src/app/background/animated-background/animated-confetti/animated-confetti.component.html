@@ -1,0 +1,4 @@
+@for (material of materialRefs; track $index) {
+<three-confetti [material]="material" [geometry]="geometryRefs[$index]" [position]="coords[$index]"
+    [rotation]="rotations[$index]" />
+}

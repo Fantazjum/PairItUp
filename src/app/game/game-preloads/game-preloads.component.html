@@ -1,0 +1,14 @@
+<audio preload="auto" src="/assets/music/ding.mp3"></audio>
+<audio preload="auto" src="/assets/music/error.mp3"></audio>
+<audio preload="auto" src="/assets/music/ding-dong.mp3"></audio>
+<audio preload="auto" src="/assets/music/countdown.mp3"></audio>
+
+@for (_ of [].constructor(91); track $index) {
+@if (symbolType === SymbolType.NUMBERS) {
+<img hidden [src]="'/assets/symbols/numbers/' + ($index + 1) + '.png'" />
+} @else {
+<svg hidden>
+    <use [attr.xlink:href]="'/assets/symbols/numbers/' + ($index + 1) + '.png'" />
+</svg>
+}
+}

@@ -1,0 +1,23 @@
+p-fileupload {
+    border: 1px solid transparent;
+
+    .p-fileupload .p-fileupload-header {
+        padding: 0;
+        border-radius: 1rem;
+        border: 1px solid transparent;
+        background: transparent;
+    }
+
+    .p-fileupload.p-fileupload-advanced {
+        background: transparent;
+    }
+
+    .p-fileupload-content {
+        display: none;
+    }
+
+    .upload-button button>svg {
+        width: 100%;
+        fill: var(--onPrimaryBackground, #333E4D);
+    }
+}

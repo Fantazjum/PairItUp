@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<svg id="symbol" viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+ <!-- Created with SVG-edit - https://github.com/SVG-Edit/svgedit-->
+ <!-- Created by Aleksy Slizewski -->
+ <g class="layer">
+  <title>boat</title>
+  <path d="m10.4,18.84c0.39,0.04 9.38,-6.98 9.71,-7.32c0.33,-0.35 -0.38,-4.07 -0.2,-3.62l-10.08,10.23c0.14,0.34 0.18,0.68 0.57,0.72z" fill="#cd853f" fill-opacity="null" id="svg_5" stroke="#000000" stroke-dasharray="null" stroke-linecap="null" stroke-linejoin="null" stroke-opacity="null" stroke-width="0.2"/>
+  <path d="m5.1,12l9,-6c2.05,-0.56 4.34,-0.58 5,0c0.66,0.58 1.28,3.63 1,5l-9,7l-6,-6z" fill="#cd853f" id="svg_1" stroke="#000000" stroke-dasharray="null" stroke-linecap="null" stroke-linejoin="null" stroke-opacity="null" stroke-width="0.2"/>
+  <path d="m5.1,12c-0.78,1.18 -0.71,2.65 1.97,5.18c2.68,2.53 3.82,1.74 4.06,0.79c-1.99,-2.04 -4.04,-3.93 -6.03,-5.97z" fill="#cd853f" id="svg_2" stroke="#000000" stroke-dasharray="null" stroke-linecap="null" stroke-linejoin="null" stroke-opacity="null" stroke-width="0.2"/>
+  <line fill="none" fill-opacity="null" id="svg_8" opacity="0.5" stroke="#000000" stroke-dasharray="null" stroke-linecap="null" stroke-linejoin="null" stroke-width="0.2" x1="7.62" x2="7.62" y1="14.52" y2="14.52"/>
+  <line fill="none" fill-opacity="null" id="svg_11" opacity="0.5" stroke="#000000" stroke-dasharray="null" stroke-linecap="null" stroke-linejoin="null" stroke-opacity="null" stroke-width="0.2" x1="7.62" x2="7.67" y1="14.47" y2="14.47"/>
+  <path d="m11.63,7.67l5.27,5.76l-1.58,1.19l-5.32,-5.81l1.63,-1.14z" fill="#cd853f" fill-opacity="null" id="svg_6" stroke="#000000" stroke-dasharray="null" stroke-linecap="null" stroke-linejoin="null" stroke-width="0.2"/>
+  <path d="m15.91,9.86l2.01,5.83c-0.15,0.36 -0.4,0.68 -0.15,1.24l0.94,2.38l1.34,-0.55l-0.84,-2.28c-0.15,-0.6 -0.45,-0.7 -0.84,-0.89l-2.04,-5.86l-0.42,0.12z" fill="#cd853f" fill-opacity="null" id="svg_14" stroke="#000000" stroke-dasharray="null" stroke-linecap="null" stroke-linejoin="null" stroke-width="0.2"/>
+  <path d="m8.12,7.13l6.08,0.92l0.1,-0.55l-6.16,-0.99c0.03,-0.28 -0.13,-0.46 -0.5,-0.65l-2.53,-0.35l-0.2,1.64l2.63,0.4c0.44,-0.07 0.33,-0.25 0.57,-0.42z" fill="#cd853f" fill-opacity="null" id="svg_16" stroke="#000000" stroke-dasharray="null" stroke-linecap="null" stroke-linejoin="null" stroke-width="0.2"/>
+ </g>
+</svg>

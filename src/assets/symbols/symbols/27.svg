@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<svg id="symbol" viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+ <!-- Created with SVG-edit - https://github.com/SVG-Edit/svgedit-->
+ <!-- Created by Aleksy Slizewski -->
+ <g class="layer">
+  <title>door</title>
+  <rect fill="#8b4513" height="19" id="svg_1" stroke="#000000" stroke-dasharray="null" stroke-linecap="square" stroke-linejoin="null" stroke-opacity="null" stroke-width="0.2" transform="matrix(1, 0, 0, 1, 0, 0)" width="11" x="7" y="3"/>
+  <rect fill="#8b4513" height="7.5" id="svg_3" stroke="#70340f" stroke-dasharray="null" stroke-linecap="square" stroke-linejoin="null" stroke-width="0.2" transform="matrix(1, 0, 0, 1, 0, 0)" width="3.5" x="8.5" y="4"/>
+  <rect fill="#8b4513" height="7.5" id="svg_4" stroke="#70340f" stroke-dasharray="null" stroke-linecap="square" stroke-linejoin="null" stroke-width="0.2" transform="matrix(1, 0, 0, 1, 0, 0)" width="3.5" x="13.5" y="4"/>
+  <rect fill="#8b4513" height="7.5" id="svg_5" stroke="#70340f" stroke-dasharray="null" stroke-linecap="square" stroke-linejoin="null" stroke-width="0.2" transform="matrix(1, 0, 0, 1, 0, 0)" width="3.5" x="8.5" y="13.5"/>
+  <rect fill="#8b4513" height="7.5" id="svg_6" stroke="#70340f" stroke-dasharray="null" stroke-linecap="square" stroke-linejoin="null" stroke-width="0.2" width="3.5" x="13.5" y="13.5"/>
+  <path d="m14.35,12.5c0,-0.43 1.48,-0.15 2.4,-0.45c0.92,-0.3 1.1,0.17 1.1,0.45c0,0.28 -0.27,0.65 -1.1,0.4c-0.82,-0.25 -2.4,0.02 -2.4,-0.4z" fill="#daa520" id="svg_2" stroke="#000000" stroke-dasharray="null" stroke-linecap="square" stroke-linejoin="null" stroke-opacity="null" stroke-width="0.2"/>
+ </g>
+</svg>

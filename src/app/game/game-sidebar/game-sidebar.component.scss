@@ -1,0 +1,68 @@
+.sidebar {
+    height: 100%;
+    display: grid;
+    margin-right: -6rem;
+    padding-left: 3rem;
+    gap: 1rem;
+}
+
+.box {
+    box-shadow: 0 0 2px 1px var(--onPrimaryBackground, #333E4D);
+    font-family: 'NK57', 'Times New Roman';
+    background: var(--secondaryBackground, #F0F8FF);
+    border-radius: 6px;
+    font-size: 0.8rem;
+    padding: 6px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
+
+    &.selected {
+        box-shadow: 0 0 2px 1px var(--onPrimaryBackground, #333E4D),
+            0 0 4px 2px var(--PrimaryAction, #458EC4);
+    }
+
+    >app-card {
+        height: min-content;
+    }
+
+    >span {
+        overflow: hidden;
+        text-align: center;
+        text-overflow: ellipsis;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .sidebar {
+        margin-top: 1rem;
+        margin-right: 0;
+        padding-right: 3.5rem;
+
+        >.box {
+            display: none;
+        }
+    }
+}
+
+:host ::ng-deep {
+    app-score-board .board {
+        position: static;
+
+        ul {
+            margin: 0;
+            padding: 0.75rem;
+        }
+    }
+}
+
+.selectable {
+    cursor: pointer;
+    border-radius: 2px;
+
+    &:hover {
+        outline: 1px solid var(--primaryAction, #458EC4);
+    }
+}

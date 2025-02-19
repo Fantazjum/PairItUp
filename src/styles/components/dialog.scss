@@ -1,0 +1,50 @@
+p-dynamicdialog {
+    .p-dialog-mask.modal-no-barrier {
+        background-color: transparent !important;
+    }
+
+    .appbar-dialog.p-dialog {
+        box-shadow: 0 0 3px 1px var(--onPrimaryBackground, #333E4D);
+        overflow: hidden;
+
+        .p-dialog {
+            &-header {
+                padding: 1rem 1.5rem;
+                color: var(--onPrimaryBackground, #333E4D);
+
+                span {
+                    font-family: 'Challenge Shadow', cursive;
+                    font-size: 2.5em;
+                }
+            }
+
+            &-content,
+            &-header {
+                background: var(--secondaryBackground, #F0F8FF);
+                color: var(--onPrimaryBackground, #333E4D);
+
+                label {
+                    font-family: 'NK57', 'Times New Roman';
+                    font-size: 1em;
+                    font-weight: bold;
+                }
+
+                scrollbar-color: var(--onBackground, #333226) transparent;
+                scrollbar-width: thin;
+
+                ::-webkit-scrollbar {
+                    width: 9px;
+                    height: 9px;
+                }
+
+                ::-webkit-scrollbar-thumb {
+                    background: var(--onBackground, #333226);
+                }
+
+                ::-webkit-scrollbar-track {
+                    background: transparent;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,51 @@
+h2 {
+    font-family: "Challenge Shadow", cursive;
+    margin: 1rem 0 0.5rem;
+    font-size: 2rem;
+}
+
+form>h2 {
+    margin-top: 0.25rem;
+}
+
+label {
+    font-family: "NK57", "Times New Roman";
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.settings-inline {
+    gap: 0.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.settings-group {
+    gap: 0.75rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.columns {
+    gap: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+form,
+:host {
+    display: flex;
+    flex-direction: column;
+
+    >div {
+        margin-top: 0.5rem;
+    }
+}
+
+:host ::ng-deep {
+    .columns label img {
+        width: 100%;
+        max-height: 320px;
+        aspect-ratio: 3/2;
+    }
+}

@@ -1,0 +1,8 @@
+<label>
+    <input type="radio" [attr.name]="name() ? name() : null" [value]="value()" [(ngModel)]="selectedValue"
+        [attr.id]="id() ? id() : null" [attr.required]="required() ? true : null"
+        [attr.disabled]="disabled() ? true : null" [class]="value() == selectedValue ? 'selected' : null">
+    <div class="content" [attr.tabindex]="tabindex() ? tabindex() : null">
+        <ng-content></ng-content>
+    </div>
+</label>

@@ -1,0 +1,84 @@
+.board {
+    box-shadow: 0 0 2px 1px var(--onPrimaryBackground, #333E4D);
+    font-family: 'NK57', 'Times New Roman';
+    background: var(--secondaryBackground, #F0F8FF);
+    border-radius: 12px;
+    position: absolute;
+    font-size: 0.9rem;
+    min-height: 100px;
+    height: min-content;
+    max-height: 50vh;
+    max-width: 20rem;
+    right: -6rem;
+    z-index: 3;
+}
+
+@media screen and (max-width: 424px) {
+    .board {
+        right: 1rem;
+        left: 1rem;
+        max-height: 20vh;
+        max-width: unset;
+        top: calc(100% - 1rem);
+        margin-bottom: 1rem;
+    }
+}
+
+ul {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+}
+
+li {
+    display: grid;
+    column-gap: 4px;
+    grid-template-columns: 1.5rem 1fr 1rem;
+    color: var(--onPrimaryBackground, #333E4D);
+    padding: 2px 4px;
+
+    &.disconnected.selectable {
+        opacity: 0.85;
+        text-decoration: line-through;
+    }
+
+    &.selectable {
+        cursor: pointer;
+        border-radius: 2px;
+
+        &:hover {
+            outline: 1px solid var(--primaryAction, #458EC4);
+        }
+    }
+
+    &.user {
+        &.selectable {
+            cursor: auto;
+
+            &:hover {
+                outline: none;
+            }
+        }
+
+        font-weight: bold;
+    }
+
+    &:has(.pi-eye) {
+        cursor: auto;
+        opacity: 0.7;
+        margin-top: 0.5rem;
+
+        ~li {
+            margin-top: 0;
+        }
+    }
+}
+
+.username {
+    text-overflow: ellipsis;
+    text-wrap: nowrap;
+    overflow: hidden;
+}
+
+.score {
+    text-align: end;
+}

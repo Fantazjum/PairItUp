@@ -1,0 +1,16 @@
+<div class="card-content" [style]="mini() ? miniStyle : null">
+    @if (card()) {
+    @for(symbol of card()!.symbols; track $index) {
+    @if(symbolType === SymbolType.NUMBERS) {
+    <img [src]="symbolFile(symbol.symbol + 1)" [style]="extractStyle(symbol)" (click)="sendAnswer(symbol.symbol)"
+        [attr.disabled]="disabled() ? true : null" />
+    } @else if (symbolType === SymbolType.PICTURES) {
+    <svg [style]="extractStyle(symbol)" (click)="sendAnswer(symbol.symbol)" [attr.disabled]="disabled() ? true : null">
+        <use [attr.xlink:href]="symbolFile(symbol.symbol + 1)" />
+    </svg>
+    }
+    }
+    } @else {
+    <h1>Pair It Up</h1>
+    }
+</div>

@@ -1,0 +1,106 @@
+p-button {
+    button.p-button:not(:disabled) {
+        padding: 0.5rem 0.75rem;
+        font-family: 'NK57', 'Times New Roman';
+        font-weight: bolder;
+        background-color: var(--primaryAction, #458EC4);
+        color: var(--onPrimaryAction, #332C22);
+        border-radius: 2rem;
+        border: 2px solid var(--onPrimaryBackground, #333E4D);
+        box-shadow: none;
+        margin: 0;
+
+        &:focus {
+            border: 2px solid transparent;
+            outline: 1px solid var(--onPrimaryBackground, #333E4D);
+            box-shadow: 0 0 1px 1px var(--focus, #3B82F6);
+        }
+
+        &:hover {
+            background-color: var(--primaryActionHover, #4FA2E1);
+            border: 2px solid var(--onPrimaryBackground, #333E4D);
+        }
+    }
+
+    &.no-pad button.p-button:not(:disabled) {
+        padding: 0;
+    }
+
+    &.icon-button button.p-button {
+        padding: 2px;
+        border-radius: 50%;
+        background: transparent;
+        border: none;
+
+        &:disabled {
+            opacity: 0.6;
+            background: #0002;
+        }
+
+        &:not(:disabled) {
+            &:focus {
+                box-shadow: 0 0 1px 1px var(--focus, #3B82F6);
+                background: transparent;
+                border: none;
+                outline: none;
+            }
+
+            &:hover {
+                box-shadow: 0 0 1px 3px var(--focus, #3B82F6);
+                background: transparent;
+                border: none;
+            }
+        }
+    }
+
+    &.image-button button.p-button:not(:disabled) {
+        padding: 0;
+        border-radius: 1em;
+        overflow: hidden;
+        background: transparent;
+        border: 2px solid black;
+
+        &:focus {
+            outline: none;
+            box-shadow: 0 0 1px 2px var(--focus, #3B82F6);
+        }
+
+        &:hover {
+            box-shadow: 0 0 1px 4px var(--focus, #3B82F6);
+        }
+    }
+
+    &.upload-button button.p-button:not(:disabled) {
+        padding: 0;
+        border-radius: 1em;
+        overflow: hidden;
+        background: transparent;
+        border: none;
+        box-shadow: 0 0 3px var(--onPrimaryBackground, #333E4D);
+        transition: box-shadow 0.25s ease-in-out;
+
+        &:focus {
+            outline: none;
+            box-shadow: 0 0 1px 2px var(--focus, #3B82F6);
+        }
+
+        &:hover:not(:has(p-button:hover)) {
+            box-shadow: 0 0 1px 4px var(--focus, #3B82F6);
+        }
+    }
+}
+
+p-dynamicdialog .p-dialog-header-actions {
+    .p-dialog-close-button.p-button {
+        padding: 0.5rem;
+        border-radius: 50%;
+        border: none !important;
+        color: var(--onPrimaryBackground, #333E4D);
+        background: var(--secondaryBackground, #F0F8FF);
+
+        &:hover {
+            background: var(--secondaryBackgroundHover, #D5DBF4);
+            color: var(--onPrimaryBackground, #333E4D);
+        }
+    }
+}

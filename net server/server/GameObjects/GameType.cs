@@ -1,4 +1,4 @@
-﻿namespace Server.GameObjects
+namespace Server.GameObjects
 {
     public enum GameType
     {

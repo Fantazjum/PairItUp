@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<svg id="symbol" viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+ <!-- Created with SVG-edit - https://github.com/SVG-Edit/svgedit-->
+ <!-- Created by Aleksy Slizewski -->
+ <g class="layer">
+  <title>book</title>
+  <rect fill="#840a0a" height="18" stroke="#000000" stroke-dasharray="null" stroke-linecap="square" stroke-linejoin="bevel" stroke-width="0.2" width="13" x="6" y="4"/>
+  <line fill="none" stroke="#840000" stroke-dasharray="null" stroke-width="0.5" x1="7" x2="7" y1="4.13" y2="21.88"/>
+  <path d="m12.44,4.5l-4.44,0c-0.02,1.2 1.25,0.02 0,0l0,16.98c1.27,0 -0.02,-1.25 0,0l10.25,0c-0.06,-1.49 -1.34,0.03 0,0l0,-16.98c-1.37,-0.01 0.02,1.35 0,0l-5.72,0" fill="none" id="svg_4" stroke="#ffd700" stroke-dasharray="null" stroke-linecap="square" stroke-linejoin="bevel" stroke-width="0.2" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+  <path d="m8.85,9.77c0.45,-0.35 0.76,-0.77 0.82,-1.25c0.06,-0.49 -0.59,-0.97 -0.34,-1.42c0.21,-0.37 1.12,0.03 1.14,0.51c0.02,0.46 0.59,0.63 0.46,1.1c-0.13,0.45 -0.55,0.57 -0.11,0.3c0.47,-0.29 0.71,-0.78 0.93,-1.23c0.22,-0.46 0.54,-0.47 0.8,-0.06c0.26,0.43 0.6,1.06 0.15,1.32c-0.46,0.26 -0.93,-0.45 -0.7,-0.9c0.23,-0.45 0.8,-0.79 1.39,-0.8c0.58,-0.01 1.12,0.37 1.29,0.85c0.16,0.46 -0.19,1.19 -0.64,0.9c-0.43,-0.28 -0.11,-1.01 0.44,-1.17c0.55,-0.17 1.13,0.25 1.73,0.21c0.57,-0.03 1.02,-0.59 0.98,-1.07c-0.04,-0.47 0.04,-0.03 -0.1,0.44c-0.14,0.47 -1.09,0.99 -0.62,1.17c0.37,0.15 0.39,-0.62 0.16,-1.06c-0.23,-0.45 -0.01,-1.44 -0.6,-1.38c-0.32,0.03 0.15,0.73 0.41,1.16l0.38,0.38l0.36,0.38l0.38,0.39" fill="none" fill-opacity="null" id="svg_5" stroke="#ffd700" stroke-dasharray="null" stroke-linecap="square" stroke-linejoin="bevel" stroke-width="0.2"/>
+ </g>
+</svg>

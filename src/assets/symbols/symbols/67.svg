@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<svg id="symbol" viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+ <!-- Created with SVG-edit - https://github.com/SVG-Edit/svgedit-->
+ <!-- Created by Aleksy Slizewski -->
+ <g class="layer">
+  <title>rocket</title>
+  <path d="m9,7l7,0c0.01,4.39 0.03,10 -2,13l-3,0c-2.14,-3.04 -1.94,-8.62 -2,-13z" fill="#cccccc" id="svg_3" stroke="#000000" stroke-dasharray="null" stroke-linecap="square" stroke-linejoin="round" stroke-width="0.2" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+  <path d="m9.5,16c-1.5,1 -2.05,2.11 -2.5,3c-0.45,0.89 -1,2.67 -1,4l1,-1c0.33,-1 0.83,-1.52 1.5,-2c0.67,-0.48 1.13,-0.67 1.95,-1c-0.42,-0.85 -0.78,-1.8 -0.95,-3z" fill="#ff0000" id="svg_4" stroke="#000000" stroke-dasharray="null" stroke-linecap="square" stroke-linejoin="round" stroke-opacity="null" stroke-width="0.2"/>
+  <path d="m15.5,16c1.5,1 2.15,2.31 2.5,3c0.35,0.69 1,2.67 1,4l-1,-1c-0.33,-1 -0.97,-1.5 -1.5,-2c-0.53,-0.5 -1.13,-0.67 -1.95,-1c0.46,-0.9 0.78,-1.9 0.95,-3z" fill="#ff0000" id="svg_5" stroke="#000000" stroke-dasharray="null" stroke-linecap="square" stroke-linejoin="round" stroke-opacity="null" stroke-width="0.2"/>
+  <path d="m9,7l7,0c0.02,-2.35 -2.23,-5.39 -3.5,-6l0,0c-1.41,0.66 -3.57,3.8 -3.5,6z" fill="#ff0000" id="svg_6" stroke="#000000" stroke-dasharray="null" stroke-linecap="square" stroke-linejoin="round" stroke-opacity="null" stroke-width="0.2"/>
+  <circle cx="12.5" cy="10.5" fill="#007fff" id="svg_7" r="2" stroke="#191919" stroke-dasharray="null" stroke-linecap="square" stroke-linejoin="round" stroke-width="0.35"/>
+  <path d="m11,20l-1,1l5,0l-1,-1l-3,0z" fill="#333333" id="svg_11" stroke="#000000" stroke-dasharray="null" stroke-linecap="square" stroke-linejoin="round" stroke-opacity="null" stroke-width="0.2"/>
+ </g>
+</svg>

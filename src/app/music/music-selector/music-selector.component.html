@@ -1,0 +1,59 @@
+<label>{{ 'style.music' | translate }}</label>
+<div class="music-selector">
+    <div class="button-track">
+        <app-radio-image [value]="MusicOption.SILENT" [(selected)]="selectedMusic" group="music" reflect-id="silent">
+            <svg class="track-button">
+                <use xlink:href="/assets/icons/google-icon-block.svg#block" />
+            </svg>
+        </app-radio-image>
+    </div>
+    <div class="button-track">
+        <app-radio-image [value]="MusicOption.TRACK_1" [(selected)]="selectedMusic" group="music" reflect-id="track1">
+            <svg class="track-button">
+                <use xlink:href="/assets/music/note-1.svg#note" />
+            </svg>
+        </app-radio-image>
+    </div>
+    <div class="button-track">
+        <app-radio-image [value]="MusicOption.TRACK_2" [(selected)]="selectedMusic" group="music" reflect-id="track2">
+            <svg class="track-button">
+                <use xlink:href="/assets/music/note-2.svg#note" />
+            </svg>
+        </app-radio-image>
+    </div>
+    @if (customMusic) {
+    <div class="button-track">
+        <app-radio-image [value]="MusicOption.CUSTOM" [(selected)]="selectedMusic" group="music" reflect-id="custom">
+            <div class="cancellable track-button">
+                <svg>
+                    <use xlink:href="/assets/music/note-custom.svg#note" />
+                </svg>
+                <p-button class="icon-button cancel" (onClick)="discardMusic($event)">
+                    <svg>
+                        <use xlink:href="/assets/icons/google-icon-block.svg#block" />
+                    </svg>
+                </p-button>
+            </div>
+        </app-radio-image>
+    </div>
+    } @else {
+    <div class="button-track">
+        <p-fileUpload [auto]="true" accept="audio/*" maxFileSize="209715200" [customUpload]="true"
+            (uploadHandler)="saveFile($event)" [fileLimit]="1"
+            [invalidFileLimitMessageDetail]="'errors.invalidFileLimitMessageDetail' | translate"
+            [invalidFileLimitMessageSummary]="'errors.invalidFileLimitMessageSummary' | translate"
+            [invalidFileSizeMessageDetail]="'errors.invalidFileSizeMessageDetail' |translate"
+            [invalidFileSizeMessageSummary]="'errors.invalidFileSizeMessageSummary' | translate"
+            [invalidFileTypeMessageDetail]="'errors.invalidFileTypeMessageDetail' | translate"
+            [invalidFileTypeMessageSummary]="'errors.invalidFileTypeMessageSummary' | translate">
+            <ng-template pTemplate="header" let-chooseCallback="chooseCallback">
+                <p-button class="upload-button no-pad" (onClick)="choose($event, chooseCallback)">
+                    <svg>
+                        <use xlink:href="/assets/music/note-add.svg#note" />
+                    </svg>
+                </p-button>
+            </ng-template>
+        </p-fileUpload>
+    </div>
+    }
+</div>

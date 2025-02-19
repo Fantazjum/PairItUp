@@ -1,0 +1,117 @@
+p-inputnumber {
+    border-radius: 1rem;
+    transition: box-shadow 0.2s;
+
+    &:has(span.p-inputnumber-button-group) {
+        input.p-inputtext {
+            max-width: 8rem;
+
+            &:hover,
+            &:focus {
+                box-shadow: none;
+            }
+        }
+
+        &:not(:has(:disabled)) {
+            &:hover {
+                box-shadow: 0 0 2px 3px var(--focus, #3B82F6);
+            }
+
+            &:focus-within {
+                box-shadow: 0 0 1px 2px var(--focus, #3B82F6);
+            }
+        }
+    }
+}
+
+@supports not selector(:has(a)) {
+    p-inputnumber span.p-inputnumber-buttons-stacked {
+        border-radius: 1rem;
+
+        input.p-inputtext {
+            max-width: 8rem;
+
+            &:hover,
+            &:focus {
+                box-shadow: none;
+            }
+        }
+
+        &:not(:disabled) {
+            &:hover {
+                box-shadow: 0 0 2px 3px var(--focus, #3B82F6);
+            }
+
+            &:focus {
+                box-shadow: 0 0 1px 2px var(--focus, #3B82F6);
+            }
+        }
+    }
+}
+
+input.p-inputtext {
+    padding: 0.5rem 0.75rem;
+    font-family: 'NK57', 'Times New Roman';
+    border-radius: 1rem;
+    border-color: var(--onPrimaryBackground, #333E4D);
+    background: #FFFB;
+    transition: background 0.2s, box-shadow 0.2s;
+    color: #4B5563;
+
+    &.ng-dirty.ng-invalid {
+        box-shadow: 0 0 1px 1px #DC141B;
+    }
+
+    &:not(:disabled) {
+        &:hover {
+            box-shadow: 0 0 2px 3px var(--focus, #3B82F6);
+            background: #FFFB;
+        }
+
+        &:focus {
+            box-shadow: 0 0 1px 2px var(--focus, #3B82F6);
+            background: #FFFD;
+        }
+    }
+}
+
+span.p-inputnumber-button-group {
+    background-color: transparent;
+
+    :first-child {
+        border-top-right-radius: 1rem;
+    }
+
+    :last-child {
+        border-bottom-right-radius: 1rem;
+    }
+
+    >button.p-inputnumber-button {
+        color: #222;
+        background: #DDDB;
+        border: 1px solid #777;
+        transition: background 0.2s, border 0.2s;
+        border-right: none;
+
+        &:first-of-type {
+            border-top: none;
+        }
+
+        &:last-of-type {
+            border-bottom: none;
+        }
+
+        &:disabled {
+            border-color: #5B5B5B;
+            background: #464346B1;
+            color: #4B5563;
+            cursor: default;
+        }
+
+        &:not(:disabled):hover {
+            color: #000;
+            background: #EEEB;
+            border-color: #666;
+        }
+    }
+}

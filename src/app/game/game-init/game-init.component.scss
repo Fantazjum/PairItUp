@@ -1,0 +1,109 @@
+h2 {
+    font-family: 'Taurus Mono', 'Arial';
+    margin: 1rem 0;
+}
+
+p {
+    font-family: 'NK57', 'Times New Roman';
+    text-align: justify;
+}
+
+.new-game {
+    margin-top: 0.5rem;
+}
+
+label {
+    font-family: 'NK57', 'Times New Roman';
+    font-weight: bold;
+    font-size: 0.75rem;
+    text-align: justify;
+}
+
+.game-init-card {
+    display: grid;
+    grid-template-columns: 1fr 3rem 1fr;
+}
+
+@media screen and (max-width: 424px) {
+    .game-init-card {
+        grid-template-columns: unset;
+        grid-template-rows: 4fr 3rem 3fr;
+    }
+
+    .game-input {
+        margin-top: -3rem;
+        margin-bottom: 1rem;
+    }
+}
+
+.game-input {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 3rem;
+    overflow: hidden;
+
+    &::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        opacity: 0.75;
+        transform: rotate(-45deg);
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+}
+
+.input {
+    padding-top: 0.5rem;
+    display: flex;
+    gap: 0.333rem;
+}
+
+.input-box {
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.light1::before {
+    background-image: url('/assets/images/light1-game.png');
+}
+
+.light2::before {
+    background-image: url('/assets/images/light2-game.png');
+}
+
+.light3::before {
+    background-image: url('/assets/images/light3-game.png');
+}
+
+.dark1::before {
+    background-image: url('/assets/images/dark1-game.png');
+}
+
+.dark2::before {
+    background-image: url('/assets/images/dark2-game.png');
+}
+
+.dark3::before {
+    background-image: url('/assets/images/dark3-game.png');
+}
+
+.error {
+    color: #DC141B;
+    height: 1.25rem;
+    line-height: 1.25rem;
+    margin-top: 0.25rem;
+    font-family: 'NK57', 'Times New Roman';
+}
+
+:host {
+    color: var(--onPrimaryBackground, #333E4D);
+}
