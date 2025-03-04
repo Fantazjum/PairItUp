@@ -23,15 +23,15 @@ class Symbol:
 
     def clampCoords(self):
         # coords are calculated as if symbol will be drawn starting from (0, 0)
-        self.coords[0] = min(50 - self.size, max(-50, self.coords[0]))
-        self.coords[1] = min(50 - self.size, max(-50, self.coords[1]))
+        self.coords[0] = min(49 - self.size, max(-49, self.coords[0]))
+        self.coords[1] = min(49 - self.size, max(-49, self.coords[1]))
         distance = np.linalg.norm(self.coords)
-        limit = 50
+        limit = 49
         if self.coords[0] > 0 or self.coords[1] > 0:
             if self.coords[0] > 0 and self.coords[1] > 0:
-                limit = 50 - self.size - 7
+                limit = 49 - self.size - 7
             else:
-                RADIUS_SQUARED = 2500
+                RADIUS_SQUARED = 2401
                 if self.coords[0] > 0:
                     secondCoordSquared = self.coords[1] * self.coords[1]
                     limit = math.sqrt(RADIUS_SQUARED - secondCoordSquared) - self.size - 2
@@ -112,7 +112,7 @@ def repulsionVector(symbol, symbol2):
 def applyRepulsionForces(symbol, symbol2, kParameter, divisor):
     distanceBuffer = 12 / divisor
     # force is weakened due to quite limited space on a card
-    forceModifier = 0.8 #if divisor < 2.8 else 0.75
+    forceModifier = 1 #if divisor < 2.8 else 0.75
     symbolShift = symbol.size / 2
     symbol2Shift = symbol2.size / 2
     symbolCenterCoords = symbol.coords + np.array([symbolShift, symbolShift], dtype=np.float64)
@@ -136,7 +136,7 @@ def applyRepulsionForces(symbol, symbol2, kParameter, divisor):
         distance = repulsionVector(symbol, symbol2)
         # due to receiving vector of constant length, calculating it is redundant
         length = 1
-        forceModifier = symbol.size # if divisor < 2.8 else symbol.size
+        forceModifier = 1.2 # if divisor < 2.8 else symbol.size
 
     symbol.disp += distance * ((kParameter / length) ** 2) * forceModifier
 
@@ -147,7 +147,7 @@ def applyAttractionForces(symbol, symbol2, kParameter, divisor):
         return
 
     distanceBuffer = 15 / divisor
-    forceModifierConstant = 1.2
+    forceModifierConstant = 1
 
     symbolShift = symbol.size / 2
     symbol2Shift = symbol2.size / 2
@@ -163,7 +163,8 @@ def applyAttractionForces(symbol, symbol2, kParameter, divisor):
 
 
 def displaceSymbolsOnCards(symbols, matrix):
-    baseSize = 40 - 2 * symbols
+    baseSize = math.floor(50 * 
+        (1 - math.tan(symbols * math.pi / (4 * (symbols + 2))) ** 2)) - 2
     divisor = math.sqrt(symbols)
     cardList = []
     # column is representative of a single card
@@ -197,8 +198,8 @@ def displaceSymbolsOnCards(symbols, matrix):
                 applyAttractionForces(symbolList[0], symbolList[i], kParameter, divisor)
 
             # and so is the second one
-            # for i in range(3, len(symbolList)):
-            #     applyAttractionForces(symbolList[1], symbolList[i], kParameter, divisor)
+            for i in range(3, len(symbolList)):
+                applyAttractionForces(symbolList[1], symbolList[i], kParameter, divisor)
 
             for symbol in symbolList:
                 dispLength = np.linalg.norm(symbol.disp)

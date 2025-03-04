@@ -1,43 +1,50 @@
 using Server.GameObjects;
+using Server.Utils;
+using System.Collections.Concurrent;
 
-namespace Server {
-    public sealed class Server {
-        private static Server? instance = null;
-        private static readonly object padlock = new();
-
-        private readonly List<Room> _rooms = [];
-        private readonly Dictionary<string, string> _connections = [];
-
-        Server() { }
-
+namespace Server
+{
+    public sealed class Server
+    {
         /// <summary>
-        /// Get the instance of singleton Server class.
+        /// Queue for creating rooms
         /// </summary>
-        public static Server Instance {
-            get {
-                lock (padlock) {
-                    instance ??= new Server();
-                    
-                    return instance;
-                }
-            }
-        }
+        private readonly MutexQueue _roomQueue = new();
+        /// <summary>
+        /// List of active rooms on the server.
+        /// </summary>
+        private readonly List<Room> _rooms = [];
+        /// <summary>
+        /// Map of connections.
+        /// </summary>
+        private readonly ConcurrentDictionary<string, string> _connections = [];
+        /// <summary>
+        /// Lock for reading and writing to room list
+        /// </summary>
+        private readonly ReaderWriterLock _roomReadWrite = new();
 
         /// <summary>
         /// Joins player to a room with a given id. If room doesn't exist, create one.
         /// </summary>
         /// <param name="player"></param>
         /// <param name="roomId"></param>
-        public void JoinRoom(Player player, string roomId, string connectionId) {
-            if (_rooms.Exists(room => room.Id == roomId)) {
-                var room = _rooms.Find(room => room.Id == roomId)!;
-                room.Join(player);
-                _connections.Add(connectionId, roomId + '/' + player.id);
-            } else {
-                var room = new Room(player, roomId, null);
-                _connections.Add(connectionId, roomId + '/' + player.id);
-                _rooms.Add(room);
-            }
+        public void JoinRoom(Player player, string roomId, string connectionId)
+        {
+            _roomQueue.SyncModifyData(connectionId, () => {
+                _roomReadWrite.AcquireReaderLock(-1);
+                if (_rooms.Exists(room => room.Id == roomId)) {
+                    var room = _rooms.Find(room => room.Id == roomId)!;
+                    room.Join(player);
+                    _connections.TryAdd(connectionId, roomId + '/' + player.id);
+                } else {
+                    var cookie = _roomReadWrite.UpgradeToWriterLock(-1);
+                    var room = new Room(player, roomId, null);
+                    _connections.TryAdd(connectionId, roomId + '/' + player.id);
+                    _rooms.Add(room);
+                    _roomReadWrite.DowngradeFromWriterLock(ref cookie);
+                }
+                _roomReadWrite.ReleaseReaderLock();
+            });
         }
 
         /// <summary>
@@ -47,22 +54,32 @@ namespace Server {
         /// <param name="host"></param>
         /// <param name="roomId"></param>
         /// <returns>Room id or null if creating room failed</returns>
-        public string? CreateRoom(GameRules gameRules, Player host, string connectionId, string? roomId = null) {
-            if (roomId != null) {
-                if (_rooms.Exists(room => room.Id == roomId)) {
-                    return null;
+        public string? CreateRoom(GameRules gameRules, Player host, string connectionId, string? roomId = null)
+        {
+            return (string?)_roomQueue.SyncModifyData(connectionId, () => {
+                _roomReadWrite.AcquireReaderLock(-1);
+                if (roomId != null) {
+                    if (_rooms.Exists(room => room.Id == roomId)) {
+                        _roomReadWrite.ReleaseReaderLock();
+                        return null;
+                    }
                 }
-            }
-            var room = new Room(host, roomId, gameRules);
-            if (_connections.ContainsKey(connectionId)) {
-                _connections[connectionId] = room.Id + '/' + host.id;
-            } else { 
-                _connections.Add(connectionId, room.Id + '/' + host.id);
-            }
 
-            _rooms.Add(room);
+                var cookie = _roomReadWrite.UpgradeToWriterLock(-1);
+                var room = new Room(host, roomId, gameRules);
+                if (_connections.TryGetValue(connectionId, out string? oldConnection)) {
+                    var oldRoomId = oldConnection.Split("/")[0];
+                    _rooms.RemoveAll(oldRoom => oldRoom.Id == oldRoomId);
+                    _connections[connectionId] = room.Id + '/' + host.id;
+                } else {
+                    _connections.TryAdd(connectionId, room.Id + '/' + host.id);
+                }
 
-            return room.Id;
+                _rooms.Add(room);
+                _roomReadWrite.DowngradeFromWriterLock(ref cookie);
+                _roomReadWrite.ReleaseReaderLock();
+                return room.Id;
+            });
         }
 
         /// <summary>
@@ -71,12 +88,17 @@ namespace Server {
         /// <param name="player"></param>
         /// <param name="roomId"></param>
         /// <returns>False if no player or room was found, true otherwise.</returns>
-        public bool UpdatePlayerData(Player player, string roomId) {
-            if (!_rooms.Exists(room => room.Id == roomId)) {
+        public bool UpdatePlayerData(Player player, string roomId)
+        {
+            _roomReadWrite.AcquireReaderLock(-1);
+            if (!_rooms.Exists(room => room.Id == roomId))
+            {
+                _roomReadWrite.ReleaseReaderLock();
                 return false;
             }
 
             var room = _rooms.Find(room => room.Id == roomId)!;
+            _roomReadWrite.ReleaseReaderLock();
 
             return room.UpdatePlayerData(player);
         }
@@ -87,12 +109,17 @@ namespace Server {
         /// <param name="player"></param>
         /// <param name="roomId"></param>
         /// <returns>False if no player or room was found, true otherwise.</returns>
-        public bool UpdateGameRules(GameRules rules, string roomId) {
-            if (!_rooms.Exists(room => room.Id == roomId)) {
+        public bool UpdateGameRules(GameRules rules, string roomId)
+        {
+            _roomReadWrite.AcquireReaderLock(-1);
+            if (!_rooms.Exists(room => room.Id == roomId))
+            {
+                _roomReadWrite.ReleaseReaderLock();
                 return false;
             }
 
             var room = _rooms.Find(room => room.Id == roomId)!;
+            _roomReadWrite.ReleaseReaderLock();
 
             return room.UpdateRules(rules);
         }
@@ -102,25 +129,33 @@ namespace Server {
         /// </summary>
         /// <param name="connectionId"></param>
         /// <returns>Id of the room player disconnected from.</returns>
-        public string? Disconnect(string connectionId) {
-            if (!_connections.TryGetValue(connectionId, out var connectionData)) {
+        public string? Disconnect(string connectionId)
+        {
+            if (!_connections.TryRemove(connectionId, out var connectionData))
+            {
                 return null;
             }
-
-            _connections.Remove(connectionId);
 
             var data = connectionData!.Split('/', 2);
             var roomId = data[0];
 
+            _roomReadWrite.AcquireReaderLock(-1);
+
             var room = _rooms.Find(room => room.Id == roomId)!;
-            if (room == null) {
+            if (room == null)
+            {
                 return roomId;
             }
 
             var player = new Player(data[1]);
-            if(!room.Leave(player)) {
+            if(!room.Leave(player))
+            {
+                var cookie = _roomReadWrite.UpgradeToWriterLock(-1);
                 _rooms.Remove(room);
+                _roomReadWrite.DowngradeFromWriterLock(ref cookie);
             }
+
+            _roomReadWrite.ReleaseReaderLock();
 
             return roomId;
         }
@@ -133,22 +168,20 @@ namespace Server {
         /// <returns>True if symbol exists on a card,
         /// false if there is none or either player or the room is somehow not found.
         /// Null is returned if another player was first to find the symbol.</returns>
-        public bool? CheckResults(int result, string roomId, string connectionId) {
-            // we ensure player is in play,
-            // checking the value of dictionary should be fast enough so as to not affect order
-            if (!_connections.TryGetValue(connectionId, out var connectionData)) {
-                return false;
-            }
-
-            if (!_rooms.Exists(room => room.Id == roomId)) {
+        public bool? CheckResults(int result, string roomId, string playerId)
+        {
+            _roomReadWrite.AcquireReaderLock(-1);
+            if (!_rooms.Exists(room => room.Id == roomId))
+            {
                 return false;
             }
 
             var room = _rooms.Find(room => room.Id == roomId)!;
+            _roomReadWrite.ReleaseReaderLock();
 
-            var success = room.CheckResults(result, connectionId);
-            if (success == true) {
-                var playerId = connectionData.Split('/', 2)[1];
+            var success = room.CheckResults(result, playerId);
+            if (success == true)
+            {
                 room.AwardPlayer(playerId);
             }
 
@@ -160,12 +193,16 @@ namespace Server {
         /// </summary>
         /// <param name="roomId"></param>
         /// <returns>True if room updates, false if room was not found.</returns>
-        public bool ContinueRound(string roomId) {
-            if (!_rooms.Exists(room => room.Id == roomId)) {
+        public bool ContinueRound(string roomId)
+        {
+            _roomReadWrite.AcquireReaderLock(-1);
+            if (!_rooms.Exists(room => room.Id == roomId))
+            {
                 return false;
             }
 
             var room = _rooms.Find(room => room.Id == roomId)!;
+            _roomReadWrite.ReleaseReaderLock();
             room.ContinueRound();
 
             return true;
@@ -176,20 +213,26 @@ namespace Server {
         /// </summary>
         /// <param name="connectionId"></param>
         /// <returns>Id of the room if successful, null if player couldn't start the game.</returns>
-        public string? StartGame(string connectionId) {
-            if (!_connections.TryGetValue(connectionId, out var connectionData)) {
+        public string? StartGame(string connectionId)
+        {
+            if (!_connections.TryGetValue(connectionId, out var connectionData))
+            {
                 return null;
             }
 
             var playerData = connectionData.Split('/', 2);
             var roomId = playerData[0];
-            if (!_rooms.Exists(room => room.Id == roomId)) {
-              return null;
+            _roomReadWrite.AcquireReaderLock(-1);
+            if (!_rooms.Exists(room => room.Id == roomId))
+            {
+                return null;
             }
 
             var room = _rooms.Find(room => room.Id == roomId)!;
+            _roomReadWrite.ReleaseReaderLock();
 
-            if(room.StartGame(playerData[1])) {
+            if(room.StartGame(playerData[1]))
+            {
                 return roomId;
             }
 
@@ -201,24 +244,30 @@ namespace Server {
         /// </summary>
         /// <param name="connectionId"></param>
         /// <returns>Id of the room if successful, null if player couldn't end the game.</returns>
-        public string? EndGame(string connectionId) {
-          if (!_connections.TryGetValue(connectionId, out var connectionData)) {
-            return null;
-          }
+        public string? EndGame(string connectionId)
+        {
+            if (!_connections.TryGetValue(connectionId, out var connectionData))
+            {
+                return null;
+            }
 
-          var playerData = connectionData.Split('/', 2);
-          var roomId = playerData[0];
-          if (!_rooms.Exists(room => room.Id == roomId)) {
-            return null;
-          }
+            var playerData = connectionData.Split('/', 2);
+            var roomId = playerData[0];
+            _roomReadWrite.AcquireReaderLock(-1);
+            if (!_rooms.Exists(room => room.Id == roomId))
+            {
+                return null;
+            }
 
-          var room = _rooms.Find(room => room.Id == roomId)!;
+            var room = _rooms.Find(room => room.Id == roomId)!;
+            _roomReadWrite.ReleaseReaderLock();
 
-          if (room.EndGame(playerData[1])) {
-            return roomId;
-          }
+            if (room.EndGame(playerData[1]))
+            {
+                return roomId;
+            }
 
-          return "";
+            return "";
         }
 
         /// <summary>
@@ -226,12 +275,17 @@ namespace Server {
         /// </summary>
         /// <param name="roomId"></param>
         /// <returns>Returns Room object with specified id or null if not found.</returns>
-        public Room? GetRoom(string roomId) {
-                if (!_rooms.Exists(room => room.Id == roomId)) {
-                    return null;
-                }
-
-                return _rooms.Find(room => room.Id == roomId);
+        public Room? GetRoom(string roomId)
+        {
+            _roomReadWrite.AcquireReaderLock(-1);
+            if (!_rooms.Exists(room => room.Id == roomId))
+            {
+                return null;
             }
-        }
+
+            var room = _rooms.Find(room => room.Id == roomId);
+            _roomReadWrite.ReleaseReaderLock();
+            return room;
+    }
+    }
 }

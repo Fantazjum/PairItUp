@@ -1,26 +1,24 @@
 using MoreLinq.Extensions;
 using Newtonsoft.Json;
-using Server.game;
+using Server.Game;
+using Server.Utils;
 
-namespace Server.GameObjects {
-    public class GameProgress(GameRules rules) {
+namespace Server.GameObjects
+{
+    public class GameProgress(GameRules rules)
+    {
         /// <summary>
-        /// Mutex for checking a number
+        /// Mutex queue for accessing symbol
         /// </summary>
-        private readonly Mutex _mutex = new(false);
-        /// <summary>
-        /// Mutex for modifying the queue
-        /// </summary>
-        private readonly Mutex _queueMutex = new(false);
+        private readonly MutexQueue _symbolQueue = new();
         /// <summary>
         /// Flag for checking whether to return information that the answer was given too late
         /// </summary>
         private bool _isCurrentDone = false;
-        public bool IsCurrentDone { get { return _isCurrentDone; } }
         /// <summary>
-        /// List of player ids for the FIFO order
+        /// Flag for checking whether to return information that the answer was given too late
         /// </summary>
-        public readonly List<string> currentQueue = [];
+        public bool IsCurrentDone { get { return _isCurrentDone; } }
         /// <summary>
         /// Cards currently in play.
         /// </summary>
@@ -29,24 +27,38 @@ namespace Server.GameObjects {
         /// The current card in play.
         /// </summary>
         public Card? currentCard;
+
         /// <summary>
         /// Initializes cards for the game with the specified game rules.
         /// </summary>
         /// <param name="rules"></param>
         /// <returns></returns>
-        private static List<Card> InitCards(GameRules rules) {
+        private static List<Card> InitCards(GameRules rules)
+        {
             var cardsMinSymbolCount = 5;
+            var lowerLimit = cardsMinSymbolCount * (cardsMinSymbolCount - 1) + 1;
             // this sets the hard upper limit of number of cards and symbols
-            while (cardsMinSymbolCount * (cardsMinSymbolCount - 1) + 1 < rules.cardCount) {
+            while (lowerLimit < rules.cardCount)
+            {
                 cardsMinSymbolCount++;
-                // the game with the given number of symbols does not exist
                 if (cardsMinSymbolCount == 7) {
                     cardsMinSymbolCount++;
                 }
+                lowerLimit = cardsMinSymbolCount * (cardsMinSymbolCount - 1) + 1;
             }
+
+            // random is exclusive
+            var displacement = new Random().Next(91 + 1 - lowerLimit);
 
             var symbolsCount = Math.Max(rules.maxPlayers, cardsMinSymbolCount);
             var cards = LoadCards(symbolsCount) ?? [];
+            foreach(var card in cards)
+            {
+                foreach(var symbol in card.symbols)
+                {
+                    symbol.symbol += displacement;
+                }
+            }
 
             return ShuffleExtension.Shuffle(cards).Slice(0, rules.cardCount).ToList();
         }
@@ -56,7 +68,8 @@ namespace Server.GameObjects {
         /// </summary>
         /// <param name="symbols"></param>
         /// <returns></returns>
-        private static List<Card>? LoadCards(int symbols) {
+        private static List<Card>? LoadCards(int symbols)
+        {
             Directory.SetCurrentDirectory(AppDomain.CurrentDomain.BaseDirectory);
             var root = Directory.GetCurrentDirectory();
             var path = root + "/Game/GameTypes.json";
@@ -73,9 +86,11 @@ namespace Server.GameObjects {
         /// Gets next card from the list.
         /// </summary>
         /// <returns>Card or null if the list of cards is spent.</returns>
-        public Card? GetNextCard() {
+        public Card? GetNextCard()
+        {
             var card = cards.Count > 0 ? cards.First() : null;
-            if (card != null) {
+            if (card != null)
+            {
                 cards.Remove(card);
             }
 
@@ -86,16 +101,9 @@ namespace Server.GameObjects {
         /// Tries to continue the round after awarding the point.
         /// </summary>
         /// <returns>True if there are more cards, false if cards run out.</returns>
-        public bool ContinueRound() {
-            while(_queueMutex.WaitOne()) {
-                if (currentQueue.Count > 0) {
-                    _queueMutex.ReleaseMutex();
-                    continue;
-                } else {
-                    _queueMutex.ReleaseMutex();
-                    break;
-                }
-            }
+        public bool ContinueRound()
+        {
+            _symbolQueue.SyncAwaitAll();
 
             currentCard = GetNextCard();
             _isCurrentDone = false;
@@ -109,34 +117,20 @@ namespace Server.GameObjects {
         /// <param name="checkedSymbol"></param>
         /// <param name="checkedSymbol"></param>
         /// <returns>True if symbol exists on a card, false if there is none. Null is returned if another player was first to find the symbol.</returns>
-        public bool? CheckSymbol(int checkedSymbol, string playerId) {
-            if (_isCurrentDone) {
+        public bool? CheckSymbol(int checkedSymbol, string playerId)
+        {
+            if (_isCurrentDone)
+            {
                 return null;
             }
 
-            _queueMutex.WaitOne();
-            currentQueue.Add(playerId);
-            _queueMutex.ReleaseMutex();
+            return (bool?)_symbolQueue.SyncModifyData(playerId, () => {
+                var symbolExists = currentCard?.symbols
+                    .Find(symbol => symbol.symbol == checkedSymbol);
+                bool? answer = _isCurrentDone ? null : symbolExists != null;
 
-            while(_mutex.WaitOne()) {
-                if (currentQueue.First() != playerId) {
-                    _mutex.ReleaseMutex();
-                    continue;
-                }
-
-                break;
-            }
-
-            _queueMutex.WaitOne();
-            currentQueue.Remove(playerId);
-            _queueMutex.ReleaseMutex();
-
-            var symbolExists = currentCard?.symbols.Find(symbol => symbol.symbol == checkedSymbol);
-
-            bool? answer = _isCurrentDone ? null : symbolExists != null;
-            _mutex.ReleaseMutex();
-
-            return answer;
+                return answer;
+            });
         }
     }
 }

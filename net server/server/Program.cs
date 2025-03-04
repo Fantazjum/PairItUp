@@ -1,39 +1,41 @@
 using FastEndpoints;
-using Server.WebSocket;
+using Server.Extensions;
 
-var builder = WebApplication.CreateBuilder();
-builder.Services.AddCors(options => {
-  string[] corsUrls = ["0.0.0.0:7171", "0.0.0.0:4200"];
+var options = new WebApplicationOptions() {
+    Args = args,
+    EnvironmentName = "Production"
+};
 
-  options.AddPolicy("AllowSpecificOrigins",
-      builder => {
-        builder.WithOrigins(corsUrls)
-              .AllowAnyHeader()
-              .WithMethods("GET", "POST")
-              .SetIsOriginAllowed((host) => true)
-              .AllowCredentials();
-      });
-});
-builder.Services
-  #if DEBUG
-    .AddSignalR(options => {
-      options.EnableDetailedErrors = true;
-    })
-  #else
-    .AddSignalR()
-  #endif
-  .AddJsonProtocol(options => { options.PayloadSerializerOptions.PropertyNamingPolicy = null; });
-builder.Services.AddFastEndpoints();
+var builder = WebApplication.CreateBuilder(options);
+builder.Services.AddControllers();
+builder.Services.AddServerDependencies()
+  .AddWebSocketDependencies();
 
 var webSocketOptions = new WebSocketOptions {
     KeepAliveInterval = TimeSpan.FromSeconds(10)
 };
 
+#if DEBUG
+builder.Services.AddCors(options => {
+    options.AddPolicy("TestPolicy", builder => {
+        builder.AllowAnyOrigin().AllowAnyMethod().DisallowCredentials();
+    });
+});
+#endif
+
+builder.Services.AddFastEndpoints();
+
 var app = builder.Build();
 app.UseFastEndpoints()
-  .UseHttpsRedirection()
-  .UseCors("AllowSpecificOrigins")
+  .UseDefaultFiles()
+  .UseStaticFiles()
+  .UseRouting()
   .UseWebSockets(webSocketOptions);
-app.MapHub<WebSocketHub>("/api/game-connection");
+
+#if DEBUG
+app.UseCors("TestPolicy");
+#endif
+
+app.MapControllers();
 
 app.Run();

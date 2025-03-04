@@ -2,6 +2,7 @@ using System.Text.Json.Serialization;
 
 namespace Server.GameObjects
 {
+    #pragma warning disable IDE1006 // Naming convention style
     public class GameRules(int maxPlayers = 4, int cardCount = 55, GameType? gameType = null)
     {
         /// <summary>
@@ -18,4 +19,5 @@ namespace Server.GameObjects
         [JsonConverter(typeof(JsonStringEnumConverter))]
         public GameType gameType { get; } = gameType ?? GameType.FirstComeFirstServed;
     }
+    #pragma warning restore IDE1006 // Naming convention style
 }

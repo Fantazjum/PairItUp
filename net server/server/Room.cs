@@ -22,6 +22,11 @@ namespace Server
         private bool _inProgress = false;
 
         /// <summary>
+        /// Whether the game summary mode is in or not.
+        /// </summary>
+        private bool _inSummary = false;
+
+        /// <summary>
         /// Keeps track of progress of current game.
         /// </summary>
         private GameProgress? _progress = null;
@@ -64,33 +69,49 @@ namespace Server
         /// </summary>
         /// <param name="player"></param>
         /// <returns>Returns true if room has some players left. Returns false if room is empty.</returns>
-        private bool RemovePlayer(Player player) {
-            if (_inProgress) {
-                player.Connected = false;
-            } else if (!_players.Remove(player)) {
+        private bool RemovePlayer(Player player)
+        {
+            if (_inProgress)
+            {
+                var inGamePlayer = _players.Find(player.Equals);
+                if (inGamePlayer != null)
+                {
+                    inGamePlayer.Connected = false;
+                }
+            }
+            else if (!_players.Remove(player))
+            {
                 var playerData = _players.Find(player.Equals);
-                if (playerData != null) {
+                if (playerData != null)
+                {
                     _players.Remove(playerData);
                 }
             }
 
             var activePlayers = _players.Where((player) => player.Connected).ToList().Count;
 
-            if (player.Equals(_host) && (activePlayers + _spectators.Count > 0)) {
-                if (_players.Count > 0) {
+            if (player.Equals(_host) && (activePlayers + _spectators.Count > 0))
+            {
+                if (_players.Count > 0)
+                {
                     var newHost = _players.Find(player => player.Connected);
-                    if (newHost != null || _spectators.Count > 0) {
+                    if (newHost != null || _spectators.Count > 0)
+                    {
                         _host = newHost ?? _spectators.First();
                     }
-                    if (newHost == null) {
+                    if (newHost == null)
+                    {
                         GameSummary();
                     }
-                } else {
+                }
+                else
+                {
                     _host = _spectators.First();
                 }
             }
 
-            if (_spectators.Count > 0 && !_inProgress) {
+            if (_spectators.Count > 0 && !_inProgress)
+            {
                 MoveSpectators();
             }
 
@@ -102,15 +123,19 @@ namespace Server
         /// </summary>
         /// <param name="playerId"></param>
         /// <returns>True if game started, false if it did not.</returns>
-        public bool StartGame(string playerId) {
+        public bool StartGame(string playerId)
+        {
             if ((_players.Count < 2 && GameRules.gameType == GameType.HotPotato)
-                || _host.id != playerId) {
+                || _host.id != playerId)
+            {
                 return false;
             }
 
             _inProgress = true;
+            _inSummary = false;
             _progress = new (GameRules);
-            foreach (var player in _players) {
+            foreach (var player in _players)
+            {
                 player.InitGame(_progress.GetNextCard()!);
             }
             _progress.ContinueRound();
@@ -123,7 +148,8 @@ namespace Server
         /// </summary>
         /// <param name="person"></param>
         /// <returns>True if player found, false if not.</returns>
-        public bool UpdatePlayerData(Player person) {
+        public bool UpdatePlayerData(Player person)
+        {
             var player= _players.Find(player => player.Equals(person));
             player?.SetPlayerData(person);
 
@@ -135,14 +161,21 @@ namespace Server
         /// </summary>
         /// <param name="rules"></param>
         /// <returns>True if rules updated, false if not.</returns>
-        public bool UpdateRules(GameRules rules) {
-            if (_inProgress) {
+        public bool UpdateRules(GameRules rules)
+        {
+            if (_inProgress)
+            {
                 return false;
             }
-            if (GameRules.maxPlayers != rules.maxPlayers) {
-                if (GameRules.maxPlayers < rules.maxPlayers) {
-                    MoveSpectators();
-                } else {
+
+            if (GameRules.maxPlayers != rules.maxPlayers)
+            {
+                if (GameRules.maxPlayers < rules.maxPlayers)
+                {
+                    MoveSpectators(rules.maxPlayers);
+                }
+                else
+                {
                     MovePlayers(rules.maxPlayers);
                 }
             }
@@ -154,23 +187,30 @@ namespace Server
         /// <summary>
         /// Ends game, allowing for reading the game summary.
         /// </summary>
-        public void GameSummary() {
+        public void GameSummary()
+        {
             _progress = null;
             _inProgress = false;
+            _inSummary = true;
         }
 
         /// <summary>
         /// Ends the game, resetting all players.
         /// </summary>
         /// <returns>True if game ended, false if user is not a host.</returns>
-        public bool EndGame(string playerId) {
-            if (playerId != _host.id) {
+        public bool EndGame(string playerId)
+        {
+            // game breaks on game end
+            if (playerId != _host.id)
+            {
                 return false;
             }
 
             _progress = null;
+            _inSummary = false;
             _players.RemoveAll(player => !player.Connected);
-            foreach (var player in _players) {
+            foreach (var player in _players)
+            {
                 player.Reset();
             }
 
@@ -182,8 +222,10 @@ namespace Server
         /// Moves players to spectators based on a new max number of players.
         /// </summary>
         /// <param name="newSize">New maximum number of players</param>
-        public void MovePlayers(int newSize) {
-            if (_players.Count <= newSize) {
+        public void MovePlayers(int newSize)
+        {
+            if (_players.Count <= newSize)
+            {
                 return;
             }
 
@@ -195,44 +237,60 @@ namespace Server
         /// <summary>
         /// Moves waiting spectators to the list of players.
         /// </summary>
-        public void MoveSpectators() {
-            if (_players.Count >= GameRules.maxPlayers) {
+        /// <param name="size">New maximum number of players</param>
+        public void MoveSpectators(int? size = null)
+        {
+            var newSize = size ?? GameRules.maxPlayers;
+
+            if (_players.Count >= newSize)
+            {
                 return;
             }
 
-            var selectCount = GameRules.maxPlayers - _players.Count;
+            var selectCount = newSize - _players.Count;
 
-            if (selectCount > _spectators.Count) {
+            if (selectCount > _spectators.Count)
+            {
                 _players.AddRange(_spectators);
                 _spectators.Clear();
-            } else {
-                var subsection = _spectators[..selectCount];
+            }
+            else
+            {
+                var subsection = _spectators[..selectCount!];
                 _spectators.RemoveRange(0, selectCount);
                 _players.AddRange(subsection);
-            }
-            
+            }            
         }
 
         /// <summary>
         /// Adds the player to list of players or spectators.
         /// </summary>
         /// <param name="player"></param>
-        public void Join(Player player) {
-            if (_inProgress) {
-                if (_players.Exists(player.Equals)) {
+        public void Join(Player player)
+        {
+            if (_inProgress || _inSummary)
+            {
+                if (_players.Exists(player.Equals))
+                {
                     var existing = _players.Find(player.Equals)!;
+                    existing.username = player.username;
                     existing.Connected = true;
-                } else {
+                }
+                else
+                {
                     _spectators.Add(player);
                 }
 
                 return;
             }
 
-            if (GameRules.maxPlayers >= _players.Count) {
-                _spectators.Add(player);
-            } else {
+            if (GameRules.maxPlayers > _players.Count)
+            {
                 _players.Add(player);
+            }
+            else
+            {
+                _spectators.Add(player);
             }
         }
 
@@ -241,9 +299,11 @@ namespace Server
         /// </summary>
         /// <param name="player"></param>
         /// <returns>Returns true if room has some players left. Returns false if room is empty.</returns>
-        public bool Leave(Player player) {
+        public bool Leave(Player player)
+        {
             var spectator = _spectators.Find(player.Equals);
-            if (spectator == null) {
+            if (spectator == null)
+            {
                 return RemovePlayer(player);
             }
 
@@ -258,20 +318,23 @@ namespace Server
         /// Checks results of a given symbol on a card in play
         /// </summary>
         /// <param name="result"></param>
-        /// <param name="connectionId"></param>
+        /// <param name="playerId"></param>
         /// <returns>True if symbol exists on a card, false if there is none. Null is returned if another player was first to find the symbol.</returns>
-        public bool? CheckResults(int result, string connectionId) {
-            if (_progress?.IsCurrentDone != false) {
+        public bool? CheckResults(int result, string playerId)
+        {
+            if (_progress?.IsCurrentDone != false)
+            {
                 return null;
             }
 
-            return _progress.CheckSymbol(result, connectionId);
+            return _progress.CheckSymbol(result, playerId);
         }
 
         /// <summary>
         /// Tries to continue round.
         /// </summary>
-        public void ContinueRound() {
+        public void ContinueRound()
+        {
             var continued = _progress!.ContinueRound();
             if (!continued) {
                 GameSummary();
@@ -282,7 +345,8 @@ namespace Server
         /// Awards player of given id a point
         /// </summary>
         /// <param name="playerId"></param>
-        public void AwardPlayer(string playerId) {
+        public void AwardPlayer(string playerId)
+        {
             var player = _players.Find(player => player.id == playerId);
             player!.AwardPoint(_progress!.currentCard!);
         }
@@ -291,10 +355,12 @@ namespace Server
         /// Transforms object into Data Transfer Object
         /// </summary>
         /// <returns>DTO version of class.</returns>
-        public RoomDTO ToDTO() {
+        public RoomDTO ToDTO()
+        {
             var playersDTO = _players.Select(player => player.ToDTO()).ToList();
             var spectatorsDTO = _spectators.Select(spectator => spectator.ToDTO()).ToList();
-            return new RoomDTO(Id, playersDTO, spectatorsDTO, _progress?.currentCard, _inProgress, GameRules, _host.id);
+            return new RoomDTO(Id, playersDTO, spectatorsDTO, _progress?.currentCard,
+              _inProgress, _inSummary, GameRules, _host.id);
         }
     }
 }

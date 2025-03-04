@@ -13,12 +13,12 @@ class Symbol:
     def verifyPosition(self, matrix, startCoords=None):
         coords = startCoords if startCoords is not None else self.coords
         lowerBoundBroken = coords[0] < 0 or coords[1] < 0
-        upperBoundBroken = coords[0] >= 100 - self.size or coords[1] >= 100 - self.size
+        upperBoundBroken = coords[0] >= 99 - self.size or coords[1] >= 99 - self.size
         if lowerBoundBroken or upperBoundBroken:
             return False
 
-        for i in range(self.size):
-            for j in range(self.size):
+        for i in range(self.size + 2):
+            for j in range(self.size + 2):
                 rowIndex = coords[1] + i
                 columnIndex = coords[0] + j
                 if matrix[rowIndex][columnIndex] != 0:
@@ -27,8 +27,8 @@ class Symbol:
         return True
 
     def placeSymbol(self, matrix, undo=False):
-        for i in range(self.size):
-            for j in range(self.size):
+        for i in range(self.size + 2):
+            for j in range(self.size + 2):
                 rowIndex = self.coords[1] + i
                 columnIndex = self.coords[0] + j
                 value = matrix[rowIndex][columnIndex]
@@ -37,7 +37,7 @@ class Symbol:
 
 def generateMatrix():
     matrix = np.zeros((100, 100), dtype=np.uint8)
-    radiusSquared = 2601
+    radiusSquared = 2401
 
     for i in range(100):
         for j in range(100):
@@ -110,4 +110,4 @@ def unravelSymbols(symbolList):
         isValid = verifyMatrix(matrix)
         upperCorrectionLimit -= 1
 
-    return [symbol.coords for symbol in symbolList]
+    return [(symbol.coords + np.array([1, 1], dtype=np.uint8)) for symbol in symbolList]

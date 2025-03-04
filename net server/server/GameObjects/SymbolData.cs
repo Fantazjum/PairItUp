@@ -1,11 +1,12 @@
 namespace Server.GameObjects
 {
+    #pragma warning disable IDE1006 // Naming convention style
     public class SymbolData(int symbol, int size, int vertical, int horizontal, double rotation)
     {
         /// <summary>
         /// Identifier of symbol.
         /// </summary>
-        public int symbol { get; } = symbol;
+        public int symbol { get; set; } = symbol;
         /// <summary>
         /// Size of the symbol relative to 150x150 card size.
         /// </summary>
@@ -23,4 +24,5 @@ namespace Server.GameObjects
         /// </summary>
         public double rotation { get; } = rotation;
     }
+    #pragma warning restore IDE1006 // Naming convention style
 }

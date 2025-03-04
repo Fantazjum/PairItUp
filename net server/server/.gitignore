@@ -3,6 +3,9 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/main/VisualStudio.gitignore
 
+# Angular build placed in wwwroot
+wwwroot/
+
 # User-specific files
 *.rsuser
 *.suo
