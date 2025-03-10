@@ -1,7 +1,8 @@
 <?xml version="1.0"?>
-<svg viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+<svg id="symbol" viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
  <!-- Created with SVG-edit - https://github.com/SVG-Edit/svgedit-->
- <!-- Created by Aleksy Slizewski --> <g class="layer">
+ <!-- Created by Aleksy Slizewski -->
+ <g class="layer">
   <title>igloo</title>
   <path d="m23,16c-0.11,-4.94 -3.49,-13.96 -10.5,-14c-7.01,-0.04 -10.77,9.58 -10.5,14c0.27,4.42 3.55,4.87 6,5l-1,1l4,0l1,-1c3.42,-0.09 11.11,-0.06 11,-5z" fill="#ffffff" id="svg_1" stroke="#000000" stroke-dasharray="null" stroke-linecap="null" stroke-linejoin="null" stroke-opacity="null" stroke-width="0.2" transform="matrix(1, 0, 0, 1, 0, 0)"/>
   <path d="m2.57,17.85c6.23,2.14 13.46,1.99 19.79,0" fill="#000000" fill-opacity="0" id="svg_13" stroke="#99ffff" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="null" stroke-opacity="null" stroke-width="0.2" transform="matrix(1, 0, 0, 1, 0, 0)"/>

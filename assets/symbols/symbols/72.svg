@@ -1,7 +1,8 @@
 <?xml version="1.0"?>
-<svg viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+<svg id="symbol" viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
  <!-- Created with SVG-edit - https://github.com/SVG-Edit/svgedit-->
- <!-- Created by Aleksy Slizewski --> <g class="layer">
+ <!-- Created by Aleksy Slizewski -->
+ <g class="layer">
   <title>snowflake</title>
   <line fill="none" fill-opacity="0" id="svg_1" stroke="#56ffff" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="null" stroke-width="0.5" transform="matrix(1, 0, 0, 1, 0, 0)" x1="12.5" x2="12.5" y1="1" y2="24"/>
   <line fill="none" fill-opacity="0" id="svg_4" stroke="#56ffff" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="null" stroke-opacity="null" stroke-width="0.5" transform="matrix(1, 0, 0, 1, 0, 0)" x1="1" x2="24" y1="12.5" y2="12.5"/>

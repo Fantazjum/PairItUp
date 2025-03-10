@@ -1,7 +1,8 @@
 <?xml version="1.0"?>
-<svg viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+<svg id="symbol" viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
  <!-- Created with SVG-edit - https://github.com/SVG-Edit/svgedit-->
- <!-- Created by Aleksy Slizewski --> <g class="layer">
+ <!-- Created by Aleksy Slizewski -->
+ <g class="layer">
   <title>hard cap</title>
   <path d="m20,13l1,2l-1,1c-0.55,-1.09 -0.98,-0.91 -1.93,-0.46l-1.07,-1.54" fill="#333333" id="svg_5" stroke="#000000" stroke-dasharray="null" stroke-linecap="square" stroke-linejoin="round" stroke-opacity="null" stroke-width="0.2"/>
   <ellipse cx="12.5" cy="14" fill="#e50000" id="svg_1" rx="9" ry="3" stroke="#000000" stroke-dasharray="null" stroke-linecap="square" stroke-linejoin="round" stroke-opacity="null" stroke-width="0.2" transform="matrix(1, 0, 0, 1, 0, 0) matrix(0.970951, -0.239279, 0.239279, 0.970951, -2.98679, 3.39767)"/>

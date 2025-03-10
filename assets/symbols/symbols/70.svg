@@ -1,7 +1,8 @@
 <?xml version="1.0"?>
-<svg viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+<svg id="symbol" viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
  <!-- Created with SVG-edit - https://github.com/SVG-Edit/svgedit-->
- <!-- Created by Aleksy Slizewski --> <g class="layer">
+ <!-- Created by Aleksy Slizewski -->
+ <g class="layer">
   <title>shell</title>
   <g id="svg_14">
    <path d="m5,4.21c1.07,-1.57 3.38,-2.16 5,-1l0,0c1.32,-1.59 4.03,-1.64 5,0l0,0c1.67,-1.06 4.43,-0.48 5,1l0,0c2.29,0.04 3.34,1.52 3,4l0,0l0,0c-0.57,4.48 -3.85,11.18 -7,11.79c0,0.17 0,-0.17 0,0c1.48,0.09 1.96,0.53 3,1.21l0,0c0.23,1.1 -13.06,1.6 -13,0l0,0c1.13,-0.68 1.62,-1.12 3,-1.21l0,0c-3.18,-0.32 -6.65,-7.2 -7,-11.79l0,0c-0.24,-2.38 1.21,-3.86 3,-4l0,0z" fill="#ff816b" id="svg_1" stroke="#000000" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="null" stroke-opacity="null" stroke-width="0.2"/>

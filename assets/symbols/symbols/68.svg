@@ -1,7 +1,8 @@
 <?xml version="1.0"?>
-<svg viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+<svg id="symbol" viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
  <!-- Created with SVG-edit - https://github.com/SVG-Edit/svgedit-->
- <!-- Created by Aleksy Slizewski --> <g class="layer">
+ <!-- Created by Aleksy Slizewski -->
+ <g class="layer">
   <title>ruler</title>
   <g id="svg_12">
    <path d="m10,1l5,0l0,23l-5,0l0,-23z" fill="peru" fill-opacity="null" id="svg_1" stroke="#000000" stroke-dasharray="null" stroke-linecap="square" stroke-linejoin="bevel" stroke-opacity="null" stroke-width="0.2"/>

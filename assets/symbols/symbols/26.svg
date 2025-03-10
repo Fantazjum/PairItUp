@@ -1,13 +1,20 @@
 <?xml version="1.0"?>
-<svg viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+<svg id="symbol" viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
  <!-- Created with SVG-edit - https://github.com/SVG-Edit/svgedit-->
- <!-- Created by Aleksy Slizewski --> <g class="layer">
+ <!-- Created by Aleksy Slizewski -->
+ <g class="layer">
   <title>dice</title>
   <g id="svg_47">
    <title>dice</title>
-   <rect fill="#000000" fill-opacity="0" height="6.04" id="svg_3" stroke="#000000" stroke-dasharray="null" stroke-linecap="null" stroke-linejoin="null" stroke-opacity="null" stroke-width="0.2" width="5.83" x="13.66" y="11.99"/>
+   <path d="m13.38,9.87l0.27,2.05l5.76,0l-2.18,-2.28l-3.85,0.23z" fill="#e2e2e2" fill-opacity="null" id="svg_25" stroke="#000000" stroke-dasharray="null" stroke-linecap="null" stroke-linejoin="null" stroke-opacity="0" stroke-width="0.2"/>
+   <path d="m11.54,13.13l-0.12,2.46l2.28,2.33l0.2,-4.82l-2.36,0.02z" fill="#e2e2e2" fill-opacity="null" id="svg_21" stroke="#000000" stroke-dasharray="null" stroke-linecap="null" stroke-linejoin="null" stroke-opacity="0" stroke-width="0.2"/>
+   <path d="m5.69,10.75l2.1,2.48l5.62,0l-0.04,-2.51l-7.68,0.03z" fill="#e2e2e2" fill-opacity="null" id="svg_20" stroke="#000000" stroke-dasharray="null" stroke-linecap="null" stroke-linejoin="null" stroke-opacity="0" stroke-width="0.2"/>
+   <path d="m11.35,4.94l0.1,8.17l2.11,0.15l0.07,-6.03l-2.27,-2.29z" fill="#e2e2e2" fill-opacity="null" id="svg_16" stroke="#000000" stroke-dasharray="null" stroke-linecap="null" stroke-linejoin="null" stroke-opacity="0" stroke-width="0.2"/>
+   <rect fill="#e2e2e2" height="5.76" id="svg_8" stroke="#000000" stroke-dasharray="null" stroke-linecap="null" stroke-linejoin="null" stroke-opacity="0" stroke-width="0.2" width="5.51" x="13.83" y="12.14"/>
+   <rect fill="#e2e2e2" height="6.01" id="svg_2" stroke="#000000" stroke-dasharray="null" stroke-linecap="null" stroke-linejoin="null" stroke-opacity="0" stroke-width="0.2" width="5.81" x="5.59" y="4.84"/>
+   <rect fill="#000000" fill-opacity="0" height="6.04" id="svg_3" stroke="#000000" stroke-dasharray="null" stroke-linecap="null" stroke-linejoin="null" stroke-opacity="null" stroke-width="0.2" transform="matrix(1, 0, 0, 1, 0, 0)" width="5.83" x="13.66" y="11.99"/>
    <line fill="none" fill-opacity="0" id="svg_4" stroke="#000000" stroke-dasharray="null" stroke-linecap="null" stroke-linejoin="null" stroke-opacity="null" stroke-width="0.2" x1="11.33" x2="13.66" y1="9.58" y2="12.04"/>
-   <line fill="none" fill-opacity="0" id="svg_5" stroke="#000000" stroke-dasharray="null" stroke-linecap="null" stroke-linejoin="null" stroke-opacity="null" stroke-width="0.2" x1="17.16" x2="19.49" y1="9.58" y2="12.04"/>
+   <line fill="none" fill-opacity="0" id="svg_5" stroke="#000000" stroke-dasharray="null" stroke-linecap="null" stroke-linejoin="null" stroke-opacity="null" stroke-width="0.2" x1="17.11" x2="19.54" y1="9.63" y2="12.04"/>
    <line fill="none" fill-opacity="0" id="svg_6" stroke="#000000" stroke-dasharray="null" stroke-linecap="null" stroke-linejoin="null" stroke-opacity="null" stroke-width="0.2" x1="11.33" x2="17.16" y1="9.58" y2="9.64"/>
    <line fill="none" fill-opacity="0" id="svg_7" stroke="#000000" stroke-dasharray="null" stroke-linecap="null" stroke-linejoin="null" stroke-opacity="null" stroke-width="0.2" x1="11.33" x2="11.28" y1="9.52" y2="9.7"/>
    <line fill="none" fill-opacity="0" id="svg_9" stroke="#000000" stroke-dasharray="null" stroke-linecap="null" stroke-linejoin="null" stroke-opacity="null" stroke-width="0.2" x1="11.33" x2="11.33" y1="9.58" y2="15.61"/>

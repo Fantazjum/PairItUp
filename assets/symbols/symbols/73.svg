@@ -1,7 +1,8 @@
 <?xml version="1.0"?>
-<svg viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+<svg id="symbol" viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
  <!-- Created with SVG-edit - https://github.com/SVG-Edit/svgedit-->
- <!-- Created by Aleksy Slizewski --> <g class="layer">
+ <!-- Created by Aleksy Slizewski -->
+ <g class="layer">
   <title>snowman</title>
   <path d="m15.98,10.2l3.05,-0.22l2.58,-3.43c0.12,-0.13 -0.42,-2.88 -0.11,-2.45c0.31,0.43 0.16,1.9 0.88,1.92c0.72,0.03 1.55,-1.23 1.43,-0.61c-0.12,0.62 -1.53,1.25 -1.55,1.43l-2.63,3.82l-3.77,0.1l0.12,-0.57z" fill="#8b4513" fill-opacity="null" id="svg_17" stroke="#000000" stroke-dasharray="null" stroke-linecap="null" stroke-linejoin="null" stroke-opacity="null" stroke-width="0.2"/>
   <g id="snowman">

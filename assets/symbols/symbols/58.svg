@@ -1,7 +1,8 @@
 <?xml version="1.0"?>
-<svg viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+<svg id="symbol" viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
  <!-- Created with SVG-edit - https://github.com/SVG-Edit/svgedit-->
- <!-- Created by Aleksy Slizewski --> <g class="layer">
+ <!-- Created by Aleksy Slizewski -->
+ <g class="layer">
   <title>orange</title>
   <circle cx="12.5" cy="12.5" fill="#ff5619" id="svg_1" r="10" stroke="#000000" stroke-dasharray="null" stroke-linecap="square" stroke-linejoin="bevel" stroke-width="0.2"/>
   <line fill="none" fill-opacity="null" id="svg_6" stroke="#228b22" stroke-dasharray="null" stroke-linecap="square" stroke-linejoin="bevel" stroke-opacity="null" stroke-width="0.2" transform="matrix(1, 0, 0, 1, 0, 0)" x1="16.18" x2="17.51" y1="5.33" y2="5.33"/>

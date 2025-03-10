@@ -1,7 +1,8 @@
 <?xml version="1.0"?>
-<svg viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+<svg id="symbol" viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
  <!-- Created with SVG-edit - https://github.com/SVG-Edit/svgedit-->
- <!-- Created by Aleksy Slizewski --> <g class="layer">
+ <!-- Created by Aleksy Slizewski -->
+ <g class="layer">
   <title>balloon</title>
   <ellipse cx="12.5" cy="10" fill="#ff00ff" id="svg_1" rx="6" ry="8" stroke="#000000" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.2"/>
   <path d="m12.25,17.92l-1.25,1.08l3,0l-1.25,-1.08" fill="#ff00ff" id="svg_2" stroke="#000000" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="null" stroke-width="0.2"/>

@@ -1,7 +1,8 @@
 <?xml version="1.0"?>
-<svg viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+<svg id="symbol" viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
  <!-- Created with SVG-edit - https://github.com/SVG-Edit/svgedit-->
- <!-- Created by Aleksy Slizewski --> <g class="layer">
+ <!-- Created by Aleksy Slizewski -->
+ <g class="layer">
   <title>glass shard</title>
   <path d="m12.5,1l-5.5,6l3,7l-4,5l6.5,5l5.5,-6l-3,-7l3,-5l-5.5,-5z" fill="#56ffff" fill-opacity="0.5" id="svg_2" stroke="#9effff" stroke-dasharray="null" stroke-linecap="null" stroke-linejoin="null" stroke-opacity="0.9" stroke-width="0.2"/>
  </g>
