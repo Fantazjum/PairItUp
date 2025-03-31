@@ -127,7 +127,7 @@ namespace Server.GameObjects
             return (bool?)_symbolQueue.SyncModifyData(playerId, () => {
                 var symbolExists = currentCard?.symbols
                     .Find(symbol => symbol.symbol == checkedSymbol);
-                bool? answer = _isCurrentDone ? null : symbolExists != null;
+                bool? answer = _isCurrentDone ? null : (symbolExists != null);
 
                 return answer;
             });

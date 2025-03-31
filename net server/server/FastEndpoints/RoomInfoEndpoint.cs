@@ -1,20 +1,20 @@
 using FastEndpoints;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http.HttpResults;
+using Server.Room;
 using Server.DTO;
 
-namespace Server.FastEndpoints
-{
+namespace Server.FastEndpoints {
   [HttpGet("/api/room/{RoomId}")]
   [AllowAnonymous()]
-  public class RoomInfoEndpoint(Server server)
+  public class RoomInfoEndpoint(RoomManager roomManager)
     : EndpointWithoutRequest<Results<Ok<RoomDTO>, NotFound>>
     {
-        private Server Server { get; set; } = server;
+        private RoomManager RoomManager { get; set; } = roomManager;
 
         public override async Task HandleAsync(CancellationToken ct)
         {
-            var roomInfo = Server.GetRoom(Route<string>("RoomId")!)?.ToDTO();
+            var roomInfo = RoomManager.GetRoom(Route<string>("RoomId")!)?.ToDTO();
 
             if (roomInfo != null) {
                 await SendResultAsync(TypedResults.Ok(roomInfo!));

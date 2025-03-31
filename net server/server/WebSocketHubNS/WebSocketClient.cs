@@ -13,6 +13,7 @@ namespace Server.WebSocketHubNS
 
         public async void SendAsync(string message, object?[]? args = null) 
         {
+            List<WebSocketState> validStates = [WebSocketState.Open, WebSocketState.CloseSent];
             byte[] buffer;
             if (args == null)
             {
@@ -24,12 +25,15 @@ namespace Server.WebSocketHubNS
                 buffer = JsonSerializer.SerializeToUtf8Bytes(messageObject);
             }
 
-            await _connection.SendAsync(
-                new ArraySegment<byte>(buffer),
-                WebSocketMessageType.Binary,
-                true,
-                CancellationToken.None
-            );
+            if (validStates.Contains(_connection.State))
+            {
+                await _connection.SendAsync(
+                    new ArraySegment<byte>(buffer),
+                    WebSocketMessageType.Binary,
+                    true,
+                    CancellationToken.None
+                );
+            }
         }
 
         internal async Task Disconnect(CancellationTokenSource? cancelSource = null)

@@ -2,11 +2,18 @@
 <svg id="symbol" viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
  <!-- Created with SVG-edit - https://github.com/SVG-Edit/svgedit-->
  <!-- Created by Aleksy Slizewski -->
+ <defs>
+  <radialGradient cx="0.5" cy="0.51" id="svg_5" r="0.5" spreadMethod="pad">
+   <stop id="jq_stop_6085" offset="0.33" stop-color="#cccccc"/>
+   <stop id="jq_stop_5892" offset="0.75" stop-color="#b7b7b7"/>
+   <stop id="jq_stop_9229" offset="1" stop-color="#cccccc"/>
+  </radialGradient>
+ </defs>
  <g class="layer">
   <title>moon</title>
   <circle cx="12.5" cy="12.5" fill="#cccccc" id="moon" r="11" stroke="#000000" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="null" stroke-width="0.25" transform="matrix(1, 0, 0, 1, 0, 0)"/>
-  <circle cx="9" cy="9" fill="#c0c0c0" fill-opacity="0.06" id="svg_2" r="3" stroke="#bbbbbb" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.35" transform="matrix(1, 0, 0, 1, 0, 0)"/>
-  <circle cx="18.32" cy="12.12" fill="#c0c0c0" fill-opacity="0.06" id="svg_3" r="1" stroke="#bbbbbb" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.15"/>
-  <circle cx="13" cy="19" fill="#c0c0c0" fill-opacity="0.06" id="svg_4" r="2" stroke="#bbbbbb" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.25" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+  <circle cx="9" cy="9" fill="#c0c0c0" fill-opacity="0.06" id="svg_2" r="3" stroke="url(#svg_5)" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+  <circle cx="18.32" cy="12.12" fill="#c0c0c0" fill-opacity="0.06" id="svg_3" r="1.5" stroke="url(#svg_5)" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+  <circle cx="13" cy="18" fill="#c0c0c0" fill-opacity="0.06" id="svg_4" r="2" stroke="url(#svg_5)" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.25" transform="matrix(1, 0, 0, 1, 0, 0)"/>
  </g>
 </svg>

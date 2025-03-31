@@ -72,7 +72,9 @@ namespace Server.WebSocketHubNS
                     }
                     catch (WebSocketException e)
                     {
-                        if(e.ErrorCode != 0) { 
+                        if (e.WebSocketErrorCode !=
+                          System.Net.WebSockets.WebSocketError.ConnectionClosedPrematurely)
+                        { 
                             Console.WriteLine(e.Message);
                         }
 
@@ -101,19 +103,30 @@ namespace Server.WebSocketHubNS
             // do not process other message types
             if (messageType == WebSocketMessageType.Text)
             {
-                var message = JsonSerializer.Deserialize<WebSocketMessage>(resultStream);
-                if (message != null)
+                try
                 {
-                    if (message.message == "invoke")
+                    var message = JsonSerializer.Deserialize<WebSocketMessage>(resultStream);
+                    if (message != null)
                     {
-                        var parameters = message.args!.Skip(1).ToArray();
-                        Invoke(((JsonElement)message.args!.ElementAt(0)!).GetString()!, parameters);
+                        if (message.message == "invoke")
+                        {
+                            var parameters = message.args!.Skip(1).ToArray();
+                            Invoke(
+                              ((JsonElement)message.args!.ElementAt(0)!).GetString()!,
+                              parameters
+                            );
+                        }
                     }
+                }
+                catch
+                {
+                    // received message was not in valid format
                 }
             }
         }
 
-        public void Dispose() {
+        public void Dispose()
+        {
             Disconnect();
             GC.SuppressFinalize(this);
         }

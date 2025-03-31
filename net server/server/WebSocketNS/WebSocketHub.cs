@@ -4,12 +4,12 @@ using Server.DTO;
 using Server.GameObjects;
 using Server.WebSocketDTO;
 using Server.WebSocketHubNS;
+using Server.Room;
 
-namespace Server.WebSocketNS
-{
-    public class WebSocketHub(IWebSocketConnections connection, Server server) : WebSocketHubBase(connection)
+namespace Server.WebSocketNS {
+  public class WebSocketHub(IWebSocketConnections connection, RoomManager roomManager) : WebSocketHubBase(connection)
     {
-        private readonly Server _Server = server;
+        private readonly RoomManager _RoomManager = roomManager;
 
         public void SendUpdateCommand(string roomId)
         {
@@ -38,7 +38,7 @@ namespace Server.WebSocketNS
                 return;
             }
 
-            var id = _Server.CreateRoom(gameRules, Player.FromDTO(host), ConnectionId, roomId);
+            var id = _RoomManager.CreateRoom(gameRules, Player.FromDTO(host), ConnectionId, roomId);
             if (id == null)
             {
                 client!
@@ -60,10 +60,12 @@ namespace Server.WebSocketNS
                 return;
             }
 
+            var joined = false;
+
             try
             {
                 var player = JsonConvert.DeserializeObject<PlayerDTO>(playerData);
-                _Server.JoinRoom(Player.FromDTO(player!), roomId, ConnectionId);
+                joined = _RoomManager.JoinRoom(Player.FromDTO(player!), roomId, ConnectionId);
             }
             catch
             {
@@ -75,7 +77,14 @@ namespace Server.WebSocketNS
 
             _connections.AddToGroup(ConnectionId, roomId);
 
-            SendUpdateCommand(roomId);
+            if (joined)
+            {
+                SendUpdateCommand(roomId);
+            }
+            else
+            {
+                client!.SendAsync("Update");
+            }
         }
 
         public void UpdatePlayerData(string playerData, string roomId)
@@ -91,7 +100,7 @@ namespace Server.WebSocketNS
                 var player = JsonConvert.DeserializeObject<PlayerDTO>(playerData);
 
                 var success = player != null
-                  && _Server.UpdatePlayerData(Player.FromDTO(player), roomId);
+                  && _RoomManager.UpdatePlayerData(Player.FromDTO(player), roomId);
 
                 if (success)
                 {
@@ -117,7 +126,7 @@ namespace Server.WebSocketNS
                 return;
             }
 
-            var valid = _Server.CheckResults(result, roomId, playerId);
+            var valid = _RoomManager.CheckResults(result, roomId, playerId);
 
             if (valid == false)
             {
@@ -131,7 +140,11 @@ namespace Server.WebSocketNS
 
             if (valid == true)
             {
-                ContinueRound(roomId);
+                var group = _connections.Group(roomId);
+                group.SendAsync("Suspend");
+                group.PrepareContinue(() => {
+                    ContinueRound(roomId);
+                });
             }
 
             client!
@@ -140,27 +153,34 @@ namespace Server.WebSocketNS
 
         public void ContinueRound(string roomId)
         {
+            _connections.Group(roomId).CancelContinue();
             var exists = _connections.TryGetClient(ConnectionId, out var client);
             if (!exists)
             {
                 return;
             }
 
-            var updated = _Server.ContinueRound(roomId);
+            var updated = _RoomManager.ContinueRound(roomId);
 
-            if (!updated)
+            if (updated == null)
             {
                 client!
                     .SendAsync("WebSocketResponse", [new NotFoundError()]);
                 return;
             }
-
-            _connections.Group(roomId).SendAsync("Score");
-    }
+            else if (updated == true)
+            {
+                _connections.Group(roomId).SendAsync("Score");
+            }
+            else
+            {
+                SendUpdateCommand(roomId);
+            }
+        }
 
         public void LeaveRoom()
         {
-            var roomId = _Server.Disconnect(ConnectionId);
+            var roomId = _RoomManager.Disconnect(ConnectionId);
 
             if (roomId != null)
             {
@@ -186,7 +206,7 @@ namespace Server.WebSocketNS
                   .SendAsync("WebSocketResponse", [new InvalidDataError()]);
                 return;
             }
-            _Server.UpdateGameRules(gameRules, roomId);
+            _RoomManager.UpdateGameRules(gameRules, roomId);
 
             SendUpdateCommand(roomId);
         }
@@ -199,7 +219,7 @@ namespace Server.WebSocketNS
                 return;
             }
 
-            var roomId = _Server.StartGame(ConnectionId);
+            var roomId = _RoomManager.StartGame(ConnectionId);
             if (roomId == null)
             {
                 client!
@@ -216,7 +236,7 @@ namespace Server.WebSocketNS
                 return;
             }
 
-            SendUpdateCommand(roomId);
+            _connections.Group(roomId).SendAsync("Started");
         }
 
         public void EndGame()
@@ -227,7 +247,7 @@ namespace Server.WebSocketNS
                 return;
             }
 
-            var roomId = _Server.EndGame(ConnectionId);
+            var roomId = _RoomManager.EndGame(ConnectionId);
             if (roomId == null)
             {
                 client!

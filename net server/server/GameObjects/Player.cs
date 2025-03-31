@@ -1,4 +1,5 @@
 using Server.DTO;
+using Server.Extensions;
 
 namespace Server.GameObjects
 {
@@ -8,6 +9,10 @@ namespace Server.GameObjects
         /// Identifier of the player.
         /// </summary>
         public readonly string id = id;
+        /// <summary>
+        /// Sources of websockets connected
+        /// </summary>
+        public int Sources = 1;
         private int _score = 0;
         /// <summary>
         /// Current score of the player. Can't be set outside of resetting or awarding points.
@@ -47,7 +52,7 @@ namespace Server.GameObjects
         /// Awards a point to the player whose card matches the symbol on main card in play.
         /// Requires passing the main card to replace the one currently held by the player.
         /// </summary>
-        /// <param name="newCard"></param>
+        /// <param name="newCard">New card to replace the old one</param>
         public void AwardPoint(Card newCard)
         {
             CurrentCard = newCard;
@@ -93,7 +98,7 @@ namespace Server.GameObjects
         public static Player FromDTO(PlayerDTO playerDTO)
         {
             var player = new Player(playerDTO.id) {
-                username = playerDTO.username,
+                username = playerDTO.username.Limit(20),
             };
 
             return player;

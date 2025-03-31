@@ -40,17 +40,25 @@ namespace Server.WebSocketHubNS
             _groupReadWrite.AcquireReaderLock(-1);
             if (!_groups.TryGetValue(groupId, out WebSocketGroup? group))
             {
+                _groupReadWrite.ReleaseReaderLock();
                 _groupQueue.SyncModifyData(groupId, () => {
-                    var cookie = _groupReadWrite.UpgradeToWriterLock(-1);
+                    if (_groups.TryGetValue(groupId, out group))
+                    {
+                        return;
+                    }
+
+                    _groupReadWrite.AcquireWriterLock(-1);
                     group = new(groupId);
                     _groups[groupId] = group;
-                    _groupReadWrite.DowngradeFromWriterLock(ref cookie);
+                    _groupReadWrite.ReleaseWriterLock();
                 });
+
+                return group!;
             }
 
             _groupReadWrite.ReleaseReaderLock();
 
-            return group!;
+            return group;
         }
 
         public void AddToGroup(string connectionId, string groupId)
@@ -68,11 +76,12 @@ namespace Server.WebSocketHubNS
             _connectionReadWrite.AcquireReaderLock(-1);
             if (_connections.TryGetValue(connectionId, out var client))
             {
-                if (!Group(groupId).Remove(client)) {
+                if (!Group(groupId).Remove(client))
+                {
                     _groupQueue.SyncModifyData(groupId, () => {
-                        var cookie = _groupReadWrite.UpgradeToWriterLock(-1);
-                      _groups.Remove(groupId);
-                      _groupReadWrite.DowngradeFromWriterLock(ref cookie);
+                        _groupReadWrite.AcquireWriterLock(-1);
+                        _groups.Remove(groupId);
+                        _groupReadWrite.ReleaseWriterLock();
                     });
                 }
             }

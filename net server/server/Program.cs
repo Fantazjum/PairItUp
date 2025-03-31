@@ -3,16 +3,19 @@ using Server.Extensions;
 
 var options = new WebApplicationOptions() {
     Args = args,
-    EnvironmentName = "Production"
+    EnvironmentName = "Production",
+    WebRootPath = "wwwroot/browser"
 };
 
 var builder = WebApplication.CreateBuilder(options);
 builder.Services.AddControllers();
 builder.Services.AddServerDependencies()
-  .AddWebSocketDependencies();
+  .AddWebSocketDependencies()
+  .AddSpaDependencies();
 
 var webSocketOptions = new WebSocketOptions {
-    KeepAliveInterval = TimeSpan.FromSeconds(10)
+    KeepAliveInterval = TimeSpan.FromSeconds(10),
+    KeepAliveTimeout = TimeSpan.FromSeconds(30)
 };
 
 #if DEBUG
@@ -35,6 +38,12 @@ app.UseFastEndpoints()
 #if DEBUG
 app.UseCors("TestPolicy");
 #endif
+
+app.Map("/game", spaApp => {
+    spaApp.UseSpa(spa => {
+        spa.Options.SourcePath = "wwwroot/browser";
+    });
+});
 
 app.MapControllers();
 

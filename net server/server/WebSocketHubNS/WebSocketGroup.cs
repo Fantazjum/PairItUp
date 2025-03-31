@@ -9,6 +9,8 @@ namespace Server.WebSocketHubNS
 
         public ConcurrentDictionary<string, WebSocketClient> Clients { get; } = [];
 
+        private Timer? delayedFire = null;
+
         /// <summary>
         /// Removes a client from the group and gives information needed to decide to delete the group.
         /// </summary>
@@ -42,6 +44,25 @@ namespace Server.WebSocketHubNS
             {
                 client.SendAsync(message, args); 
             }
+        }
+
+        public void PrepareContinue(Action continueAction)
+        {
+            delayedFire = new Timer((_) => {
+                  continueAction.Invoke();
+                  delayedFire?.Dispose();
+                  delayedFire = null;
+                },
+                null,
+                1000,
+                Timeout.Infinite
+            );
+        }
+
+        public void CancelContinue()
+        {
+            delayedFire?.Dispose();
+            delayedFire = null;
         }
     }
 }
