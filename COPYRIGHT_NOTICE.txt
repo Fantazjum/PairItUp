@@ -1,0 +1,7 @@
+COPYRIGHT NOTICE
+
+Copyright © 2025 Aleksy Śliżewski <aleksyslizewski@gmail.com>
+
+Some rigths reserved for the files contained in the assets folder of the project.
+You may use them for private use cases or in public spaces if you are granted permission by the rights holder.
+You may create derivative works based on the original files in the folder.

@@ -6,6 +6,10 @@ The placement of symbols on the cards is used by a way of force directed graphs 
 
 There is an `angular-main` branch that has a project of an app using the generated data to create an online game of matching the symbols on the cards. The rest of the document will go in more detail as to the way the generation works.
 
+## License
+
+The underlying source code of this project is licensed under the MIT license and files listed in [assets](./assets) folder are licensed under the copyleft license. Files exist on another branch, but are mixed with other MIT files.
+
 ## Symbol distribution
 
 First matter is distributing symbols between the cards. After analysing `Bernard Montaron, "On Incidence Matrices Of Finite Projective Planes", Renix Electronique, BP 1146, 31036 Toulouse, Ceder, France, 1984` the following distribution system was assumed.
