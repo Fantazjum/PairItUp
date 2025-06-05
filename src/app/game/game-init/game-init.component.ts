@@ -53,8 +53,20 @@ export class GameInitComponent {
       const code = this.roomCode.split('/').at(-1)!;
       this.connection.createRoom(code);
     } else {
-      this.connection.createRoom();
+      this.connection.createRoom(this.GenKey());
     }
+  }
+
+  private GenKey(length: number = 6): string {
+      let id = '';
+      const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+      for (let i = 0; i < length; i++)
+      {
+          let idx = Math.floor(Math.random() * letters.length);
+          id += letters[idx];
+      }
+
+      return id;
   }
 
   protected resetError(): void {

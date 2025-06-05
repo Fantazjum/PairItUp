@@ -1,0 +1,12 @@
+:root {
+    --background: #002B36;
+    --primaryBackground: #105060;
+    --secondaryBackground: #327671;
+    --primaryAction: #D93630;
+    --onBackground: #DBAE27;
+    --onPrimaryBackground: #D29E00;
+    --onPrimaryAction: #2C332E;
+    --primaryActionHover: #E93B35;
+    --secondaryBackgroundHover: #428385;
+    --focus: #A7841C;
+}

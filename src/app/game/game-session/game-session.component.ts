@@ -6,7 +6,6 @@ import { Nullable } from 'primeng/ts-helpers';
 import { ActivatedRoute } from '@angular/router';
 import { ScoreBoardComponent } from "../score-board/score-board.component";
 import { CardComponent } from '../card/card.component';
-import { Card } from '../models/card.model';
 import { GameSettingsService } from '../../shared/services/game-settings.service';
 import { GameType } from '../../shared/enums/game-type.enum';
 import { ButtonModule } from 'primeng/button';
@@ -142,13 +141,18 @@ export class GameSessionComponent implements OnInit, OnDestroy {
 
   protected resolvePlayerCard(answer: number, cardOwnerId: string | undefined = undefined): void {
     const gameType = this.roomData?.gameRules.gameType;
+    if (!this.roomData?.currentCard?.symbols.find((symbol) => symbol.symbol === answer)) {
+      this.message.timeoutAttempts();
+      return;
+    }
+
     let playerId = this.settings.playerId();
     if (gameType === GameType.HOT_POTATO) {
       playerId = cardOwnerId ?? this.selectedPlayer()?.id ?? '';
     }
     
     this.disableCards.set(true);
-    this.connection.checkResult(answer, playerId);
+    this.connection.checkResult(playerId);
   }
 
   protected resolveGameCard(answer: number): void {

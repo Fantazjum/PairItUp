@@ -1,12 +1,11 @@
-import { effect, EventEmitter, Injectable, isDevMode, signal } from '@angular/core';
+import { effect, EventEmitter, Injectable, signal, untracked } from '@angular/core';
 import { GameSettingsService } from '../../shared/services/game-settings.service';
 import { RoomDataService } from './room-data.service';
 import { Player } from '../models/player.model';
 import { WebSocketResponse } from '../models/web-socket-response.model';
 import { GameRules } from '../../shared/models/game-rules.model';
-import { WebsocketManagerService } from './websocket-manager.service';
-import { ErrorNotifierService } from '../../shared/services/error-notifier.service';
 import { Observable, Subject } from 'rxjs';
+import { Room } from '../models/room.model';
 
 @Injectable({
   providedIn: 'root',
@@ -14,57 +13,26 @@ import { Observable, Subject } from 'rxjs';
 export class GameConnectionService {
   private blockPlay = new Subject<void>();
   private started = new EventEmitter<void>();
-  private connectedRoomId = '';
-  private readonly hubConnectionPath = '/api/game-connection';
   public isAlive = signal<boolean>(true);
   public toBlock = this.blockPlay.asObservable();
   public response = new Subject<WebSocketResponse>();
 
   public constructor(
     private settings: GameSettingsService, 
-    private room: RoomDataService, 
-    private connection: WebsocketManagerService,
-    private error: ErrorNotifierService,
+    private room: RoomDataService,
   ) {
-    const host = window.location.host.split(':')[0];
-    const protocol = window.location.protocol.endsWith('s:') ? 'wss:' : 'ws:';
-    const port = (protocol === 'wss:' ? '7171' : '5225');
-
-    let connectionPath = `${protocol}//${host}:${port}` + this.hubConnectionPath;
-    if (!isDevMode()) {
-      connectionPath = `${protocol}//${window.location.host}` + this.hubConnectionPath;
-    }
-
-    this.connection.setUrl(connectionPath);
-    this.connection.start();
-
-    this.connection.on('Suspend', () => this.blockPlay.next());
-    this.connection.on('Score', () => this.room.updateScore());
-    this.connection.on('Update', () => this.room.updateRoomData());
-    this.connection.on('Started', () => {
-      this.room.updateRoomData();
-      this.started.emit();
-    });
-    this.connection.on('WebSocketResponse', (response: WebSocketResponse) => {
-      if (response.roomId) {
-        this.connectedRoomId = response.roomId;
-        this.room.assignRoom(response.roomId);
-        this.room.updateRoomData(response.roomId);
-      } else {
-        this.response.next(response);
-        if (response.error) {
-          this.error.error.next(response.error);
-        }
-      }
-    });
-
     effect(() => {
       const playerData: Player = {
         id: this.settings.playerId(),
         username: this.settings.playerName(),
       };
 
-      this.updatePlayerData(playerData);
+      untracked(() => {
+        const room = this.room.roomData();
+        if (room) {
+          this.updatePlayerData(room, playerData);
+        }
+      });
     });
   }
 
@@ -72,36 +40,34 @@ export class GameConnectionService {
     return this.started.asObservable();
   }
 
-  public async createRoom(): Promise<void>;
-  public async createRoom(roomId: string): Promise<void>;
-  public async createRoom(roomId?: string): Promise<void> {
-    const host = JSON.stringify(this.getPlayerBasics());
-    const gameRules = JSON.stringify(this.settings.rules());
-
-    this.connection.invoke('CreateRoom', host, gameRules, roomId?.substring(0, 15));
-  }
-
-  public async joinRoom(roomId: string): Promise<void> {
+  private createRoomData(roomId: string): Room {
     roomId = roomId.substring(0, 15);
-    this.room.assignRoom(roomId);
     const player = this.getPlayerBasics();
-
-    this.connectedRoomId = roomId;
-    this.room.assignRoom(roomId);
-    this.connection.invoke('JoinRoom', JSON.stringify(player), roomId);
+    const rules = this.settings.rules();
+    player.connected = true;
+    
+    return {
+      id: roomId,
+      inProgress: true,
+      inSummary: false,
+      hostId: player.id,
+      players: [ player ],
+      spectators: [],
+      gameRules: rules,
+    };
   }
 
-  public async leaveRoom(): Promise<void> {
-    this.connectedRoomId = '';
-    if (this.connection.isAlive()) {
-      try {
-        this.connection.invoke('LeaveRoom');
-        this.connection.stop();
-      } catch(e) {
-        console.error(e);
-      }
-    }
-    
+  public createRoom(roomId: string): void {
+    roomId = roomId.substring(0, 15);
+    this.room.updateRoomData(this.createRoomData(roomId), true);
+  }
+
+  public joinRoom(roomId: string): void {
+    roomId = roomId.substring(0, 15);
+    this.room.updateRoomData(this.createRoomData(roomId), true);
+  }
+
+  public leaveRoom(): void {    
     this.room.leaveRoom();
   }
 
@@ -111,37 +77,56 @@ export class GameConnectionService {
       return;
     }
 
-    this.connection.invoke('StartGame');
+    this.started.emit();
+
+    setTimeout(() => this.room.updateRoomData(this.createRoomData(room.id), true), 500);
   }
 
-  public checkResult(symbolId: number, playerId: string): void {
-    this.connection.invoke('CheckResult', symbolId, this.connectedRoomId, playerId);
+  public checkResult(playerId: string): void {
+    this.blockPlay.next();
+
+    setTimeout(() => {
+      this.room.updateScore(playerId);
+      this.continueRound();
+    }, 500);
   }
 
   public continueRound(): void {
-    setTimeout(() => this.connection.invoke('ContinueRound', this.connectedRoomId), 300);
+    setTimeout(() => this.room.continueEndRound(), 400);
   }
 
-  public forceUpdate(): void {
-    this.connection.invoke('SendUpdateCommand', this.connectedRoomId);
+  public updatePlayerData(roomData: Room, playerData: Player): void {
+    const players = roomData.players
+      .map((player) => player.id === playerData.id ? playerData : player);
+    const updatedRoom: Room = {
+      ...roomData,
+      players: players,
+    };
+
+    this.room.updateRoomData(updatedRoom, false);
   }
 
-  public updatePlayerData(playerData: Player): void {
-    if (this.connection.isAlive()) {
-      this.connection.invoke('UpdatePlayerData', JSON.stringify(playerData), this.connectedRoomId);
-    }
+  public updateGameRules(roomData: Room, rules: GameRules): void {
+    const updatedRoom: Room = {
+      ...roomData,
+      gameRules: rules,
+    };
+
+    this.room.updateRoomData(updatedRoom, false);
   }
 
-  public updateGameRules(rules: GameRules): void {
-    if (this.connection.isAlive()) {
-      this.connection.invoke('UpdateGameRules', JSON.stringify(rules), this.connectedRoomId);
-    }
-  }
+  public endGame(roomData: Room): void {
+    const updatedRoom: Room = {
+      ...roomData,
+      inSummary: false,
+      inProgress: false,
+      players: roomData.players.map((player) => {
+        player.score = 0; 
+        return player;
+      }),
+    };
 
-  public endGame(): void {
-    if (this.connection.isAlive()) {
-      this.connection.invoke('EndGame');
-    }
+    this.room.updateRoomData(updatedRoom, false);
   }
 
   private getPlayerBasics(): Player {

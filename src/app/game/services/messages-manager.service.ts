@@ -71,8 +71,8 @@ export class MessageManagerService {
   public updateScore(player: Player): void {
     this.info.animatedMessage(
       player.username,
+      (player.score! - 1).toString(),
       player.score!.toString(),
-      (player.score! + 1).toString(),
     );
 
     this.info.showAnimatedMessage(1.5, true);

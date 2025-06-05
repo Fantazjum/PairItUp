@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<svg id="note" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+ <!-- Created with SVG-edit - https://github.com/SVG-Edit/svgedit-->
+ <!-- Created by Aleksy Slizewski -->
+ <g class="layer">
+  <title>note 1</title>
+  <path d="m7.99,39.1c0,-3.31 6.01,-7.71 14,-8l0,4l-0.5,0l-2,2.5l0.75,1l1.25,-1.5l0,5l1.5,0l0,-7l-1,0l0,-4c7.6,0.29 14,4.69 14,8c0,3.31 -6.27,7 -14,7c-7.73,0 -14,-3.69 -14,-7z" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+  <rect height="33" width="4" x="32" y="6"/>
+  <path d="m32,6.1l0,-4c2.7,0.19 6.44,1.78 8,3.9c1.56,2.12 1.69,7 2,9c0.31,2 2.51,3.9 5,6.1l0,0c-6.9,-0.18 -8.02,-5.58 -8,-8.1c0.02,-2.52 -1.46,-6.16 -7,-6.9z" fill-opacity="null" />
+ </g>
+</svg>

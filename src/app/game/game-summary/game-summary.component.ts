@@ -54,6 +54,6 @@ export class GameSummaryComponent implements OnInit {
     }
 
     protected endGame(): void {
-      this.connection.endGame();
+      this.connection.endGame(this.room.roomData()!);
     }
 }

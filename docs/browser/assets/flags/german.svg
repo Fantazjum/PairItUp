@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" id="flag-de" viewBox="0 0 40 30">
+  <path fill="#fc0" d="M0 20h40v10H0z"/>
+  <path fill="#000001" d="M0 0h40v10H0z"/>
+  <path fill="red" d="M0 10h40v10H0z"/>
+</svg>

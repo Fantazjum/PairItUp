@@ -43,7 +43,6 @@ export class GameSettingsComponent implements OnInit {
 
   public ngOnInit(): void {
     const roomData = this.room.roomData();
-    console.log(roomData)
     if (roomData) {
       this.settings.rules.set(roomData.gameRules);
     }
@@ -73,12 +72,13 @@ export class GameSettingsComponent implements OnInit {
       }
   
       this.settings.changePlayerName(this.username.value);
-      if (this.room.roomData()) {
+      const roomData = this.room.roomData();
+      if (roomData) {
         const newPlayerData = {
           id: this.settings.playerId(),
           username: this.username.value,
         };
-        this.connection.updatePlayerData(newPlayerData);
+        this.connection.updatePlayerData(roomData, newPlayerData);
       }
     });
 
@@ -109,7 +109,7 @@ export class GameSettingsComponent implements OnInit {
   protected get lock(): boolean {
     const room = this.room.roomData();
 
-    return !!room && (room.hostId !== this.settings.playerId() || room.inProgress || room.inSummary);
+    return !!room && (room.hostId !== this.settings.playerId() || room.inSummary);
   }
 
   private updateRules(symbolType: Nullable<SymbolType> = undefined): void {
@@ -122,13 +122,14 @@ export class GameSettingsComponent implements OnInit {
       symbolType: symbolType ?? this.symbolType,
     };
     this.settings.rules.set(rules);
-    if (this.room.roomData()) {
+    const room = this.room.roomData();
+    if (room) {
       if (this.throttle) {
         clearTimeout(this.throttle);
       }
       this.throttle = setTimeout(
         () => {
-          this.connection.updateGameRules(rules);
+          this.connection.updateGameRules(room, rules);
           this.throttle = undefined;
         },
         500,
