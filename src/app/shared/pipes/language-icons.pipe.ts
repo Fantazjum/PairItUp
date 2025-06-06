@@ -11,7 +11,7 @@ export class LanguageIconsPipe implements PipeTransform {
   };
 
   transform(value: string): string {
-    return '/assets/flags/' + this.languageNames[value] + '.svg#flag-' + value;
+    return 'assets/flags/' + this.languageNames[value] + '.svg#flag-' + value;
   }
 
 }

@@ -5,6 +5,6 @@ import { GameSessionComponent } from './game/game-session/game-session.component
 export const routes: Routes = [
     {path: 'game', component: GameInitComponent},
     {path: 'game/:roomId', component: GameSessionComponent},
-    {path: '', pathMatch: 'full', redirectTo: '/game'},
-    {path: '**', pathMatch: 'full', redirectTo: '/game'},
+    {path: '', pathMatch: 'full', redirectTo: 'game'},
+    {path: '**', pathMatch: 'full', redirectTo: 'game'},
 ];

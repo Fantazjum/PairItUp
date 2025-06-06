@@ -38,10 +38,10 @@ export class CardComponent {
   protected symbolFile(symbolId: number): string {
     switch(this.symbolType) {
       case SymbolType.NUMBERS:
-        return `/assets/symbols/numbers/${symbolId}.png`;
+        return `assets/symbols/numbers/${symbolId}.png`;
       case SymbolType.PICTURES:
       default:
-        return `/assets/symbols/symbols/${symbolId}.svg#symbol`;
+        return `assets/symbols/symbols/${symbolId}.svg#symbol`;
     }
   }
 

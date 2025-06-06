@@ -10,8 +10,8 @@ export class MusicPlayerService {
   public customMusic = signal<Nullable<string>>(undefined);
   public musicOption = signal<MusicOption>(MusicOption.SILENT);
 
-  private readonly TRACK_1 = '/assets/music/simple.mp3';
-  private readonly TRACK_2 = '/assets/music/chipper.mp3';
+  private readonly TRACK_1 = 'assets/music/simple.mp3';
+  private readonly TRACK_2 = 'assets/music/chipper.mp3';
 
   public setMusic(musicOption: MusicOption): void {
     this.currentMusic()?.pause();

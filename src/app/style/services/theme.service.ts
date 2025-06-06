@@ -20,12 +20,12 @@ export class ThemeService {
   };
 
   private fileMap: Record<Theme, string> = {
-    [Theme.LIGHT1]: '/assets/theme/light1.css',
-    [Theme.LIGHT2]: '/assets/theme/light2.css',
-    [Theme.LIGHT3]: '/assets/theme/light3.css',
-    [Theme.DARK1]: '/assets/theme/dark1.css',
-    [Theme.DARK2]: '/assets/theme/dark2.css',
-    [Theme.DARK3]: '/assets/theme/dark3.css',
+    [Theme.LIGHT1]: 'assets/theme/light1.css',
+    [Theme.LIGHT2]: 'assets/theme/light2.css',
+    [Theme.LIGHT3]: 'assets/theme/light3.css',
+    [Theme.DARK1]: 'assets/theme/dark1.css',
+    [Theme.DARK2]: 'assets/theme/dark2.css',
+    [Theme.DARK3]: 'assets/theme/dark3.css',
   };
 
   public isDark(): boolean {

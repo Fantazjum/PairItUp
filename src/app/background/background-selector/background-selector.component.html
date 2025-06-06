@@ -4,20 +4,20 @@
         <app-radio-image [value]="BackgroundOptions.NONE" [(selected)]="currentBackground" group="background"
             reflect-id="clear">
             <svg class="image-button">
-                <use xlink:href="/assets/icons/google-icon-block.svg#block" />
+                <use xlink:href="assets/icons/google-icon-block.svg#block" />
             </svg>
         </app-radio-image>
     </div>
     <div class="button-track">
         <app-radio-image [value]="BackgroundOptions.ANIMATED_1" [(selected)]="currentBackground" group="background"
             reflect-id="confetti">
-            <img class="image-button" [src]="'/assets/images/confetti' + previewSuffix" />
+            <img class="image-button" [src]="'assets/images/confetti' + previewSuffix" />
         </app-radio-image>
     </div>
     <div class="button-track">
         <app-radio-image [value]="BackgroundOptions.ANIMATED_2" [(selected)]="currentBackground" group="background"
             reflect-id="bubbles">
-            <img class="image-button" [src]="'/assets/images/bubbles' + previewSuffix" />
+            <img class="image-button" [src]="'assets/images/bubbles' + previewSuffix" />
         </app-radio-image>
     </div>
     @if (backgroundPicture) {
@@ -28,7 +28,7 @@
                 <img [src]="backgroundPicture">
                 <p-button class="icon-button cancel" (onClick)="discardPicture($event)">
                     <svg>
-                        <use xlink:href="/assets/icons/google-icon-block.svg#block" />
+                        <use xlink:href="assets/icons/google-icon-block.svg#block" />
                     </svg>
                 </p-button>
             </div>
@@ -47,7 +47,7 @@
             <ng-template pTemplate="header" let-chooseCallback="chooseCallback">
                 <p-button class="upload-button no-pad" (onClick)="choose($event, chooseCallback)">
                     <svg>
-                        <use xlink:href="/assets/icons/plus-sign.svg#plus" />
+                        <use xlink:href="assets/icons/plus-sign.svg#plus" />
                     </svg>
                 </p-button>
             </ng-template>

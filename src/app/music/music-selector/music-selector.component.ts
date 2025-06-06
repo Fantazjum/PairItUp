@@ -14,8 +14,8 @@ import { MusicOption } from '../enums/music-option';
     styleUrl: './music-selector.component.scss'
 })
 export class MusicSelectorComponent {
-  protected readonly TRACK_1 = '/assets/music/simple.mp3';
-  protected readonly TRACK_2 = '/assets/music/chipper.mp3';
+  protected readonly TRACK_1 = 'assets/music/simple.mp3';
+  protected readonly TRACK_2 = 'assets/music/chipper.mp3';
 
   public constructor(private music: MusicPlayerService) {}
 

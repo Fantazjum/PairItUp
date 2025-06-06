@@ -68,9 +68,9 @@
     }
 
     .message-box {
-        height: 1.5rem;
+        height: 1.75rem;
         overflow: hidden;
-        line-height: 1.5rem;
+        line-height: 1.75rem;
         display: flex;
         justify-content: space-between;
         min-width: max(10rem, 10vw);
@@ -89,11 +89,11 @@
 
 @-webkit-keyframes roll-over {
     0% {
-        top: -1.5rem;
+        top: -1.55rem;
     }
 
     20% {
-        top: -1.5rem;
+        top: -1.55rem;
     }
 
     100% {
@@ -103,11 +103,11 @@
 
 @-moz-keyframes roll-over {
     0% {
-        top: -1.5rem;
+        top: -1.55rem;
     }
 
     20% {
-        top: -1.5rem;
+        top: -1.55rem;
     }
 
     100% {
@@ -117,11 +117,11 @@
 
 @keyframes roll-over {
     0% {
-        top: -1.5rem;
+        top: -1.55rem;
     }
 
     20% {
-        top: -1.5rem;
+        top: -1.55rem;
     }
 
     100% {

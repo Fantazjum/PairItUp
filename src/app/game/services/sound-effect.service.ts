@@ -13,10 +13,10 @@ export class SoundEffectService {
 
   constructor() {
     this.audioContext = new AudioContext();
-    this.correctSound = this.loadSound('/assets/music/ding-dong.mp3');
-    this.countdownSound = this.loadSound('/assets/music/countdown.mp3');
-    this.endSound = this.loadSound('/assets/music/ding.mp3');
-    this.errorSound = this.loadSound('/assets/music/error.mp3');
+    this.correctSound = this.loadSound('assets/music/ding-dong.mp3');
+    this.countdownSound = this.loadSound('assets/music/countdown.mp3');
+    this.endSound = this.loadSound('assets/music/ding.mp3');
+    this.errorSound = this.loadSound('assets/music/error.mp3');
   }
 
   private async loadSound(input: string | URL | globalThis.Request): Promise<AudioBuffer> {

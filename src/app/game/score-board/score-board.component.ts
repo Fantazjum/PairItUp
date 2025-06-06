@@ -14,6 +14,7 @@ export class ScoreBoardComponent implements OnInit {
   protected people!: Signal<PlayerDisplay[]>;
   public blockSelection = input<boolean>();
   public onPlayerClick = output<Player>();
+  private originalHostIndex: number = -1;
 
   public constructor(private room: RoomDataService, private settings: GameSettingsService) {}
 
@@ -26,6 +27,7 @@ export class ScoreBoardComponent implements OnInit {
       }
 
       const userId = this.settings.playerId();
+      this.originalHostIndex = data.players.findIndex((player: Player) => player.id === data.hostId);
 
       const participants = data.players.map<PlayerDisplay>((player) => {
         return {
@@ -55,9 +57,13 @@ export class ScoreBoardComponent implements OnInit {
       return;
     }
 
-    const playerIdx = this.people().indexOf(person);
+    let playerIdx = this.people().indexOf(person);
     if (playerIdx === -1) {
       return;
+    }
+    
+    if (playerIdx <= this.originalHostIndex) {
+      playerIdx--;
     }
 
     const player = this.room.roomData()?.players.at(playerIdx);

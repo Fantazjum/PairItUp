@@ -62,9 +62,9 @@ export class GameSettingsService {
 
   private initStandardRules() {
     const rules = {
-      cardCount: 55,
+      cardCount: 22,
       gameType: GameType.FIRST_COME_FIRST_SERVED,
-      maxPlayers: 4,
+      maxPlayers: 3,
       symbolType: SymbolType.PICTURES,
     };
 

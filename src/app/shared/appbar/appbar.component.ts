@@ -45,7 +45,7 @@ export class AppbarComponent {
   ) {}
 
   protected get inGame(): boolean {
-    return this.router.url.startsWith('/game/');
+    return this.router.url.startsWith('game/');
   }
 
   protected showInfoDialog(): void {
@@ -83,6 +83,6 @@ export class AppbarComponent {
 
   protected async leaveGame(): Promise<void> {
     await this.connection.leaveRoom();
-    this.router.navigate(['/game']);
+    this.router.navigate(['game']);
   }
 }

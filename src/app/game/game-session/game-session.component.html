@@ -34,7 +34,7 @@
         (onSymbolSelection)="resolvePlayerCard($event.symbolId, $event.playerId)"
         [disabled]="isSpectator || disableCards()" (onPlayerClick)="setSelectedPlayer($event)" />
     } @else {
-    <app-score-board [blockSelection]="isSpectator" />
+    <app-score-board [blockSelection]="!selectable" />
     }
     <app-barrier-message />
 </div>
